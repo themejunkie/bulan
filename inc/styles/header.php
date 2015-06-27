@@ -2,26 +2,26 @@
 /**
  * Header color
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_customizer_header_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_header_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
  * @since  1.0.0
  */
-function aurora_customizer_header_styles() {
+function bulan_customizer_header_styles() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Site title color
-	$title = aurora_mod( $prefix . 'site-title-color' );
+	$title = bulan_mod( $prefix . 'site-title-color' );
 
 	if ( $title !== customizer_library_get_default( $prefix . 'site-title-color' ) ) {
 
@@ -38,7 +38,7 @@ function aurora_customizer_header_styles() {
 	}
 
 	// Site description color
-	$desc = aurora_mod( $prefix . 'site-desc-color' );
+	$desc = bulan_mod( $prefix . 'site-desc-color' );
 
 	if ( $desc !== customizer_library_get_default( $prefix . 'site-desc-color' ) ) {
 
@@ -56,4 +56,4 @@ function aurora_customizer_header_styles() {
 
 }
 endif;
-add_action( 'aurora_customizer_library_styles', 'aurora_customizer_header_styles' );
+add_action( 'bulan_customizer_library_styles', 'bulan_customizer_header_styles' );

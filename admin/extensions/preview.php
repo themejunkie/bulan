@@ -18,7 +18,7 @@ add_action( 'customize_preview_init', 'customizer_library_customize_preview_js' 
 /**
  * Enqueue customizer sections script
  */
-function aurora_customizer_scripts() {
+function bulan_customizer_scripts() {
 	// Path
 	$path = str_replace( WP_CONTENT_DIR, WP_CONTENT_URL, dirname( dirname( __FILE__ ) ) );
 
@@ -26,4 +26,4 @@ function aurora_customizer_scripts() {
 	wp_enqueue_style( 'customizer-library-css', trailingslashit( $path ) . 'css/customizer.css', array(), '1.0.0' );
 
 }
-add_action( 'customize_controls_enqueue_scripts', 'aurora_customizer_scripts' );
+add_action( 'customize_controls_enqueue_scripts', 'bulan_customizer_scripts' );

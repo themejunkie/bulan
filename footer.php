@@ -5,10 +5,10 @@
 		<div class="wide-container">
 
 			<div class="site-info">
-				<?php aurora_footer_text(); ?>
+				<?php bulan_footer_text(); ?>
 			</div><!-- .site-info -->
 
-			<?php aurora_social_links(); // Get the social links data. ?>
+			<?php bulan_social_links(); // Get the social links data. ?>
 
 		</div>
 	</footer><!-- #colophon -->

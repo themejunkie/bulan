@@ -20,9 +20,9 @@
 							<div class="entry-attachment">
 								<?php
 									/**
-									 * Filter the default Aurora image attachment size.
+									 * Filter the default Bulan image attachment size.
 									 */
-									$image_size = apply_filters( 'aurora_attachment_size', 'large' );
+									$image_size = apply_filters( 'bulan_attachment_size', 'large' );
 
 									echo wp_get_attachment_image( get_the_ID(), $image_size );
 								?>
@@ -32,7 +32,7 @@
 							<?php the_content(); ?>
 							<?php
 								wp_link_pages( array(
-									'before' => '<div class="page-links">' . __( 'Pages:', 'aurora' ),
+									'before' => '<div class="page-links">' . __( 'Pages:', 'bulan' ),
 									'after'  => '</div>',
 								) );
 							?>
@@ -43,7 +43,7 @@
 
 					<div class="entry-meta">
 						<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
-						<?php aurora_posted_on(); ?>
+						<?php bulan_posted_on(); ?>
 						<?php get_template_part( 'loop', 'nav' ); ?>
 					</div>
 					

@@ -7,7 +7,7 @@
 ( function( $ ) {
 
 	// Theme prefix.
-	var prefix = "aurora-";
+	var prefix = "bulan-";
 
 	/**
 	 * Live preview site title & site description

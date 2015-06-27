@@ -2,26 +2,26 @@
 /**
  * Fonts
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_customizer_fonts' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_fonts' ) && class_exists( 'Customizer_Library_Styles' ) ) :
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
  * @since  1.0.0
  */
-function aurora_customizer_fonts() {
+function bulan_customizer_fonts() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 	
 	// Text font
-	$text  = aurora_mod( $prefix . 'text-font' );
+	$text  = bulan_mod( $prefix . 'text-font' );
 	$stack = customizer_library_get_font_stack( $text );
 
 	if ( $text !== customizer_library_get_default( $prefix . 'text-font' ) ) {
@@ -37,7 +37,7 @@ function aurora_customizer_fonts() {
 	}
 
 	// Heading font
-	$heading = aurora_mod( $prefix . 'heading-font' );
+	$heading = bulan_mod( $prefix . 'heading-font' );
 	$stack   = customizer_library_get_font_stack( $heading );
 
 	if ( $heading !== customizer_library_get_default( $prefix . 'heading-font' ) ) {
@@ -59,30 +59,30 @@ function aurora_customizer_fonts() {
 
 }
 endif;
-add_action( 'aurora_customizer_library_styles', 'aurora_customizer_fonts' );
+add_action( 'bulan_customizer_library_styles', 'bulan_customizer_fonts' );
 
-if ( ! function_exists( 'aurora_enqueue_fonts' ) ) :
+if ( ! function_exists( 'bulan_enqueue_fonts' ) ) :
 /**
  * Enqueue Google Fonts
  *
  * @since  1.0.0
  */
-function aurora_enqueue_fonts() {
+function bulan_enqueue_fonts() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Font options
 	$fonts = array(
-		aurora_mod( $prefix . 'text-font' ),
-		aurora_mod( $prefix . 'heading-font' )
+		bulan_mod( $prefix . 'text-font' ),
+		bulan_mod( $prefix . 'heading-font' )
 	);
 
 	$font_uri = customizer_library_get_google_font_uri( $fonts );
 
 	// Load Google Fonts
-	wp_enqueue_style( 'aurora-custom-fonts', $font_uri, array(), null );
+	wp_enqueue_style( 'bulan-custom-fonts', $font_uri, array(), null );
 
 }
 endif;
-add_action( 'wp_enqueue_scripts', 'aurora_enqueue_fonts' );
+add_action( 'wp_enqueue_scripts', 'bulan_enqueue_fonts' );

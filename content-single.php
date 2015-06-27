@@ -13,14 +13,14 @@
 			<?php the_content(); ?>
 			<?php
 				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'aurora' ),
+					'before' => '<div class="page-links">' . __( 'Pages:', 'bulan' ),
 					'after'  => '</div>',
 				) );
 			?>
 		
 		</div>
 
-		<?php aurora_related_posts(); // Display the related posts. ?>
+		<?php bulan_related_posts(); // Display the related posts. ?>
 
 		<?php
 			// If comments are open or we have at least one comment, load up the comment template
@@ -33,7 +33,7 @@
 
 	<div class="entry-meta">
 		<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
-		<?php aurora_posted_on(); ?>
+		<?php bulan_posted_on(); ?>
 		<?php get_template_part( 'loop', 'nav' ); // Loads the loop-nav.php template  ?>
 	</div>
 	

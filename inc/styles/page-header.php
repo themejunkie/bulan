@@ -2,26 +2,26 @@
 /**
  * Page header color
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_customizer_page_header_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_page_header_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
  * @since  1.0.0
  */
-function aurora_customizer_page_header_styles() {
+function bulan_customizer_page_header_styles() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Title color
-	$title = aurora_mod( $prefix . 'page-header-title-color' );
+	$title = bulan_mod( $prefix . 'page-header-title-color' );
 
 	if ( $title !== customizer_library_get_default( $prefix . 'page-header-title-color' ) ) {
 
@@ -38,7 +38,7 @@ function aurora_customizer_page_header_styles() {
 	}
 
 	// Excerpt color
-	$excerpt = aurora_mod( $prefix . 'page-header-excerpt-color' );
+	$excerpt = bulan_mod( $prefix . 'page-header-excerpt-color' );
 
 	if ( $excerpt !== customizer_library_get_default( $prefix . 'page-header-excerpt-color' ) ) {
 
@@ -56,4 +56,4 @@ function aurora_customizer_page_header_styles() {
 
 }
 endif;
-add_action( 'aurora_customizer_library_styles', 'aurora_customizer_page_header_styles' );
+add_action( 'bulan_customizer_library_styles', 'bulan_customizer_page_header_styles' );

@@ -6,7 +6,7 @@
 			<?php if ( have_posts() ) : ?>
 
 				<header class="page-header" <?php hybrid_attr( 'entry-author' ) ?>>
-					<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'aurora_author_bio_avatar_size', 90 ), '', esc_attr( get_the_author() ) ); ?>
+					<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'bulan_author_bio_avatar_size', 90 ), '', esc_attr( get_the_author() ) ); ?>
 					<h1 class="page-title">
 						<span class="vcard" itemprop="name"><?php echo esc_attr( get_the_author() ); ?></span>
 					</h1>

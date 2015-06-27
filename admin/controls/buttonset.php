@@ -3,7 +3,7 @@
  * The button set customize control extends the WP_Customize_Control class.  This class allows 
  * developers to create button set settings within the WordPress theme customizer.
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe, Kirki
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html

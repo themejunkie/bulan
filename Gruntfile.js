@@ -320,8 +320,8 @@ module.exports = function(grunt) {
 					authKey: 'key1'
 				},
 				cache: 'sftpCache.json',
-				src: 'build/aurora',
-				dest: '/home/inidemo/wp.themephe.com/wp-content/themes/aurora',
+				src: 'build/bulan',
+				dest: '/home/inidemo/wp.themephe.com/wp-content/themes/bulan',
 				exclusions: ['.build/.DS_Store'],
 				progress: true
 			}

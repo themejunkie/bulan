@@ -2,26 +2,26 @@
 /**
  * Posts grid color
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_customizer_grid_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_grid_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
  * @since  1.0.0
  */
-function aurora_customizer_grid_styles() {
+function bulan_customizer_grid_styles() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 	
 	// Image grayscale
-	$grayscale = aurora_mod( $prefix . 'grid-img-grayscale' );
+	$grayscale = bulan_mod( $prefix . 'grid-img-grayscale' );
 
 	if ( $grayscale !== customizer_library_get_default( $prefix . 'grid-img-grayscale' ) ) {
 
@@ -39,7 +39,7 @@ function aurora_customizer_grid_styles() {
 	}
 
 	// Title color
-	$title = aurora_mod( $prefix . 'grid-title-color' );
+	$title = bulan_mod( $prefix . 'grid-title-color' );
 
 	if ( $title !== customizer_library_get_default( $prefix . 'grid-title-color' ) ) {
 
@@ -56,7 +56,7 @@ function aurora_customizer_grid_styles() {
 	}
 
 	// Title hover color
-	$title_hover = aurora_mod( $prefix . 'grid-title-hover-color' );
+	$title_hover = bulan_mod( $prefix . 'grid-title-hover-color' );
 
 	if ( $title_hover !== customizer_library_get_default( $prefix . 'grid-title-hover-color' ) ) {
 
@@ -73,7 +73,7 @@ function aurora_customizer_grid_styles() {
 	}
 
 	// Category color
-	$cat = aurora_mod( $prefix . 'grid-cat-color' );
+	$cat = bulan_mod( $prefix . 'grid-cat-color' );
 
 	if ( $cat !== customizer_library_get_default( $prefix . 'grid-cat-color' ) ) {
 
@@ -90,7 +90,7 @@ function aurora_customizer_grid_styles() {
 	}
 
 	// Category hover color
-	$cat_hover = aurora_mod( $prefix . 'grid-cat-hover-color' );
+	$cat_hover = bulan_mod( $prefix . 'grid-cat-hover-color' );
 
 	if ( $cat_hover !== customizer_library_get_default( $prefix . 'grid-cat-hover-color' ) ) {
 
@@ -108,4 +108,4 @@ function aurora_customizer_grid_styles() {
 
 }
 endif;
-add_action( 'aurora_customizer_library_styles', 'aurora_customizer_grid_styles' );
+add_action( 'bulan_customizer_library_styles', 'bulan_customizer_grid_styles' );

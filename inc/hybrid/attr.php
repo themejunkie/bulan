@@ -583,7 +583,7 @@ function hybrid_attachment_is_video( $post_id = 0 ) {
  * @since  1.0.0
  * @return array
  */
-function aurora_entry_markup( $classes ) {
+function bulan_entry_markup( $classes ) {
 	
 	/* Add entry class for Schema.org markup. */
 	$classes[] = 'entry';
@@ -591,7 +591,7 @@ function aurora_entry_markup( $classes ) {
     return $classes;
 	
 }
-add_filter( 'post_class', 'aurora_entry_markup' );
+add_filter( 'post_class', 'bulan_entry_markup' );
 
 /**
  * Adds microdata to the comment reply link.
@@ -604,10 +604,10 @@ add_filter( 'post_class', 'aurora_entry_markup' );
  * @param  string  $link
  * @return string
  */
-function aurora_comment_reply_link_filter( $link ) {
+function bulan_comment_reply_link_filter( $link ) {
 	return preg_replace( '/(<a\s)/i', '$1itemprop="replyToUrl"', $link );
 }
-add_filter( 'comment_reply_link', 'aurora_comment_reply_link_filter', 5 );
+add_filter( 'comment_reply_link', 'bulan_comment_reply_link_filter', 5 );
 
 /**
  * Adds microdata to the comments popup link.
@@ -620,10 +620,10 @@ add_filter( 'comment_reply_link', 'aurora_comment_reply_link_filter', 5 );
  * @param  string  $attr
  * @return string
  */
-function aurora_comments_popup_link_attributes( $attr ) {
+function bulan_comments_popup_link_attributes( $attr ) {
 	return ' itemprop="discussionURL"';
 }
-add_filter( 'comments_popup_link_attributes', 'aurora_comments_popup_link_attributes', 5 );
+add_filter( 'comments_popup_link_attributes', 'bulan_comments_popup_link_attributes', 5 );
 
 /**
  * Adds microdata to avatars.
@@ -636,10 +636,10 @@ add_filter( 'comments_popup_link_attributes', 'aurora_comments_popup_link_attrib
  * @param  string  $avatar
  * @return string
  */
-function aurora_get_avatar( $avatar ) {
+function bulan_get_avatar( $avatar ) {
 	return preg_replace( '/(<img.*?)(\/>)/i', '$1itemprop="image" $2', $avatar );
 }
-add_filter( 'get_avatar', 'aurora_get_avatar', 5 );
+add_filter( 'get_avatar', 'bulan_get_avatar', 5 );
 
 /**
  * Add custom attribute 'itempro="image"' to the post thumbnail.
@@ -648,8 +648,8 @@ add_filter( 'get_avatar', 'aurora_get_avatar', 5 );
  * @param  array  $attr
  * @return array
  */
-function aurora_img_attr( $attr ) {
+function bulan_img_attr( $attr ) {
     $attr['itemprop'] = 'image';
     return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'aurora_img_attr', 10, 2 );
+add_filter( 'wp_get_attachment_image_attributes', 'bulan_img_attr', 10, 2 );

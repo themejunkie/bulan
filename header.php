@@ -25,11 +25,11 @@
 
 		<div class="site-branding">
 			<div class="wide-container">
-				<?php aurora_site_branding(); ?>
+				<?php bulan_site_branding(); ?>
 			</div>
 		</div>
 
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
-		<div class="<?php echo esc_attr( aurora_main_container() ); ?>">
+		<div class="<?php echo esc_attr( bulan_main_container() ); ?>">

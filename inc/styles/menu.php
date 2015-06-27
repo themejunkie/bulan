@@ -2,26 +2,26 @@
 /**
  * Menu color
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_customizer_menu_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_menu_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
  * @since  1.0.0
  */
-function aurora_customizer_menu_styles() {
+function bulan_customizer_menu_styles() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Menu link color
-	$menu_link = aurora_mod( $prefix . 'menu-link-color' );
+	$menu_link = bulan_mod( $prefix . 'menu-link-color' );
 
 	if ( $menu_link !== customizer_library_get_default( $prefix . 'menu-link-color' ) ) {
 
@@ -38,7 +38,7 @@ function aurora_customizer_menu_styles() {
 	}
 
 	// Menu current & hover link color
-	$current_hover = aurora_mod( $prefix . 'menu-current-hover-color' );
+	$current_hover = bulan_mod( $prefix . 'menu-current-hover-color' );
 
 	if ( $current_hover !== customizer_library_get_default( $prefix . 'menu-current-hover-color' ) ) {
 
@@ -57,7 +57,7 @@ function aurora_customizer_menu_styles() {
 	}
 
 	// Menu current & hover border color
-	$current_hover_border = aurora_mod( $prefix . 'menu-current-hover-border-color' );
+	$current_hover_border = bulan_mod( $prefix . 'menu-current-hover-border-color' );
 
 	if ( $current_hover_border !== customizer_library_get_default( $prefix . 'menu-current-hover-border-color' ) ) {
 
@@ -76,4 +76,4 @@ function aurora_customizer_menu_styles() {
 
 }
 endif;
-add_action( 'aurora_customizer_library_styles', 'aurora_customizer_menu_styles' );
+add_action( 'bulan_customizer_library_styles', 'bulan_customizer_menu_styles' );

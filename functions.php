@@ -5,7 +5,7 @@
  * Contains all of the Theme's setup functions, custom functions,
  * custom hooks and Theme settings.
  * 
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
@@ -19,13 +19,13 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 869; /* pixels */
 }
 
-if ( ! function_exists( 'aurora_content_width' ) ) :
+if ( ! function_exists( 'bulan_content_width' ) ) :
 /**
  * Set new content width if user uses 1 column layout.
  *
  * @since  1.0.0
  */
-function aurora_content_width() {
+function bulan_content_width() {
 	global $content_width;
 
 	if ( in_array( get_theme_mod( 'theme_layout' ), array( '1c' ) ) && ! is_single() ) {
@@ -33,21 +33,21 @@ function aurora_content_width() {
 	}
 }
 endif;
-add_action( 'template_redirect', 'aurora_content_width' );
+add_action( 'template_redirect', 'bulan_content_width' );
 
-if ( ! function_exists( 'aurora_theme_setup' ) ) :
+if ( ! function_exists( 'bulan_theme_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * @since  1.0.0
  */
-function aurora_theme_setup() {
+function bulan_theme_setup() {
 
 	// Make the theme available for translation.
-	load_theme_textdomain( 'aurora', trailingslashit( get_template_directory() ) . 'languages' );
+	load_theme_textdomain( 'bulan', trailingslashit( get_template_directory() ) . 'languages' );
 
 	// Add custom stylesheet file to the TinyMCE visual editor.
-	add_editor_style( array( 'assets/css/editor-style.css', aurora_crimnson_text_font(), aurora_oswald_font() ) );
+	add_editor_style( array( 'assets/css/editor-style.css', bulan_crimnson_text_font(), bulan_oswald_font() ) );
 
 	// Add RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -66,7 +66,7 @@ function aurora_theme_setup() {
 	// Register custom navigation menu.
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary Location', 'aurora' )
+			'primary' => __( 'Primary Location', 'bulan' )
 		)
 	);
 
@@ -79,7 +79,7 @@ function aurora_theme_setup() {
 	) );
 
 	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'aurora_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'bulan_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -87,9 +87,9 @@ function aurora_theme_setup() {
 	// Enable theme-layouts extensions.
 	add_theme_support( 'theme-layouts', 
 		array(
-			'1c'   => __( '1 Column Wide (Full Width)', 'aurora' ),
-			'2c-l' => __( '2 Columns: Content / Sidebar', 'aurora' ),
-			'2c-r' => __( '2 Columns: Sidebar / Content', 'aurora' )
+			'1c'   => __( '1 Column Wide (Full Width)', 'bulan' ),
+			'2c-l' => __( '2 Columns: Content / Sidebar', 'bulan' ),
+			'2c-r' => __( '2 Columns: Sidebar / Content', 'bulan' )
 		),
 		array( 'customize' => false, 'default' => '1c' ) 
 	);
@@ -98,16 +98,16 @@ function aurora_theme_setup() {
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
 }
-endif; // aurora_theme_setup
-add_action( 'after_setup_theme', 'aurora_theme_setup' );
+endif; // bulan_theme_setup
+add_action( 'after_setup_theme', 'bulan_theme_setup' );
 
-if ( ! function_exists( 'aurora_reset_default_image_sizes' ) ) :
+if ( ! function_exists( 'bulan_reset_default_image_sizes' ) ) :
 /**
  * Re-set default image sizes
  *
  * @since  1.0.0
  */
-function aurora_reset_default_image_sizes() {
+function bulan_reset_default_image_sizes() {
 
 	// 'large' size
 	update_option( 'large_size_w', 1024 );
@@ -121,7 +121,7 @@ function aurora_reset_default_image_sizes() {
 
 }
 endif;
-add_action( 'after_switch_theme', 'aurora_reset_default_image_sizes' );
+add_action( 'after_switch_theme', 'bulan_reset_default_image_sizes' );
 
 /**
  * Registers widget areas and custom widgets.
@@ -129,13 +129,13 @@ add_action( 'after_switch_theme', 'aurora_reset_default_image_sizes' );
  * @since 1.0.0
  * @link  http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function aurora_sidebars_init() {
+function bulan_sidebars_init() {
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Primary Sidebar', 'aurora' ),
+			'name'          => __( 'Primary Sidebar', 'bulan' ),
 			'id'            => 'primary',
-			'description'   => __( 'Main sidebar that appears on the right.', 'aurora' ),
+			'description'   => __( 'Main sidebar that appears on the right.', 'bulan' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -144,7 +144,7 @@ function aurora_sidebars_init() {
 	);
 	
 }
-add_action( 'widgets_init', 'aurora_sidebars_init' );
+add_action( 'widgets_init', 'bulan_sidebars_init' );
 
 /**
  * Register Crimson Text Google font.
@@ -152,14 +152,14 @@ add_action( 'widgets_init', 'aurora_sidebars_init' );
  * @since  1.0.0
  * @return string
  */
-function aurora_crimnson_text_font() {
+function bulan_crimnson_text_font() {
 	
 	$font_url = '';
 	/*
 	 * Translators: If there are characters in your language that are not supported
 	 * by Crimson Text, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Crimson Text font: on or off', 'aurora' ) ) {
+	if ( 'off' !== _x( 'on', 'Crimson Text font: on or off', 'bulan' ) ) {
 		$font_url = add_query_arg( 'family', urlencode( 'Crimson Text:400,700,400italic' ), "//fonts.googleapis.com/css" );
 	}
 
@@ -172,14 +172,14 @@ function aurora_crimnson_text_font() {
  * @since  1.0.0
  * @return string
  */
-function aurora_oswald_font() {
+function bulan_oswald_font() {
 	
 	$font_url = '';
 	/*
 	 * Translators: If there are characters in your language that are not supported
 	 * by Oswald, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'aurora' ) ) {
+	if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'bulan' ) ) {
 		$font_url = add_query_arg( 'family', urlencode( 'Oswald:400,700,300' ), "//fonts.googleapis.com/css" );
 	}
 

@@ -3,14 +3,14 @@
  * Custom template tags for this theme.
  * Eventually, some of the functionality here could be replaced by core features.
  * 
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_site_branding' ) ) :
+if ( ! function_exists( 'bulan_site_branding' ) ) :
 /**
  * Site branding for the site.
  * 
@@ -19,11 +19,11 @@ if ( ! function_exists( 'aurora_site_branding' ) ) :
  * 
  * @since  1.0.0
  */
-function aurora_site_branding() {
+function bulan_site_branding() {
 
 	// Get the customizer value.
-	$prefix = 'aurora-';
-	$logo   = aurora_mod( $prefix . 'logo' );
+	$prefix = 'bulan-';
+	$logo   = bulan_mod( $prefix . 'logo' );
 
 	// Check if logo available, then display it.
 	if ( $logo ) :
@@ -44,19 +44,19 @@ function aurora_site_branding() {
 }
 endif;
 
-if ( ! function_exists( 'aurora_callout' ) ) :
+if ( ! function_exists( 'bulan_callout' ) ) :
 /**
  * Home page callout
  * 
  * @since  1.0.0
  */
-function aurora_callout() {
+function bulan_callout() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the data set in customizer
-	$text = aurora_mod( $prefix . 'home-callout' );
+	$text = bulan_mod( $prefix . 'home-callout' );
 
 	// Display the data
 	echo '<div class="callout page-header">';
@@ -66,13 +66,13 @@ function aurora_callout() {
 }
 endif;
 
-if ( ! function_exists( 'aurora_main_container' ) ) :
+if ( ! function_exists( 'bulan_main_container' ) ) :
 /**
  * Main container class
  * 
  * @since  1.0.0
  */
-function aurora_main_container() {
+function bulan_main_container() {
 
 	// Set up empty variable
 	$class = '';
@@ -84,63 +84,63 @@ function aurora_main_container() {
 		$class = 'wide-container';
 	}
 
-	return apply_filters( 'aurora_main_container', $class );
+	return apply_filters( 'bulan_main_container', $class );
 
 }
 endif;
 
-if ( ! function_exists( 'aurora_posted_on' ) ) :
+if ( ! function_exists( 'bulan_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  *
  * @since 1.0.0
  */
-function aurora_posted_on() {
+function bulan_posted_on() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the data set in customizer
-	$date       = aurora_mod( $prefix . 'post-date' );
-	$author     = aurora_mod( $prefix . 'post-author' );
-	$cat        = aurora_mod( $prefix . 'post-cat' );
-	$tag        = aurora_mod( $prefix . 'post-tag' );
-	$date_style = aurora_mod( $prefix . 'post-date-style' );
+	$date       = bulan_mod( $prefix . 'post-date' );
+	$author     = bulan_mod( $prefix . 'post-author' );
+	$cat        = bulan_mod( $prefix . 'post-cat' );
+	$tag        = bulan_mod( $prefix . 'post-tag' );
+	$date_style = bulan_mod( $prefix . 'post-date-style' );
 
 	// Set up empty variable
 	$style = '';
 	if ( $date_style == 'absolute' ) {
 		$style = esc_html( get_the_date() );
 	} else {
-		$style = sprintf( __( '%s ago', 'aurora' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+		$style = sprintf( __( '%s ago', 'bulan' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
 	}
 	?>
 
 	<?php if ( $date ) : ?>
-		<time class="entry-date published entry-side" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php printf( __( 'Published: %s', 'aurora' ), '<span>' . $style . '</span>' ); ?></time>
+		<time class="entry-date published entry-side" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php printf( __( 'Published: %s', 'bulan' ), '<span>' . $style . '</span>' ); ?></time>
 	<?php endif; ?>
 	
 	<?php if ( $author ) : ?>
 		<span class="entry-author author vcard entry-side" <?php hybrid_attr( 'entry-author' ) ?>>
-			<?php printf( __( 'Author: %s', 'aurora' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="url"><span itemprop="name">' . esc_html( get_the_author() ) . '</span></a>' ); ?>
+			<?php printf( __( 'Author: %s', 'bulan' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="url"><span itemprop="name">' . esc_html( get_the_author() ) . '</span></a>' ); ?>
 		</span>
 	<?php endif; ?>
 
 	<?php if ( 'post' == get_post_type() ) : ?>
 		<?php
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( __( ', ', 'aurora' ) );
-			if ( $categories_list && aurora_categorized_blog() && $cat ) :
+			$categories_list = get_the_category_list( __( ', ', 'bulan' ) );
+			if ( $categories_list && bulan_categorized_blog() && $cat ) :
 		?>
 		<span class="cat-links entry-side" <?php hybrid_attr( 'entry-terms', 'category' ); ?>>
-			<?php printf( __( 'Category: %s', 'aurora' ), $categories_list ); ?>
+			<?php printf( __( 'Category: %s', 'bulan' ), $categories_list ); ?>
 		</span>
 		<?php endif; // End if categories ?>
 		<?php
 			$tag_list = get_the_tag_list( '', ', ' );
 			if ( $tag_list && $tag ) : 
 		?>
-			<span class="tag-links entry-side" <?php hybrid_attr( 'entry-terms', 'post_tag' ); ?>><span class="genericon genericon-tag"></span> <?php printf( __( 'Tags: %s', 'aurora' ), $tag_list ); ?></span>
+			<span class="tag-links entry-side" <?php hybrid_attr( 'entry-terms', 'post_tag' ); ?>><span class="genericon genericon-tag"></span> <?php printf( __( 'Tags: %s', 'bulan' ), $tag_list ); ?></span>
 		<?php endif; ?>
 	<?php endif; ?>
 
@@ -156,36 +156,36 @@ function aurora_posted_on() {
 		?>
 		
 		<span class="full-size-link entry-side">
-			<?php printf( __( 'Size: %s', 'aurora' ), '<a href="' . esc_url( wp_get_attachment_url() ) . '">' . $metadata['width'] . ' &times; ' . $metadata['height'] . '</a>' ); ?>
+			<?php printf( __( 'Size: %s', 'bulan' ), '<a href="' . esc_url( wp_get_attachment_url() ) . '">' . $metadata['width'] . ' &times; ' . $metadata['height'] . '</a>' ); ?>
 		</span>
 		
 		<?php if ( $camera ) : ?>
 			<span class="camera entry-side">
-				<?php printf( __( 'Camera: %s', 'aurora' ), '<span>' . $camera . '</span>' ); ?>
+				<?php printf( __( 'Camera: %s', 'bulan' ), '<span>' . $camera . '</span>' ); ?>
 			</span>
 		<?php endif; ?>
 		
 		<?php if ( $aperture ) : ?>
 			<span class="apparture entry-side">
-				<?php printf( __( 'Aperture: %s', 'aurora' ), '<span>' . $aperture . '</span>' ); ?>
+				<?php printf( __( 'Aperture: %s', 'bulan' ), '<span>' . $aperture . '</span>' ); ?>
 			</span>
 		<?php endif; ?>
 		
 		<?php if ( $focal ) : ?>
 			<span class="focal-length entry-side">
-				<?php printf( __( 'Focal Length: %s', 'aurora' ), '<span>' . $focal . '</span>' ); ?>
+				<?php printf( __( 'Focal Length: %s', 'bulan' ), '<span>' . $focal . '</span>' ); ?>
 			</span>
 		<?php endif; ?>
 		
 		<?php if ( $iso ) : ?>
 			<span class="iso entry-side">
-				<?php printf( __( 'ISO: %s', 'aurora' ), '<span>' . $iso . '</span>' ); ?>
+				<?php printf( __( 'ISO: %s', 'bulan' ), '<span>' . $iso . '</span>' ); ?>
 			</span>
 		<?php endif; ?>
 		
 		<?php if ( $shutter ) : ?>
 			<span class="shutter-speed entry-side">
-				<?php printf( __( 'Shutter Speed: %s', 'aurora' ), '<span>' . $shutter . '</span>' ); ?>
+				<?php printf( __( 'Shutter Speed: %s', 'bulan' ), '<span>' . $shutter . '</span>' ); ?>
 			</span>
 		<?php endif; ?>
 	
@@ -201,8 +201,8 @@ endif;
  * @since  1.0.0
  * @return bool
  */
-function aurora_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'aurora_categories' ) ) ) {
+function bulan_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'bulan_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -215,47 +215,47 @@ function aurora_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'aurora_categories', $all_the_cool_cats );
+		set_transient( 'bulan_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so aurora_categorized_blog should return true.
+		// This blog has more than 1 category so bulan_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so aurora_categorized_blog should return false.
+		// This blog has only 1 category so bulan_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in aurora_categorized_blog.
+ * Flush out the transients used in bulan_categorized_blog.
  *
  * @since 1.0.0
  */
-function aurora_category_transient_flusher() {
+function bulan_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'aurora_categories' );
+	delete_transient( 'bulan_categories' );
 }
-add_action( 'edit_category', 'aurora_category_transient_flusher' );
-add_action( 'save_post',     'aurora_category_transient_flusher' );
+add_action( 'edit_category', 'bulan_category_transient_flusher' );
+add_action( 'save_post',     'bulan_category_transient_flusher' );
 
-if ( ! function_exists( 'aurora_entry_share' ) ) :
+if ( ! function_exists( 'bulan_entry_share' ) ) :
 /**
  * Social share.
  *
  * @since 1.0.0
  */
-function aurora_entry_share() {
+function bulan_entry_share() {
 	global $post;
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the data set in customizer
-	$share  = aurora_mod( $prefix . 'post-share' );
+	$share  = bulan_mod( $prefix . 'post-share' );
 
 	if ( $share == 0 ) {
 		return;
@@ -274,19 +274,19 @@ function aurora_entry_share() {
 }
 endif;
 
-if ( ! function_exists( 'aurora_post_author' ) ) :
+if ( ! function_exists( 'bulan_post_author' ) ) :
 /**
  * Author post informations.
  *
  * @since  1.0.0
  */
-function aurora_post_author() {
+function bulan_post_author() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the data set in customizer
-	$enable = aurora_mod( $prefix . 'post-author-box' );
+	$enable = bulan_mod( $prefix . 'post-author-box' );
 
 	// Disable if user choose it.
 	if ( $enable == 0 ) {
@@ -305,7 +305,7 @@ function aurora_post_author() {
 ?>
 
 	<div class="author-bio clearfix" <?php hybrid_attr( 'entry-author' ) ?>>
-		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'aurora_author_bio_avatar_size', 64 ), '', strip_tags( get_the_author() ) ); ?>
+		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'bulan_author_bio_avatar_size', 64 ), '', strip_tags( get_the_author() ) ); ?>
 		<div class="description">
 			<h3 class="author-title name">
 				<a class="author-name url fn n" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" itemprop="url"><span itemprop="name"><?php echo strip_tags( get_the_author() ); ?></span></a>
@@ -318,21 +318,21 @@ function aurora_post_author() {
 }
 endif;
 
-if ( ! function_exists( 'aurora_related_posts' ) ) :
+if ( ! function_exists( 'bulan_related_posts' ) ) :
 /**
  * Related posts.
  *
  * @since  1.0.0
  */
-function aurora_related_posts() {
+function bulan_related_posts() {
 	global $post;
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the data set in customizer
-	$enable  = aurora_mod( $prefix . 'related-posts' );
-	$img     = aurora_mod( $prefix . 'related-posts-img' );
+	$enable  = bulan_mod( $prefix . 'related-posts' );
+	$img     = bulan_mod( $prefix . 'related-posts-img' );
 
 	// Disable if user choose it.
 	if ( $enable == 0 ) {
@@ -363,7 +363,7 @@ function aurora_related_posts() {
 	);
 
 	// Allow dev to filter the query.
-	$args = apply_filters( 'aurora_related_posts_args', $query );
+	$args = apply_filters( 'bulan_related_posts_args', $query );
 
 	// The post query
 	$related = new WP_Query( $args );
@@ -371,7 +371,7 @@ function aurora_related_posts() {
 	if ( $related->have_posts() ) : ?>
 
 		<div class="related-posts">
-			<h3><?php _e( 'You might also like &hellip;', 'aurora' ); ?></h3>
+			<h3><?php _e( 'You might also like &hellip;', 'bulan' ); ?></h3>
 			<ul>
 				<?php while ( $related->have_posts() ) : $related->the_post(); ?>
 					<li>
@@ -392,7 +392,7 @@ function aurora_related_posts() {
 }
 endif;
 
-if ( ! function_exists( 'aurora_comment' ) ) :
+if ( ! function_exists( 'bulan_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
@@ -400,7 +400,7 @@ if ( ! function_exists( 'aurora_comment' ) ) :
  *
  * @since  1.0.0
  */
-function aurora_comment( $comment, $args, $depth ) {
+function bulan_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -409,7 +409,7 @@ function aurora_comment( $comment, $args, $depth ) {
 	?>
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>" <?php hybrid_attr( 'comment' ); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="comment-container">
-			<p <?php hybrid_attr( 'comment-content' ); ?>><?php _e( 'Pingback:', 'aurora' ); ?> <span <?php hybrid_attr( 'comment-author' ); ?>><span itemprop="name"><?php comment_author_link(); ?></span></span> <?php edit_comment_link( __( '(Edit)', 'aurora' ), '<span class="edit-link">', '</span>' ); ?></p>
+			<p <?php hybrid_attr( 'comment-content' ); ?>><?php _e( 'Pingback:', 'bulan' ); ?> <span <?php hybrid_attr( 'comment-author' ); ?>><span itemprop="name"><?php comment_author_link(); ?></span></span> <?php edit_comment_link( __( '(Edit)', 'bulan' ), '<span class="edit-link">', '</span>' ); ?></p>
 		</article>
 	<?php
 			break;
@@ -421,9 +421,9 @@ function aurora_comment( $comment, $args, $depth ) {
 		<article id="comment-<?php comment_ID(); ?>" class="comment-container">
 
 			<div class="comment-avatar">
-				<?php echo get_avatar( $comment, apply_filters( 'aurora_comment_avatar_size', 125 ) ); ?>
+				<?php echo get_avatar( $comment, apply_filters( 'bulan_comment_avatar_size', 125 ) ); ?>
 				<span class="name" <?php hybrid_attr( 'comment-author' ); ?>><span itemprop="name"><?php echo get_comment_author_link(); ?></span></span>
-				<?php echo aurora_comment_author_badge(); ?>
+				<?php echo bulan_comment_author_badge(); ?>
 			</div>
 
 			<div class="comment-body">
@@ -435,19 +435,19 @@ function aurora_comment( $comment, $args, $depth ) {
 								esc_url( get_comment_link( $comment->comment_ID ) ),
 								get_comment_time( 'c' ),
 								/* translators: 1: date, 2: time */
-								sprintf( __( '%1$s at %2$s', 'aurora' ), get_comment_date(), get_comment_time() ),
-								sprintf( __( '%1$s&middot; Edit%2$s', 'aurora' ), '<a href="' . get_edit_comment_link() . '" title="' . esc_attr__( 'Edit Comment', 'aurora' ) . '">', '</a>' )
+								sprintf( __( '%1$s at %2$s', 'bulan' ), get_comment_date(), get_comment_time() ),
+								sprintf( __( '%1$s&middot; Edit%2$s', 'bulan' ), '<a href="' . get_edit_comment_link() . '" title="' . esc_attr__( 'Edit Comment', 'bulan' ) . '">', '</a>' )
 							);
 						?>
 					</div><!-- comment-head -->
 					
 					<div class="comment-content comment-entry" <?php hybrid_attr( 'comment-content' ); ?>>
 						<?php if ( '0' == $comment->comment_approved ) : ?>
-							<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'aurora' ); ?></p>
+							<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'bulan' ); ?></p>
 						<?php endif; ?>
 						<?php comment_text(); ?>
 						<span class="reply">
-							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( '<i class="fa fa-reply"></i> Reply', 'aurora' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( '<i class="fa fa-reply"></i> Reply', 'bulan' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 						</span><!-- .reply -->
 					</div><!-- .comment-content -->
 
@@ -461,13 +461,13 @@ function aurora_comment( $comment, $args, $depth ) {
 }
 endif;
 
-if ( ! function_exists( 'aurora_comment_author_badge' ) ) :
+if ( ! function_exists( 'bulan_comment_author_badge' ) ) :
 /**
  * Custom badge for post author comment
  * 
  * @since  1.0.0
  */
-function aurora_comment_author_badge() {
+function bulan_comment_author_badge() {
 
 	// Set up empty variable
 	$output = '';
@@ -476,32 +476,32 @@ function aurora_comment_author_badge() {
 	$classes = get_comment_class();
 
 	if ( in_array( 'bypostauthor', $classes ) ) {
-		$output = '<span class="author-badge">' . __( 'Author', 'aurora' ) . '</span>';
+		$output = '<span class="author-badge">' . __( 'Author', 'bulan' ) . '</span>';
 	}
 
 	// Display the badge
-	return apply_filters( 'aurora_comment_author_badge', $output );
+	return apply_filters( 'bulan_comment_author_badge', $output );
 }
 endif;
 
-if ( ! function_exists( 'aurora_social_links' ) ) :
+if ( ! function_exists( 'bulan_social_links' ) ) :
 /**
  * Social profile links
  * 
  * @since  1.0.0
  */
-function aurora_social_links() {
+function bulan_social_links() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the data set in customizer
-	$twitter   = aurora_mod( $prefix . 'twitter' );
-	$facebook  = aurora_mod( $prefix . 'facebook' );
-	$gplus     = aurora_mod( $prefix . 'gplus' );
-	$linkedin  = aurora_mod( $prefix . 'linkedin' );
-	$dribbble  = aurora_mod( $prefix . 'dribbble' );
-	$instagram = aurora_mod( $prefix . 'instagram' );
+	$twitter   = bulan_mod( $prefix . 'twitter' );
+	$facebook  = bulan_mod( $prefix . 'facebook' );
+	$gplus     = bulan_mod( $prefix . 'gplus' );
+	$linkedin  = bulan_mod( $prefix . 'linkedin' );
+	$dribbble  = bulan_mod( $prefix . 'dribbble' );
+	$instagram = bulan_mod( $prefix . 'instagram' );
 
 	// Display the data
 	echo '<div class="social-links">';
@@ -528,17 +528,17 @@ function aurora_social_links() {
 }
 endif;
 
-if ( ! function_exists( 'aurora_footer_text' ) ) :
+if ( ! function_exists( 'bulan_footer_text' ) ) :
 /**
  * Footer Text
  */
-function aurora_footer_text() {
+function bulan_footer_text() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the customizer data 
-	$footer_text = aurora_mod( $prefix . 'footer-text' );
+	$footer_text = bulan_mod( $prefix . 'footer-text' );
 
 	// Display the data
 	echo '<p class="copyright">' . stripslashes( $footer_text ) . '</p>';
@@ -546,13 +546,13 @@ function aurora_footer_text() {
 }
 endif;
 
-if ( ! function_exists( 'aurora_posts_query_404' ) ) :
+if ( ! function_exists( 'bulan_posts_query_404' ) ) :
 /**
  * Custom query to display latest posts on 404 page.
  * 
  * @since  1.0.0
  */
-function aurora_posts_query_404() {
+function bulan_posts_query_404() {
 
 	// Posts arguments
 	$args = array(
@@ -561,7 +561,7 @@ function aurora_posts_query_404() {
 	);
 
 	// Allow dev to filter the arguments
-	$posts = apply_filters( 'aurora_posts_query_404_args', $args );
+	$posts = apply_filters( 'bulan_posts_query_404_args', $args );
 
 	// Our hero!
 	$posts = new WP_Query( $args );

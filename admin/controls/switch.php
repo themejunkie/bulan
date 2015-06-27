@@ -3,7 +3,7 @@
  * The switch customize control extends the WP_Customize_Control class.  This class allows 
  * developers to create switch settings within the WordPress theme customizer.
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe, Kirki
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,8 +54,8 @@ class Customizer_Library_Switch extends WP_Customize_Control {
 			<?php $classes = ( esc_attr( $this->value() ) ) ? ' on' : ' off'; ?>
 			<div class="switch<?php echo $classes; ?>">
 				<div class="toggle"></div>
-				<span class="on"><?php _e( 'On', 'aurora' ); ?></span>
-				<span class="off"><?php _e( 'Off', 'aurora' ); ?></span>
+				<span class="on"><?php _e( 'On', 'bulan' ); ?></span>
+				<span class="off"><?php _e( 'Off', 'bulan' ); ?></span>
 			</div>
 
 		</label>

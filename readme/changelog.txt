@@ -1,5 +1,2 @@
-1.0.1 - 
-* Fix bug when child theme active and WP_DEBUG turned on.
-
 1.0.0 - 22/6/2015
 * Initial release

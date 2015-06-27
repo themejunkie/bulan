@@ -9,10 +9,10 @@
 
 				<?php
 					// Theme prefix
-					$prefix = 'aurora-';
+					$prefix = 'bulan-';
 
 					// Get data set in customizer
-					$comment = aurora_mod( $prefix . 'page-comment' );
+					$comment = bulan_mod( $prefix . 'page-comment' );
 
 					// Check if comment enable on customizer
 					if ( $comment ) :

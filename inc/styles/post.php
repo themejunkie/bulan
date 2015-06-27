@@ -2,26 +2,26 @@
 /**
  * Posts colors
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_customizer_post_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_post_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
  * @since  1.0.0
  */
-function aurora_customizer_post_styles() {
+function bulan_customizer_post_styles() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Text color
-	$text = aurora_mod( $prefix . 'post-text-color' );
+	$text = bulan_mod( $prefix . 'post-text-color' );
 
 	if ( $text !== customizer_library_get_default( $prefix . 'post-text-color' ) ) {
 
@@ -38,7 +38,7 @@ function aurora_customizer_post_styles() {
 	}
 
 	// Heading color
-	$heading = aurora_mod( $prefix . 'post-heading-color' );
+	$heading = bulan_mod( $prefix . 'post-heading-color' );
 
 	if ( $heading !== customizer_library_get_default( $prefix . 'post-heading-color' ) ) {
 
@@ -61,7 +61,7 @@ function aurora_customizer_post_styles() {
 	}
 
 	// Link color
-	$link = aurora_mod( $prefix . 'post-link-color' );
+	$link = bulan_mod( $prefix . 'post-link-color' );
 
 	if ( $link !== customizer_library_get_default( $prefix . 'post-link-color' ) ) {
 
@@ -78,7 +78,7 @@ function aurora_customizer_post_styles() {
 	}
 
 	// Link hover color
-	$link_hover = aurora_mod( $prefix . 'post-link-hover-color' );
+	$link_hover = bulan_mod( $prefix . 'post-link-hover-color' );
 
 	if ( $link_hover !== customizer_library_get_default( $prefix . 'post-link-hover-color' ) ) {
 
@@ -96,4 +96,4 @@ function aurora_customizer_post_styles() {
 
 }
 endif;
-add_action( 'aurora_customizer_library_styles', 'aurora_customizer_post_styles' );
+add_action( 'bulan_customizer_library_styles', 'bulan_customizer_post_styles' );

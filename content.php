@@ -1,12 +1,12 @@
 <?php
 // Theme prefix
-$prefix = 'aurora-';
+$prefix = 'bulan-';
 
 // Set up empty variable
 $size = '';
 
 // Get the data set in customizer
-$layout = aurora_mod( $prefix . 'grid-layout' );
+$layout = bulan_mod( $prefix . 'grid-layout' );
 
 // Display the correct size
 if ( $layout == '3-col' || $layout == '4-col' ) {
@@ -30,8 +30,8 @@ if ( $layout == '3-col' || $layout == '4-col' ) {
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<?php
 				/* translators: used between list items, there is a space after the comma */
-				$categories_list = get_the_category_list( __( ', ', 'aurora' ) );
-				if ( $categories_list && aurora_categorized_blog() ) :
+				$categories_list = get_the_category_list( __( ', ', 'bulan' ) );
+				if ( $categories_list && bulan_categorized_blog() ) :
 			?>
 			<span class="cat-links" <?php hybrid_attr( 'entry-terms', 'category' ); ?>>
 				<?php echo $categories_list; ?>

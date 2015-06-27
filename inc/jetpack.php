@@ -3,7 +3,7 @@
  * Jetpack Compatibility File
  * See: http://jetpack.me/
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@
  * 
  * @since  1.0.0
  */
-function aurora_jetpack_setup() {
+function bulan_jetpack_setup() {
 
 	/**
 	 * Add theme support for Infinite Scroll.
@@ -38,14 +38,14 @@ function aurora_jetpack_setup() {
 	add_theme_support( 'jetpack-responsive-videos' );
 
 }
-add_action( 'after_setup_theme', 'aurora_jetpack_setup' );
+add_action( 'after_setup_theme', 'bulan_jetpack_setup' );
 
 /**
  * Remove sharedaddy from excerpt.
  *
  * @since  1.0.0
  */
-function aurora_remove_sharedaddy() {
+function bulan_remove_sharedaddy() {
     remove_filter( 'the_excerpt', 'sharing_display', 19 );
 }
-add_action( 'loop_start', 'aurora_remove_sharedaddy' );
+add_action( 'loop_start', 'bulan_remove_sharedaddy' );

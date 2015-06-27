@@ -2,26 +2,26 @@
 /**
  * Search color
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_customizer_search_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_search_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
  * @since  1.0.0
  */
-function aurora_customizer_search_styles() {
+function bulan_customizer_search_styles() {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Search icon color
-	$icon = aurora_mod( $prefix . 'search-icon-color' );
+	$icon = bulan_mod( $prefix . 'search-icon-color' );
 
 	if ( $icon !== customizer_library_get_default( $prefix . 'search-icon-color' ) ) {
 
@@ -38,7 +38,7 @@ function aurora_customizer_search_styles() {
 	}
 
 	// Search bg color
-	$bg = aurora_mod( $prefix . 'search-bg-color' );
+	$bg = bulan_mod( $prefix . 'search-bg-color' );
 
 	if ( $bg !== customizer_library_get_default( $prefix . 'search-bg-color' ) ) {
 
@@ -56,4 +56,4 @@ function aurora_customizer_search_styles() {
 
 }
 endif;
-add_action( 'aurora_customizer_library_styles', 'aurora_customizer_search_styles' );
+add_action( 'bulan_customizer_library_styles', 'bulan_customizer_search_styles' );

@@ -2,7 +2,7 @@
 /**
  * Custom function to display data set in customizer.
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,7 +22,7 @@ require trailingslashit( get_template_directory() ) . 'inc/styles/page.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/footer.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/fonts.php';
 
-if ( ! function_exists( 'aurora_customizer_styles' ) ) :
+if ( ! function_exists( 'bulan_customizer_styles' ) ) :
 /**
  * Generates the style tag and CSS needed for the theme options.
  *
@@ -31,10 +31,10 @@ if ( ! function_exists( 'aurora_customizer_styles' ) ) :
  *
  * @since  1.0.0
  */
-function aurora_customizer_styles() {
+function bulan_customizer_styles() {
 
 	// Action to add the custom styles.
-	do_action( 'aurora_customizer_library_styles' );
+	do_action( 'bulan_customizer_library_styles' );
 
 	// Echo the rules
 	$css = Customizer_Library_Styles()->build();
@@ -47,21 +47,21 @@ function aurora_customizer_styles() {
 
 }
 endif;
-add_action( 'wp_head', 'aurora_customizer_styles', 11 );
+add_action( 'wp_head', 'bulan_customizer_styles', 11 );
 
-if ( ! function_exists( 'aurora_display_favicon' ) ) :
+if ( ! function_exists( 'bulan_display_favicon' ) ) :
 /**
  * Display the favicon
  *
  * @since 1.0.0
  */
-function aurora_display_favicon() {
+function bulan_display_favicon() {
 	
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the favicon
-	$favicon = aurora_mod( $prefix . 'favicon' );
+	$favicon = bulan_mod( $prefix . 'favicon' );
 
 	if ( $favicon ) {
 		echo '<link href="' . esc_url( $favicon ) . '" rel="shortcut icon">' . "\n";
@@ -69,21 +69,21 @@ function aurora_display_favicon() {
 
 }
 endif;
-add_action( 'wp_head', 'aurora_display_favicon', 5 );
+add_action( 'wp_head', 'bulan_display_favicon', 5 );
 
-if ( ! function_exists( 'aurora_display_mobile_icon' ) ) :
+if ( ! function_exists( 'bulan_display_mobile_icon' ) ) :
 /**
  * Display the mobile icon
  *
  * @since 1.0.0
  */
-function aurora_display_mobile_icon() {
+function bulan_display_mobile_icon() {
 	
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the mobile icon
-	$icon = aurora_mod( $prefix . 'mobile-icon' );
+	$icon = bulan_mod( $prefix . 'mobile-icon' );
 
 	if ( $icon ) {
 		echo '<link href="' . esc_url( $icon ) . '" rel="apple-touch-icon-precomposed">' . "\n";
@@ -91,21 +91,21 @@ function aurora_display_mobile_icon() {
 
 }
 endif;
-add_action( 'wp_head', 'aurora_display_mobile_icon', 6 );
+add_action( 'wp_head', 'bulan_display_mobile_icon', 6 );
 
-if ( ! function_exists( 'aurora_custom_feed_url' ) ) :
+if ( ! function_exists( 'bulan_custom_feed_url' ) ) :
 /**
  * Custom RSS feed url.
  *
  * @since  1.0.0
  */
-function aurora_custom_feed_url( $output, $feed ) {
+function bulan_custom_feed_url( $output, $feed ) {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Get the custom rss feed url
-	$url = aurora_mod( $prefix . 'custom-rss' );
+	$url = bulan_mod( $prefix . 'custom-rss' );
 
 	// Do not redirect comments feed
 	if ( strpos( $output, 'comments' ) ) {
@@ -120,4 +120,4 @@ function aurora_custom_feed_url( $output, $feed ) {
 	return $output;
 }
 endif;
-add_filter( 'feed_link', 'aurora_custom_feed_url', 10, 2 );
+add_filter( 'feed_link', 'bulan_custom_feed_url', 10, 2 );

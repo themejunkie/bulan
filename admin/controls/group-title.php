@@ -2,7 +2,7 @@
 /**
  * The 'group-title' customize control extends the WP_Customize_Control class.
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html

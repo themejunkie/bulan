@@ -2,29 +2,29 @@
 /**
  * Custom and output functions for the theme customizer 
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'aurora_mod' ) ) :
+if ( ! function_exists( 'bulan_mod' ) ) :
 /**
  * Wrap get_theme_mod function
  */
-function aurora_mod( $name ) {
+function bulan_mod( $name ) {
 	return get_theme_mod( $name, customizer_library_get_default( $name ) );
 }
 endif;
 
-if ( ! function_exists( 'aurora_textarea_stripslashes' ) ) :
+if ( ! function_exists( 'bulan_textarea_stripslashes' ) ) :
 /**
  * Sanitize a textarea for ads.
  *
  * @since  1.0.0
  */
-function aurora_textarea_stripslashes( $string ) {
+function bulan_textarea_stripslashes( $string ) {
 	return stripslashes( $string );
 }
 endif;
@@ -34,7 +34,7 @@ endif;
  *
  * @since  1.0.0
  */
-function aurora_move_default_customizer( $wp_customize ) {
+function bulan_move_default_customizer( $wp_customize ) {
 
 	// Move the customize to new panel
 	$wp_customize->get_section( 'title_tagline' )->panel       = 'header';
@@ -44,9 +44,9 @@ function aurora_move_default_customizer( $wp_customize ) {
 	$wp_customize->get_section( 'background_image' )->panel    = 'bg_image';
 
 	// Change the title/description
-	$wp_customize->get_section( 'title_tagline' )->title       = __( 'Site Title', 'aurora' );
-	$wp_customize->get_section( 'title_tagline' )->description = __( 'Site title will automatically disapear if you upload a logo.', 'aurora' );
-	$wp_customize->get_section( 'colors' )->title              = __( 'Background', 'aurora' );
+	$wp_customize->get_section( 'title_tagline' )->title       = __( 'Site Title', 'bulan' );
+	$wp_customize->get_section( 'title_tagline' )->description = __( 'Site title will automatically disapear if you upload a logo.', 'bulan' );
+	$wp_customize->get_section( 'colors' )->title              = __( 'Background', 'bulan' );
 	$wp_customize->get_section( 'colors' )->priority           = 1;
 
 	// Live preview
@@ -54,7 +54,7 @@ function aurora_move_default_customizer( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	
 }
-add_action( 'customize_register', 'aurora_move_default_customizer' );
+add_action( 'customize_register', 'bulan_move_default_customizer' );
 
 /**
  * Retrieve tags list.
@@ -62,7 +62,7 @@ add_action( 'customize_register', 'aurora_move_default_customizer' );
  * @since  1.0.0
  * @return array $tags
  */
-function aurora_tags_list() {
+function bulan_tags_list() {
 
 	// Set up empty array.
 	$tags = array();
@@ -71,7 +71,7 @@ function aurora_tags_list() {
 	$tags_obj = get_tags();
 
 	// Set default/empty tag.
-	$tags[''] = __( 'Select a tag &hellip;', 'aurora' );
+	$tags[''] = __( 'Select a tag &hellip;', 'bulan' );
 
 	// Display the tags.
 	foreach ( $tags_obj as $tag ) {
@@ -88,7 +88,7 @@ function aurora_tags_list() {
  * @since  1.0.0
  * @return array $tags
  */
-function aurora_cats_list() {
+function bulan_cats_list() {
 
 	// Set up empty array.
 	$cats = array();
@@ -97,7 +97,7 @@ function aurora_cats_list() {
 	$cats_obj = get_categories();
 
 	// Set default/empty tag.
-	$cats[''] = __( 'Select a category &hellip;', 'aurora' );
+	$cats[''] = __( 'Select a category &hellip;', 'bulan' );
 
 	// Display the tags.
 	foreach ( $cats_obj as $cat ) {

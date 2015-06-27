@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package    Aurora
+ * @package    Bulan
  * @author     ThemePhe
  * @copyright  Copyright (c) 2015, ThemePhe
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,11 +18,11 @@
  * @param  array $args Configuration arguments.
  * @return array
  */
-function aurora_page_menu_args( $args ) {
+function bulan_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'aurora_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'bulan_page_menu_args' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -31,7 +31,7 @@ add_filter( 'wp_page_menu_args', 'aurora_page_menu_args' );
  * @param  array $classes Classes for the body element.
  * @return array
  */
-function aurora_body_classes( $classes ) {
+function bulan_body_classes( $classes ) {
 
 	// Adds a class of multi-author to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
@@ -40,7 +40,7 @@ function aurora_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'aurora_body_classes' );
+add_filter( 'body_class', 'bulan_body_classes' );
 
 /**
  * Adds custom classes to the array of post classes.
@@ -49,10 +49,10 @@ add_filter( 'body_class', 'aurora_body_classes' );
  * @param  array $classes Classes for the post element.
  * @return array
  */
-function aurora_post_classes( $classes ) {
+function bulan_post_classes( $classes ) {
 
 	// Theme prefix
-	$prefix = 'aurora-';
+	$prefix = 'bulan-';
 
 	// Adds a class if a post hasn't a thumbnail.
 	if ( ! has_post_thumbnail() ) {
@@ -60,7 +60,7 @@ function aurora_post_classes( $classes ) {
 	}
 
 	// Posts grid layout
-	$layout = aurora_mod( $prefix . 'grid-layout' );
+	$layout = bulan_mod( $prefix . 'grid-layout' );
 	if ( ! is_single() && ! is_page() ) {
 		if ( $layout == '2-col' ) {	
 			$classes[] = 'post-grid-2-col';
@@ -73,7 +73,7 @@ function aurora_post_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'post_class', 'aurora_post_classes' );
+add_filter( 'post_class', 'bulan_post_classes' );
 
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	/**
@@ -83,7 +83,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	 * @param string $sep Optional separator.
 	 * @return string The filtered title.
 	 */
-	function aurora_wp_title( $title, $sep ) {
+	function bulan_wp_title( $title, $sep ) {
 		if ( is_feed() ) {
 			return $title;
 		}
@@ -101,12 +101,12 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 
 		// Add a page number if necessary:
 		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'aurora' ), max( $paged, $page ) );
+			$title .= " $sep " . sprintf( __( 'Page %s', 'bulan' ), max( $paged, $page ) );
 		}
 
 		return $title;
 	}
-	add_filter( 'wp_title', 'aurora_wp_title', 10, 2 );
+	add_filter( 'wp_title', 'bulan_wp_title', 10, 2 );
 
 	/**
 	 * Title shim for sites older than WordPress 4.1.
@@ -114,12 +114,12 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 	 * @todo Remove this function when WordPress 4.3 is released.
 	 */
-	function aurora_render_title() {
+	function bulan_render_title() {
 		?>
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<?php
 	}
-	add_action( 'wp_head', 'aurora_render_title' );
+	add_action( 'wp_head', 'bulan_render_title' );
 endif;
 
 /**
@@ -129,17 +129,17 @@ endif;
  * @param  string  $more
  * @return string
  */
-function aurora_excerpt_more( $more ) {
+function bulan_excerpt_more( $more ) {
 	return '&hellip;';
 }
-add_filter( 'excerpt_more', 'aurora_excerpt_more' );
+add_filter( 'excerpt_more', 'bulan_excerpt_more' );
 
 /**
  * Remove theme-layouts meta box on attachment and bbPress post type.
  * 
  * @since 1.0.0
  */
-function aurora_remove_theme_layout_metabox() {
+function bulan_remove_theme_layout_metabox() {
 	remove_post_type_support( 'post', 'theme-layouts' );
 	remove_post_type_support( 'attachment', 'theme-layouts' );
 
@@ -148,14 +148,14 @@ function aurora_remove_theme_layout_metabox() {
 	remove_post_type_support( 'topic', 'theme-layouts' );
 	remove_post_type_support( 'reply', 'theme-layouts' );
 }
-add_action( 'init', 'aurora_remove_theme_layout_metabox', 11 );
+add_action( 'init', 'bulan_remove_theme_layout_metabox', 11 );
 
 /**
  * Extend archive title
  *
  * @since  1.0.0
  */
-function aurora_extend_archive_title( $title ) {
+function bulan_extend_archive_title( $title ) {
 	if ( is_category() ) {
 		$title = single_cat_title( '', false );
 	} elseif ( is_tag() ) {
@@ -163,32 +163,32 @@ function aurora_extend_archive_title( $title ) {
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'aurora_extend_archive_title' );
+add_filter( 'get_the_archive_title', 'bulan_extend_archive_title' );
 
 /**
  * Exclude pages on search
  *
  * @since  1.0.0
  */
-function aurora_exclude_page_on_search( $query ) {
+function bulan_exclude_page_on_search( $query ) {
 	if ( ! is_admin() ) {
 		if ( $query->is_main_query() && $query->is_search ) {
 			$query->set( 'post_type', 'post' );
 		}
 	}   
 }
-add_action( 'pre_get_posts', 'aurora_exclude_page_on_search' );
+add_action( 'pre_get_posts', 'bulan_exclude_page_on_search' );
 
 /**
  * Customize tag cloud widget
  *
  * @since  1.0.0
  */
-function aurora_customize_tag_cloud( $args ) {
+function bulan_customize_tag_cloud( $args ) {
 	$args['largest']  = 12;
 	$args['smallest'] = 12;
 	$args['unit']     = 'px';
 	$args['number']   = 20;
 	return $args;
 }
-add_filter( 'widget_tag_cloud_args', 'aurora_customize_tag_cloud' );
+add_filter( 'widget_tag_cloud_args', 'bulan_customize_tag_cloud' );
