@@ -80,7 +80,7 @@ function bulan_theme_setup() {
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'bulan_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'f5f5f5',
 		'default-image' => '',
 	) ) );
 
@@ -97,9 +97,41 @@ function bulan_theme_setup() {
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
+	add_theme_support( 'custom-header', apply_filters( '_s_custom_header_args', array(
+		'width'       => 2000,
+		'height'      => 480,
+		'flex-height' => true
+	) ) );
+
 }
 endif; // bulan_theme_setup
 add_action( 'after_setup_theme', 'bulan_theme_setup' );
+
+function bulan_custom_header() {
+	$header = get_header_image();
+	if ( $header ) : ?>
+	<style type="text/css">
+		.site-header {
+			background-image: url("<?php echo esc_url( $header ); ?>");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+		.site-header::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(204, 137, 0, 0.3);
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+		}
+	</style>
+	<?php endif;
+}
+add_action( 'wp_head', 'bulan_custom_header' );
 
 if ( ! function_exists( 'bulan_reset_default_image_sizes' ) ) :
 /**

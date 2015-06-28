@@ -1,6 +1,6 @@
 .wide-container {
-	@include container(1170px);
-	padding: 0;
+	@include container(1040px);
+	padding: 0 40px;
 
 	@include susy-media(240px 1170px) {
 		padding: 0 30px;
@@ -8,14 +8,14 @@
 
 }
 
-.container {
-	@include container(940px);
+// .container {
+// 	@include container(940px);
 
-	@include susy-media(240px 1170px) {
-		padding: 0 30px;
-	}
+// 	@include susy-media(240px 1170px) {
+// 		padding: 0 30px;
+// 	}
 
-}
+// }
 
 @include with-layout( 12 (60px 35px) ) {
 	

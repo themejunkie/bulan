@@ -24,21 +24,30 @@
  * Header
  */
 .site-header {
-	padding-bottom: 60px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 240px 0;
+	position: relative;
 }
 
 .site-branding {
+	position: absolute;
+	top: 60px;
 	text-align: center;
+	left: 0;
+	right: 0;
+	z-index: 1;
 
 	.site-title {
 		text-transform: uppercase;
 		a {
-			color: $color-3;
+			color: #fff;
 		}
 	}
 
 	.site-description {
-		color: #777;
+		color: #fff;
 		font-family: $body-font-family;
 		font-size: 18px;
 		font-style: italic;

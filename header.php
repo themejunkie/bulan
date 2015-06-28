@@ -19,9 +19,9 @@
 		</div>
 	</div>
 
-	<header id="masthead" class="site-header" role="banner" <?php hybrid_attr( 'header' ); ?>>
+	<?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
 
-		<?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
+	<header id="masthead" class="site-header" role="banner" <?php hybrid_attr( 'header' ); ?>>
 
 		<div class="site-branding">
 			<div class="wide-container">

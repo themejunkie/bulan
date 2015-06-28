@@ -15,10 +15,12 @@ $(document).ready(function(){
 	$(".search-toggle").click(function(e){
 		e.stopPropagation();
 		container.slideToggle("slow");
+		$(".search-toggle").toggleClass("active");
 	});
 	$(document).click(function(e) {
 		if (container.is(":visible") && !container.is(e.target) && container.has(e.target).length === 0) {
 			container.slideToggle("slow");
+			$(".search-toggle").toggleClass("active");
 		}
 	});
 
