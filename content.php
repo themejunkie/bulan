@@ -1,32 +1,7 @@
-<?php
-// Theme prefix
-$prefix = 'bulan-';
-
-// Set up empty variable
-$size = '';
-
-// Get the data set in customizer
-$layout = bulan_mod( $prefix . 'grid-layout' );
-
-// Display the correct size
-if ( $layout == '3-col' || $layout == '4-col' ) {
-	$size = 'medium';
-} else {
-	$size = 'large';
-}
-?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<a class="thumbnail-link" href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail( $size, array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
-		</a>
-	<?php endif; ?>
-
-	<div class="thumbnail-detail">
+	<header class="entry-header">
 		
-		<?php the_title( sprintf( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '><a href="%s" rel="bookmark" itemprop="url">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<?php
 				/* translators: used between list items, there is a space after the comma */
@@ -38,7 +13,27 @@ if ( $layout == '3-col' || $layout == '4-col' ) {
 			</span>
 			<?php endif; // End if categories ?>
 		<?php endif; ?>
+			
+		<?php the_title( sprintf( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '><a href="%s" rel="bookmark" itemprop="url">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
+	</header>
+
+	<?php if ( has_post_thumbnail() ) : ?>
+		<a class="thumbnail-link" href="<?php the_permalink(); ?>">
+			<?php the_post_thumbnail( 'large', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
+		</a>
+	<?php endif; ?>
+
+	<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
+
+		<?php the_content( __( 'Continue Reading', 'bulan' ) ); ?>
+		<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'silvia' ),
+				'after'  => '</div>',
+			) );
+		?>
+	
 	</div>
 	
 </article><!-- #post-## -->

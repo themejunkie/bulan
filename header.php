@@ -32,4 +32,4 @@
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
-		<div class="<?php echo esc_attr( bulan_main_container() ); ?>">
+		<div class="wide-container">

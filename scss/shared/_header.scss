@@ -24,16 +24,13 @@
  * Header
  */
 .site-header {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
 	padding: 240px 0;
 	position: relative;
 }
 
 .site-branding {
 	position: absolute;
-	top: 60px;
+	top: 70px;
 	text-align: center;
 	left: 0;
 	right: 0;
@@ -42,7 +39,12 @@
 	.site-title {
 		text-transform: uppercase;
 		a {
+			border: 3px double #fff;
 			color: #fff;
+			padding: 5px 25px;
+			&:hover {
+				border-color: $color-1;
+			}
 		}
 	}
 
@@ -63,26 +65,32 @@
 }
 
 .page-header {
-	@include container(800px);
-	padding-bottom: 40px;
-	text-align: center;
+	border-bottom: 1px dotted darken($border-color, 5%);
+	margin-bottom: 27px;
+	@extend %clearfix;
 
-	@include susy-media(769px) {
-		padding-bottom: 60px;
+	.author & {
+		.page-title {
+			margin-top: 0;
+			overflow: hidden;
+		}
+		p {
+			overflow: hidden;
+		}
+	}
+
+	.page-title {
+		margin-top: 0;
 	}
 
 	p {
 		color: #777;
-		font-size: 20px;
-		line-height: 1.3;
-		text-align: left;
-		@include susy-media(769px) {
-			font-size: 22px;
-		}
 	}
 
 	.avatar {
 		border-radius: 50%;
+		margin-right: 27px;
+		float: left;
 	}
 
 }

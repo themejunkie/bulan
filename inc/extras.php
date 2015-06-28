@@ -50,6 +50,7 @@ add_filter( 'body_class', 'bulan_body_classes' );
  * @return array
  */
 function bulan_post_classes( $classes ) {
+	global $post;
 
 	// Theme prefix
 	$prefix = 'bulan-';
@@ -68,6 +69,15 @@ function bulan_post_classes( $classes ) {
 			$classes[] = 'post-grid-3-col';
 		} else {
 			$classes[] = 'post-grid-4-col';
+		}
+	}
+
+	// Check if post has `<!--more-->` tag
+	if ( ! is_singular() ) {
+		if ( strpos( $post->post_content, '<!--more-->' ) ) {
+			$classes[] = 'has-read-more-tag';
+		} else {
+			$classes[] = 'no-read-more-tag';
 		}
 	}
 
@@ -151,6 +161,22 @@ function bulan_remove_theme_layout_metabox() {
 add_action( 'init', 'bulan_remove_theme_layout_metabox', 11 );
 
 /**
+ * Modifies the theme layout on attachment pages.
+ *
+ * @since  1.0.0
+ */
+function bulan_mod_theme_layout( $layout ) {
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		$post_layout = get_post_layout( get_queried_object_id() );
+		if ( 'default' === $post_layout ) {
+			$layout = '1c';
+		}
+	}
+	return $layout;
+}
+add_filter( 'theme_mod_theme_layout', 'bulan_mod_theme_layout', 15 );
+
+/**
  * Extend archive title
  *
  * @since  1.0.0
@@ -164,20 +190,6 @@ function bulan_extend_archive_title( $title ) {
 	return $title;
 }
 add_filter( 'get_the_archive_title', 'bulan_extend_archive_title' );
-
-/**
- * Exclude pages on search
- *
- * @since  1.0.0
- */
-function bulan_exclude_page_on_search( $query ) {
-	if ( ! is_admin() ) {
-		if ( $query->is_main_query() && $query->is_search ) {
-			$query->set( 'post_type', 'post' );
-		}
-	}   
-}
-add_action( 'pre_get_posts', 'bulan_exclude_page_on_search' );
 
 /**
  * Customize tag cloud widget

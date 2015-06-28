@@ -37,7 +37,6 @@ function bulan_site_branding() {
 	else :
 		echo '<div id="logo">'. "\n";
 			echo '<h1 class="site-title" ' . hybrid_get_attr( 'site-title' ) . '><a href="' . esc_url( get_home_url() ) . '" itemprop="url" rel="home"><span itemprop="headline">' . esc_attr( get_bloginfo( 'name' ) ) . '</span></a></h1>'. "\n";
-			echo '<h2 class="site-description" ' . hybrid_get_attr( 'site-description' ) . '>' . esc_attr( get_bloginfo( 'description' ) ) . '</h2>';
 		echo '</div>'. "\n";
 	endif;
 
@@ -142,6 +141,45 @@ function bulan_posted_on() {
 		?>
 			<span class="tag-links entry-side" <?php hybrid_attr( 'entry-terms', 'post_tag' ); ?>><span class="genericon genericon-tag"></span> <?php printf( __( 'Tags: %s', 'bulan' ), $tag_list ); ?></span>
 		<?php endif; ?>
+	<?php endif; ?>
+
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'bulan_attachment_posted_on' ) ) :
+/**
+ * Attachment page meta information
+ *
+ * @since 1.0.0
+ */
+function bulan_attachment_posted_on() {
+
+	// Theme prefix
+	$prefix = 'bulan-';
+
+	// Get the data set in customizer
+	$date       = bulan_mod( $prefix . 'post-date' );
+	$author     = bulan_mod( $prefix . 'post-author' );
+	$date_style = bulan_mod( $prefix . 'post-date-style' );
+
+	// Set up empty variable
+	$style = '';
+	if ( $date_style == 'absolute' ) {
+		$style = esc_html( get_the_date() );
+	} else {
+		$style = sprintf( __( '%s ago', 'bulan' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+	}
+	?>
+
+	<?php if ( $date ) : ?>
+		<time class="entry-date published entry-side" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php printf( __( 'Published: %s', 'bulan' ), '<span>' . $style . '</span>' ); ?></time>
+	<?php endif; ?>
+	
+	<?php if ( $author ) : ?>
+		<span class="entry-author author vcard entry-side" <?php hybrid_attr( 'entry-author' ) ?>>
+			<?php printf( __( 'Author: %s', 'bulan' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="url"><span itemprop="name">' . esc_html( get_the_author() ) . '</span></a>' ); ?>
+		</span>
 	<?php endif; ?>
 
 	<?php if ( is_attachment() && wp_attachment_is_image() ) : ?>

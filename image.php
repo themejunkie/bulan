@@ -43,7 +43,7 @@
 
 					<div class="entry-meta">
 						<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
-						<?php bulan_posted_on(); ?>
+						<?php bulan_attachment_posted_on(); ?>
 						<?php get_template_part( 'loop', 'nav' ); ?>
 					</div>
 					

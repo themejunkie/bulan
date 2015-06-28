@@ -1,40 +1,39 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
-	
-	<div class="entry-post">
-		
-		<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
 
-			<?php if ( has_post_thumbnail() ) : ?>
-				<span class="thumbnail-link">
-					<?php the_post_thumbnail( 'large', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
-				</span>
-			<?php endif; ?>
+	<header class="entry-header">
 
-			<?php the_content(); ?>
+		<?php if ( 'post' == get_post_type() ) : ?>
 			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'bulan' ),
-					'after'  => '</div>',
-				) );
+				/* translators: used between list items, there is a space after the comma */
+				$categories_list = get_the_category_list( __( ', ', 'bulan' ) );
+				if ( $categories_list && bulan_categorized_blog() ) :
 			?>
-		
-		</div>
+			<span class="cat-links" <?php hybrid_attr( 'entry-terms', 'category' ); ?>>
+				<?php echo $categories_list; ?>
+			</span>
+			<?php endif; // End if categories ?>
+		<?php endif; ?>
 
-		<?php bulan_related_posts(); // Display the related posts. ?>
+		<?php the_title( '<h1 class="page-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
 
+	</header><!-- .entry-header -->
+
+	<?php if ( has_excerpt() ) : ?>
+		<div class="page-header">
+			<?php the_excerpt(); ?>
+		</div><!-- .page-header -->
+	<?php endif; ?>
+	
+	<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
+
+		<?php the_content(); ?>
 		<?php
-			// If comments are open or we have at least one comment, load up the comment template
-			if ( comments_open() || '0' != get_comments_number() ) :
-				comments_template();
-			endif;
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'bulan' ),
+				'after'  => '</div>',
+			) );
 		?>
-
-	</div>
-
-	<div class="entry-meta">
-		<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
-		<?php bulan_posted_on(); ?>
-		<?php get_template_part( 'loop', 'nav' ); // Loads the loop-nav.php template  ?>
+	
 	</div>
 	
 </article><!-- #post-## -->

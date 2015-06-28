@@ -5,51 +5,33 @@
 
 	.wide-container {
 		background-color: #fff;
+		padding-top: 40px;
 	}
 
 }
 
 .hentry {
-	margin-bottom: 60px;
+	margin-bottom: 50px;
+	position: relative;
 
-	&.post-grid-2-col {
-
-		@include susy-media(768px) {
-			@include span(6 of 12);
-			&:nth-of-type(2n) {
-				margin-right: 0;
-			}
-		}
-
+	.single & {
+		margin-bottom: $base-line-height;
 	}
 
-	&.post-grid-3-col {
-
-		@include susy-media(768px) {
-			@include span(4 of 12);
-			&:nth-of-type(3n) {
-				margin-right: 0;
-			}
-		}
-
+	&.no-read-more-tag {
+		padding-bottom: 60px;
 	}
 
-	&.post-grid-4-col {
-
-		@include susy-media(769px) {
-			@include span(3 of 12);
-			&:nth-of-type(4n) {
-				margin-right: 0;
-			}
+	&.has-read-more-tag {
+		&::after {
+			content: "";
+			border-bottom: 1px solid#ededed;
+			position: absolute;
+			bottom: 23px;
+			left: 0;
+			width: 100%;
+			z-index: 0;
 		}
-
-		@include susy-media(601px 768px) {
-			@include span(4 of 12);
-			&:nth-of-type(3n) {
-				margin-right: 0;
-			}
-		}
-
 	}
 
 	.entry-title {
@@ -67,111 +49,58 @@
 
 .thumbnail-link {
 	display: block;
+	margin-bottom: 30px;
 	position: relative;
-
-	&:hover {
-		img {
-			filter: grayscale(0);
-		}
-	}
 
 	img {
 		display: block;
-		filter: grayscale(100%);
-		transform: translateZ(0);
-		transition: all 200ms ease-in-out 0s;
-		width: 100%;
-
-		@include susy-media(768px) {
-			width: auto;
-		}
-
 	}
 }
 
-.thumbnail-detail {
+.entry-header {
 	text-align: center;
 
-	.entry-title {
-		font-size: 20px;
-		margin-bottom: 8px;
-		text-transform: uppercase;
-		a {
-			color: $color-3;
-		}
+	h1 {
+		margin-bottom: 30px;
 	}
+}
 
-	.cat-links {
-		font-style: italic;
-		a {
-			color: #777;
-		}
-	}
-
+.entry-title {
+	margin: 10px 0 40px;
 	a {
-		&:hover {
-			color: $color-1;
-		}
+		color: $color-3;
 	}
+}
 
+.cat-links {
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.entry-content {
+	@extend %clearfix;
+}
+
+.more-link {
+	background-color: #fff;
+	display: inline-block;
+	border: 3px double #eee;
+	padding: 9px 16px;
+	font-size: 16px;
+	float: right;
+	margin-top: 40px;
+	position: relative;
+	z-index: 1;
+	&:hover {
+		background-color: $color-1;
+		color: #fff;
+	}
 }
 
 .single {
-	
-	@include with-layout( 12 (60px 30px) ) {
-		
-		@include susy-media(768px) {
-			.entry-post {
-				@include span(9 of 12);
-			}
-
-			.entry-meta {
-				@include span(3 of 12 last);
-			}
-		}
-
-	}
 
 	.hentry {
 		@extend %clearfix;
-
-		@include susy-media(240px 600px) {
-			display: -webkit-box;
-			display: -moz-box;
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			display: flex;
-			-webkit-box-orient: vertical;
-			-moz-box-orient: vertical;
-			-webkit-flex-direction: column;
-			-ms-flex-direction: column;
-			flex-direction: column;
-			/* optional */
-			-webkit-box-align: start;
-			-moz-box-align: start;
-			-ms-flex-align: start;
-			-webkit-align-items: flex-start;
-			align-items: flex-start;
-			.entry-post {
-				-webkit-box-ordinal-group: 2;
-				-moz-box-ordinal-group: 2;
-				-ms-flex-order: 2;
-				-webkit-order: 2;
-				order: 2;
-			}
-
-			.entry-meta {
-				-webkit-box-ordinal-group: 1;
-				-moz-box-ordinal-group: 1;
-				-ms-flex-order: 1;
-				-webkit-order: 1;
-				order: 1;
-				margin-bottom: 40px;
-				text-align: center;
-				width: 100%;
-			}
-		}
-
 	}
 
 	.entry-thumbnail {
@@ -224,7 +153,18 @@
 	}
 }
 
+/**
+ * Attachment page
+ */
 .attachment {
+
+	.entry-post {
+		@include span(9 of 12)
+	}
+
+	.entry-meta {
+		@include span(3 of 12 last)
+	}
 
 	.hentry {
 		margin-bottom: 60px;
@@ -262,8 +202,7 @@
  */
 .related-posts {
 	border-top: 1px dotted $border-color;
-	margin-top: 30px;
-	padding-top: 30px;
+	padding-top: 50px;
 
 	h3 {
 		margin-bottom: 30px;

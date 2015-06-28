@@ -84,6 +84,13 @@ function bulan_theme_setup() {
 		'default-image' => '',
 	) ) );
 
+	// Setup the WordPress core custom header feature.
+	add_theme_support( 'custom-header', apply_filters( 'bulan_custom_header_args', array(
+		'width'       => 2000,
+		'height'      => 480,
+		'flex-height' => true
+	) ) );
+
 	// Enable theme-layouts extensions.
 	add_theme_support( 'theme-layouts', 
 		array(
@@ -91,47 +98,67 @@ function bulan_theme_setup() {
 			'2c-l' => __( '2 Columns: Content / Sidebar', 'bulan' ),
 			'2c-r' => __( '2 Columns: Sidebar / Content', 'bulan' )
 		),
-		array( 'customize' => false, 'default' => '1c' ) 
+		array( 'customize' => false, 'default' => '2c-l' ) 
 	);
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
-	add_theme_support( 'custom-header', apply_filters( '_s_custom_header_args', array(
-		'width'       => 2000,
-		'height'      => 480,
-		'flex-height' => true
-	) ) );
-
 }
 endif; // bulan_theme_setup
 add_action( 'after_setup_theme', 'bulan_theme_setup' );
 
+/**
+ * Display the custom header.
+ *
+ * @since  1.0.0
+ */
 function bulan_custom_header() {
+
+	// Get the custom header.
 	$header = get_header_image();
-	if ( $header ) : ?>
-	<style type="text/css">
-		.site-header {
-			background-image: url("<?php echo esc_url( $header ); ?>");
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: cover;
+
+	// Get the featured image
+	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+
+	// Set up empty variable
+	$image = '';
+
+	// If on single post or page, use the featured image.
+	if ( is_single() || is_page() ) {
+		if ( $featured ) {
+			$image = $featured[0];
+		} else {
+			$image = $header;
 		}
-		.site-header::after {
-			content: "";
-			display: block;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(204, 137, 0, 0.3);
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 0;
-		}
-	</style>
+	} else {
+		$image = $header;
+	}
+
+	// Display the custom header via inline CSS.
+	if ( $image ) : ?>
+		<style type="text/css">
+			.site-header {
+				background-image: url("<?php echo esc_url( $image ); ?>");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+			.site-header::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(204, 137, 0, 0.3);
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 0;
+			}
+		</style>
 	<?php endif;
 }
-add_action( 'wp_head', 'bulan_custom_header' );
+add_action( 'wp_head', 'bulan_custom_header', 10 );
 
 if ( ! function_exists( 'bulan_reset_default_image_sizes' ) ) :
 /**
