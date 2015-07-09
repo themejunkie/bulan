@@ -174,8 +174,8 @@ function bulan_reset_default_image_sizes() {
 	update_option( 'large_crop', 1 );
 
 	// 'medium' size
-	update_option( 'medium_size_w', 575 );
-	update_option( 'medium_size_h', 375 );
+	update_option( 'medium_size_w', 400 );
+	update_option( 'medium_size_h', 300 );
 	update_option( 'medium_crop', 1 );
 
 }
@@ -183,7 +183,22 @@ endif;
 add_action( 'after_switch_theme', 'bulan_reset_default_image_sizes' );
 
 /**
- * Registers widget areas and custom widgets.
+ * Registers custom widgets.
+ *
+ * @since 1.0.0
+ * @link  http://codex.wordpress.org/Function_Reference/register_widget
+ */
+function bulan_widgets_init() {
+
+	// Register ad widget.
+	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-recent.php';
+	register_widget( 'Bulan_Recent_Widget' );
+	
+}
+add_action( 'widgets_init', 'bulan_widgets_init' );
+
+/**
+ * Registers widget areas.
  *
  * @since 1.0.0
  * @link  http://codex.wordpress.org/Function_Reference/register_sidebar

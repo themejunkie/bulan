@@ -1,4 +1,10 @@
+.comments-area {
+	border-top: 1px dotted darken($border-color, 5%);
+	padding-top: 30px;
+}
+
 .comments-title {
+	margin-top: 0;
 	margin-bottom: 60px;
 }
 
@@ -131,41 +137,32 @@
 	}
 }
 
-.author-badge {
-	background-color: #2196F3;
-	border-radius: 3px;
-	color: #fff;
-	font-weight: 700;
-	font-size: 14px;
-	margin-bottom: 20px;
-	padding: 8px 10px 4px;
-	text-transform: uppercase;
-	line-height: 1;
-	display: inline-block;
-	@include susy-media(480px) {
-		margin-bottom: 0;
-	}
-	
-	@include susy-media(320px 768px) {
-		.comment.depth-2 &,
-		.comment.depth-3 &  {
-			padding: 6px 3px 0;
+.bypostauthor {
+
+	.author-badge {
+		background-color: $color-1;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 12px;
+		margin-bottom: 20px;
+		padding: 4px 6px;
+		text-transform: uppercase;
+		line-height: 1;
+		display: inline-block;
+		font-family: $heading-font-family;
+		font-weight: 700;
+		letter-spacing: 1px;
+
+		@include susy-media(480px) {
+			margin-bottom: 0;
 		}
-	}
-}
-
-.children,
-.layout-2c-l {
-
-	.comment-respond {
-		margin-top: 60px;
-	}
-
-	.comment-form-author,
-	.comment-form-email,
-	.comment-form-url {
-		display: block;
-		width: 100%;
+		
+		@include susy-media(320px 768px) {
+			.comment.depth-2 &,
+			.comment.depth-3 &  {
+				padding: 6px 3px 0;
+			}
+		}
 	}
 
 }
@@ -174,7 +171,7 @@
  * Comment form
  */
 .comments-area {
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 .comment-notes {
@@ -184,11 +181,17 @@
 }
 
 form.comment-form {
+
+	p {
+		margin-bottom: 20px;
+	}
 	
 	label {
-		display: block;
-		font-size: 16px;
+		color: #888;
+		display: inline-block;
+		font-size: 15px;
 		font-weight: 700;
+		width: 80px;
 	}
 
 	input[type="text"],
@@ -198,20 +201,6 @@ form.comment-form {
 		background-color: #fafafa;
 		&:focus {
 			background-color: #fff;
-		}
-	}
-
-	.comment-form-comment {
-		clear: both;
-	}
-
-	.comment-form-author,
-	.comment-form-email,
-	.comment-form-url {
-		margin-right: 29px;
-		float: left;
-		input {
-			width: 270px;
 		}
 	}
 
@@ -226,7 +215,7 @@ form.comment-form {
 }
 
 .required {
-	color: #f00;
+	color: $color-1;
 }
 
 #cancel-comment-reply-link {

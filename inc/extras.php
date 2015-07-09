@@ -204,3 +204,20 @@ function bulan_customize_tag_cloud( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'bulan_customize_tag_cloud' );
+
+/**
+ * Add custom fields to the author profile fields
+ *
+ * @since  1.0.0
+ */
+function bulan_new_contactmethods( $contactmethods ) {
+	$contactmethods['twitter']   = 'Twitter';
+	$contactmethods['facebook']  = 'Facebook';
+	$contactmethods['gplus']     = 'Google Plus';
+	$contactmethods['instagram'] = 'Instagram';
+	$contactmethods['linkedin']  = 'Linkedin';
+
+	// Display the new fields
+	return $contactmethods;
+}
+add_filter( 'user_contactmethods', 'bulan_new_contactmethods', 10, 1 );

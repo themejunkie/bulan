@@ -7,7 +7,7 @@
  * microdata while being forward compatible with the ever-changing Web. Currently, the default microdata 
  * vocabulary supported is Schema.org.
  *
- * @package    TrueNews
+ * @package    Bulan
  * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Sami Keijonen <sami.keijonen@foxnet.fi>
  * @copyright  Copyright (c) 2008 - 2014, Justin Tadlock

@@ -65,29 +65,6 @@ function bulan_callout() {
 }
 endif;
 
-if ( ! function_exists( 'bulan_main_container' ) ) :
-/**
- * Main container class
- * 
- * @since  1.0.0
- */
-function bulan_main_container() {
-
-	// Set up empty variable
-	$class = '';
-
-	// Display the class
-	if ( is_page() ) {
-		$class = 'container';
-	} else {
-		$class = 'wide-container';
-	}
-
-	return apply_filters( 'bulan_main_container', $class );
-
-}
-endif;
-
 if ( ! function_exists( 'bulan_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -320,16 +297,16 @@ if ( ! function_exists( 'bulan_post_author' ) ) :
  */
 function bulan_post_author() {
 
-	// Theme prefix
-	$prefix = 'bulan-';
+	// // Theme prefix
+	// $prefix = 'bulan-';
 
-	// Get the data set in customizer
-	$enable = bulan_mod( $prefix . 'post-author-box' );
+	// // Get the data set in customizer
+	// $enable = bulan_mod( $prefix . 'post-author-box' );
 
-	// Disable if user choose it.
-	if ( $enable == 0 ) {
-		return;
-	}
+	// // Disable if user choose it.
+	// if ( $enable == 0 ) {
+	// 	return;
+	// }
 
 	// Bail if not on the single post.
 	if ( ! is_single() ) {
@@ -342,13 +319,33 @@ function bulan_post_author() {
 	}
 ?>
 
-	<div class="author-bio clearfix" <?php hybrid_attr( 'entry-author' ) ?>>
-		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'bulan_author_bio_avatar_size', 64 ), '', strip_tags( get_the_author() ) ); ?>
+	<div class="author-bio" <?php hybrid_attr( 'entry-author' ) ?>>
+		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'bulan_author_bio_avatar_size', 80 ), '', strip_tags( get_the_author() ) ); ?>
 		<div class="description">
 			<h3 class="author-title name">
 				<a class="author-name url fn n" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" itemprop="url"><span itemprop="name"><?php echo strip_tags( get_the_author() ); ?></span></a>
 			</h3>
 			<p class="bio" itemprop="description"><?php echo stripslashes( get_the_author_meta( 'description' ) ); ?></p>
+			<ul class="author-social">
+				<li class="website">
+					<a href="<?php echo esc_url( get_the_author_meta( 'url' ) ); ?>"><i class="fa fa-home"></i></a>
+				</li>
+				<li class="twitter">
+					<a href="<?php echo esc_url( get_the_author_meta( 'twitter' ) ); ?>"><i class="fa fa-twitter"></i></a>
+				</li>
+				<li class="facebook">
+					<a href="<?php echo esc_url( get_the_author_meta( 'facebook' ) ); ?>"><i class="fa fa-facebook"></i></a>
+				</li>
+				<li class="gplus">
+					<a href="<?php echo esc_url( get_the_author_meta( 'gplus' ) ); ?>"><i class="fa fa-google-plus"></i></a>
+				</li>
+				<li class="instagram">
+					<a href="<?php echo esc_url( get_the_author_meta( 'instagram' ) ); ?>"><i class="fa fa-instagram"></i></a>
+				</li>
+				<li class="linkedin">
+					<a href="<?php echo esc_url( get_the_author_meta( 'linkedin' ) ); ?>"><i class="fa fa-linkedin"></i></a>
+				</li>
+			</ul>
 		</div>
 	</div><!-- .author-bio -->
 
@@ -409,7 +406,7 @@ function bulan_related_posts() {
 	if ( $related->have_posts() ) : ?>
 
 		<div class="related-posts">
-			<h3><?php _e( 'You might also like &hellip;', 'bulan' ); ?></h3>
+			<h3><?php _e( 'Related Posts', 'bulan' ); ?></h3>
 			<ul>
 				<?php while ( $related->have_posts() ) : $related->the_post(); ?>
 					<li>
@@ -417,6 +414,7 @@ function bulan_related_posts() {
 							<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium', array( 'class' => 'related-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?></a>
 						<?php endif; ?>
 						<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+						<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 					</li>
 				<?php endwhile; ?>
 			</ul>

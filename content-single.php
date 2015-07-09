@@ -11,8 +11,11 @@
 			<span class="cat-links" <?php hybrid_attr( 'entry-terms', 'category' ); ?>>
 				<?php echo $categories_list; ?>
 			</span>
+			<i class="fa fa-circle"></i>
 			<?php endif; // End if categories ?>
 		<?php endif; ?>
+
+		<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php echo esc_html( get_the_date() ); ?></time>
 
 		<?php the_title( '<h1 class="page-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
 
@@ -35,5 +38,20 @@
 		?>
 	
 	</div>
+
+	<footer class="entry-footer">
+		
+		<?php
+			$tags = get_the_tags();
+			if ( $tags ) :
+		?>
+			<span class="tag-links" <?php hybrid_attr( 'entry-terms', 'post_tag' ); ?>>
+				<?php foreach( $tags as $tag ) : ?>
+					<a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>"><span>#</span><?php echo esc_attr( $tag->name ); ?></a>
+				<?php endforeach; ?>
+			</span>
+		<?php endif; ?>
+
+	</footer>
 	
 </article><!-- #post-## -->

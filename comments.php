@@ -58,7 +58,8 @@ if ( post_password_required() ) {
 	<?php comment_form(
 		array( 
 			'comment_notes_after' => false,
-			'title_reply'         => __( 'Leave a Comment', 'biancaa' )
+			'title_reply'         => __( 'Leave a Comment', 'bulan' ),
+			'comment_field'       =>  '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="' . __( 'Comment', 'bulan' ) . '">' . '</textarea></p>',
 		)
 	); ?>
 

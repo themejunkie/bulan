@@ -7,9 +7,9 @@
 
 				<?php get_template_part( 'content', 'single' ); ?>
 
-				<?php bulan_related_posts(); // Display the related posts. ?>
+				<?php bulan_post_author(); // Display the author box. ?>
 
-				<?php get_template_part( 'loop', 'nav' ); // Loads the loop-nav.php template  ?>
+				<?php bulan_related_posts(); // Display the related posts. ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template
@@ -17,6 +17,8 @@
 						comments_template();
 					endif;
 				?>
+
+				<?php get_template_part( 'loop', 'nav' ); // Loads the loop-nav.php template  ?>
 
 			<?php endwhile; // end of the loop. ?>
 
