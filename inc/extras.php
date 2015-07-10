@@ -33,6 +33,9 @@ add_filter( 'wp_page_menu_args', 'bulan_page_menu_args' );
  */
 function bulan_body_classes( $classes ) {
 
+	// Theme Prefix
+	$prefix = 'bulan-';
+
 	// Adds a class of multi-author to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'multi-author';
@@ -60,25 +63,24 @@ function bulan_post_classes( $classes ) {
 		$classes[] = 'no-post-thumbnail';
 	}
 
-	// Posts grid layout
-	$layout = bulan_mod( $prefix . 'grid-layout' );
-	if ( ! is_single() && ! is_page() ) {
-		if ( $layout == '2-col' ) {	
-			$classes[] = 'post-grid-2-col';
-		} elseif ( $layout == '3-col' ) {
-			$classes[] = 'post-grid-3-col';
-		} else {
-			$classes[] = 'post-grid-4-col';
-		}
-	}
-
 	// Check if post has `<!--more-->` tag
-	if ( ! is_singular() ) {
+	if ( ! is_single() ) {
 		if ( strpos( $post->post_content, '<!--more-->' ) ) {
 			$classes[] = 'has-read-more-tag';
 		} else {
 			$classes[] = 'no-read-more-tag';
 		}
+	}
+
+	// Check if sticky post
+	if ( ! is_sticky() ) {
+		$classes[] = 'no-sticky';
+	}
+
+	// Check if use excerpt for blog page
+	$content = bulan_mod( $prefix . 'blog-content' );
+	if ( $content == 'excerpt' && !is_singular() ) {
+		$classes[] = 'use-excerpt';
 	}
 
 	return $classes;
@@ -140,9 +142,21 @@ endif;
  * @return string
  */
 function bulan_excerpt_more( $more ) {
-	return '&hellip;';
+	return ' <a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . __( 'Continue Reading', 'bulan' ) . '</a>';
 }
 add_filter( 'excerpt_more', 'bulan_excerpt_more' );
+
+/**
+ * Change the excerpt length.
+ *
+ * @since  1.0.0
+ * @param  string  $more
+ * @return string
+ */
+function bulan_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'bulan_excerpt_length', 999 );
 
 /**
  * Remove theme-layouts meta box on attachment and bbPress post type.

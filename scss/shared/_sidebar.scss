@@ -3,6 +3,16 @@
 	line-height: 1.5;
 	margin-bottom: 60px;
 
+	@include susy-media(601px 801px) {
+		@include span(6 of 12);
+		&:nth-child(2n+2) {
+			@include last;
+		}
+		&:nth-child(2n+1) {
+			clear: left;
+		}
+	}
+
 	ul {
 		@extend %reset-list;
 	}
@@ -164,7 +174,7 @@
 
 	li {
 		@extend %clearfix;
-		padding: 5px 0;
+		padding: 15px 0;
 	}
 
 	.entry-thumbnail {
@@ -178,4 +188,29 @@
 		font-size: 14px;
 		margin-top: 3px;
 	}	
+}
+
+.widget_social {
+
+	a {
+		background-color: #fff;
+		color: #454545;
+		border: 3px double $border-color;
+		display: inline-block;
+		margin-right: 8px;
+		margin-bottom: 8px;
+		width: 35px;
+		height: 35px;
+		line-height: 1;
+		text-align: center;
+		padding: 7px;
+		&:last-child {
+			margin-right: 0;
+		}
+		&:hover {
+			background-color: $color-1;
+			color: $color-2;
+		}
+	}
+
 }

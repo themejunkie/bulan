@@ -34,8 +34,9 @@
  * - TYPOGRAPHY
  * - FORMS
  *
- * PAGES
- * - HOMEPAGE
+ * TEMPLATES
+ * - LIST
+ * - GRID
  *
  * SHARED
  * - HEADER
@@ -110,9 +111,14 @@
 @import "shared/comments";
 
 /*------------------------------------*\
-	$HOMEPAGE
+	$LIST
 \*------------------------------------*/
-@import "pages/homepage";
+@import "templates/list";
+
+/*------------------------------------*\
+	$GRID
+\*------------------------------------*/
+@import "templates/grid";
 
 /*------------------------------------*\
 	$STATE

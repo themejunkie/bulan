@@ -8,7 +8,7 @@
 
 }
 
-@include susy-media(768px) {
+@include susy-media(801px) {
 	.content-area {
 		@include span(8 of 12);
 	}

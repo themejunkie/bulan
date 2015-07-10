@@ -1,0 +1,50 @@
+.grid {
+
+	.no-sticky {
+		@include susy-media(600px) {
+			@include span(4 of 8);
+		}
+		&:nth-of-type(2n+1) {
+			@include last;
+		}
+		&:nth-of-type(2n+2) {
+			clear: left;
+		}
+
+		.more-link {
+			display: none;
+		}
+
+		&.has-read-more-tag {
+			&::after {
+				content: "";
+				border-bottom: 0;
+				position: relative;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				z-index: 0;
+			}
+		}
+
+		&.no-read-more-tag {
+			padding-bottom: 0;
+		}
+
+		.thumbnail-link {
+			margin-bottom: 18px;
+		}
+
+		.entry-title {
+			font-size: 26px;
+			margin-bottom: 18px;
+		}
+
+		.entry-summary {
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+	}
+
+}

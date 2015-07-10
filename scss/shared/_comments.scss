@@ -24,7 +24,7 @@
 		.avatar {
 			width: 90px;
 		}
-		@include susy-media(480px) {
+		@include susy-media(600px) {
 			padding-left: 90px;
 		}
 		@include susy-media(240px 768px) {
@@ -156,13 +156,7 @@
 		@include susy-media(480px) {
 			margin-bottom: 0;
 		}
-		
-		@include susy-media(320px 768px) {
-			.comment.depth-2 &,
-			.comment.depth-3 &  {
-				padding: 6px 3px 0;
-			}
-		}
+
 	}
 
 }
@@ -199,6 +193,9 @@ form.comment-form {
 	input[type="url"],
 	textarea {
 		background-color: #fafafa;
+		@include susy-media(max-width 320px) {
+			width: 100%;
+		}
 		&:focus {
 			background-color: #fff;
 		}

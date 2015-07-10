@@ -86,23 +86,6 @@ function bulan_customizer_register() {
 			'default'      => ''
 		);
 
-		// Callout
-		$section = $prefix . 'callout-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Callout', 'bulan' ),
-			'description' => __( 'The text will appear on home page below the Site Title and Site Description.', 'bulan' ),
-			'priority'    => 105,
-			'panel'       => $general_panel,
-		);
-		$options[$prefix . 'home-callout'] = array(
-			'id'          => $prefix . 'home-callout',
-			'label'       => __( 'Callout text', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'textarea'
-		);
-
 		// Comment
 		$section = $prefix . 'comment-section';
 
@@ -115,6 +98,7 @@ function bulan_customizer_register() {
 		$options[$prefix . 'page-comment'] = array(
 			'id'           => $prefix . 'page-comment',
 			'label'        => __( 'Page Comment', 'bulan' ),
+			'description'  => __( 'Enable comment on page', 'bulan' ),
 			'section'      => $section,
 			'type'         => 'switch',
 			'default'      => 1
@@ -217,6 +201,24 @@ function bulan_customizer_register() {
 			'section'      => $section,
 			'type'         => 'image',
 			'default'      => '',
+		);
+
+		// Sticky Navigation
+		$section = $prefix . 'search-icon-section';
+
+		$sections[] = array(
+			'id'          => $section,
+			'title'       => __( 'Search', 'bulan' ),
+			'description' => __( 'Show search icon', 'bulan' ),
+			'priority'    => 35,
+			'panel'       => $header_panel
+		);
+		$options[$prefix . 'search-icon'] = array(
+			'id'      => $prefix . 'search-icon',
+			'label'   => '',
+			'section' => $section,
+			'type'    => 'switch',
+			'default' => 1
 		);
 
 	// Colors Panel and Sections
@@ -593,37 +595,34 @@ function bulan_customizer_register() {
 		'priority' => 35
 	);
 
-		// Home Page
-		$section = $prefix . 'grid-section';
+		// Blog
+		$section = $prefix . 'blog-layout-section';
 
 		$sections[] = array(
 			'id'          => $section,
-			'title'       => __( 'Posts Grid', 'bulan' ),
+			'title'       => __( 'Blog', 'bulan' ),
 			'priority'    => 5,
 			'panel'       => $content_panel
 		);
-		
-		$options[$prefix . 'grid-layout'] = array(
-			'id'          => $prefix . 'grid-layout',
-			'label'       => __( 'Layout', 'bulan' ),
-			'description' => __( 'Please select the posts grid column', 'bulan' ),
+		$options[$prefix . 'blog-content'] = array(
+			'id'          => $prefix . 'blog-content',
+			'label'       => __( 'Blog content', 'bulan' ),
 			'section'     => $section,
-			'type'        => 'select',
-			'default'     => '3-col',
+			'type'        => 'radio',
+			'default'     => 'content',
 			'choices'     => array(
-				'2-col' => __( '2 columns', 'bulan' ),
-				'3-col' => __( '3 columns', 'bulan' ),
-				'4-col' => __( '4 columns', 'bulan' )
+				'content' => __( 'Content', 'bulan' ),
+				'excerpt' => __( 'Excerpt', 'bulan' )
 			)
 		);
 
 		// Posts
-		$section = $prefix . 'posts-section';
+		$section = $prefix . 'posts-layout-section';
 
 		$sections[] = array(
 			'id'          => $section,
 			'title'       => __( 'Posts', 'bulan' ),
-			'description' => __( 'Posts is a single post page.', 'bulan' ),
+			'description' => __( 'Posts is a single post page. Please navigate the preview to the single post to see changes.', 'bulan' ),
 			'priority'    => 10,
 			'panel'       => $content_panel
 		);
@@ -640,13 +639,6 @@ function bulan_customizer_register() {
 				'type'        => 'switch',
 				'default'     => 1
 			);
-			$options[$prefix . 'post-author'] = array(
-				'id'          => $prefix . 'post-author',
-				'label'       => __( 'Show post author name', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'switch',
-				'default'     => 1
-			);
 			$options[$prefix . 'post-cat'] = array(
 				'id'          => $prefix . 'post-cat',
 				'label'       => __( 'Show post categories', 'bulan' ),
@@ -657,6 +649,13 @@ function bulan_customizer_register() {
 			$options[$prefix . 'post-tag'] = array(
 				'id'          => $prefix . 'post-tag',
 				'label'       => __( 'Show post tags', 'bulan' ),
+				'section'     => $section,
+				'type'        => 'switch',
+				'default'     => 1
+			);
+			$options[$prefix . 'post-author'] = array(
+				'id'          => $prefix . 'post-author',
+				'label'       => __( 'Show post author box', 'bulan' ),
 				'section'     => $section,
 				'type'        => 'switch',
 				'default'     => 1
@@ -684,6 +683,13 @@ function bulan_customizer_register() {
 			'section'     => $section,
 			'type'        => 'group-title'
 		);
+			$options[$prefix . 'related-posts-title'] = array(
+				'id'          => $prefix . 'related-posts-title',
+				'label'       => __( 'Related Posts Title', 'bulan' ),
+				'section'     => $section,
+				'type'        => 'text',
+				'default'     => __( 'Related Posts', 'bulan' )
+			);
 			$options[$prefix . 'related-posts'] = array(
 				'id'          => $prefix . 'related-posts',
 				'label'       => __( 'Show related posts', 'bulan' ),
@@ -700,7 +706,7 @@ function bulan_customizer_register() {
 			);
 
 		// Page
-		$section = $prefix . 'page-section';
+		$section = $prefix . 'page-layout-section';
 
 		$sections[] = array(
 			'id'          => $section,

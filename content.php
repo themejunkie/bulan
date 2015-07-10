@@ -1,3 +1,10 @@
+<?php
+// Theme prefix
+$prefix = 'bulan-';
+
+// Get the data set in customizer
+$content = bulan_mod( $prefix . 'blog-content' );
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
 	<header class="entry-header">
@@ -24,16 +31,14 @@
 		</a>
 	<?php endif; ?>
 
-	<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
-
-		<?php the_content( __( 'Continue Reading', 'bulan' ) ); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'silvia' ),
-				'after'  => '</div>',
-			) );
-		?>
-	
-	</div>
+	<?php if ( $content == 'content' ) : ?>
+		<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
+			<?php the_content( __( 'Continue Reading', 'bulan' ) ); ?>
+		</div>
+	<?php else : ?>
+		<div class="entry-summary" <?php hybrid_attr( 'entry-summary' ); ?>>
+			<?php the_excerpt(); ?>
+		</div>
+	<?php endif; ?>
 	
 </article><!-- #post-## -->

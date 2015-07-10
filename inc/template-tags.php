@@ -34,7 +34,7 @@ function bulan_site_branding() {
 		echo '</div>' . "\n";
 
 	// If not, then display the Site Title and Site Description.
-	else :
+	elseif ( display_header_text() ) :
 		echo '<div id="logo">'. "\n";
 			echo '<h1 class="site-title" ' . hybrid_get_attr( 'site-title' ) . '><a href="' . esc_url( get_home_url() ) . '" itemprop="url" rel="home"><span itemprop="headline">' . esc_attr( get_bloginfo( 'name' ) ) . '</span></a></h1>'. "\n";
 		echo '</div>'. "\n";
@@ -297,16 +297,16 @@ if ( ! function_exists( 'bulan_post_author' ) ) :
  */
 function bulan_post_author() {
 
-	// // Theme prefix
-	// $prefix = 'bulan-';
+	// Theme prefix
+	$prefix = 'bulan-';
 
-	// // Get the data set in customizer
-	// $enable = bulan_mod( $prefix . 'post-author-box' );
+	// Get the data set in customizer
+	$enable = bulan_mod( $prefix . 'post-author' );
 
-	// // Disable if user choose it.
-	// if ( $enable == 0 ) {
-	// 	return;
-	// }
+	// Disable if user choose it.
+	if ( $enable == 0 ) {
+		return;
+	}
 
 	// Bail if not on the single post.
 	if ( ! is_single() ) {
@@ -368,6 +368,7 @@ function bulan_related_posts() {
 	// Get the data set in customizer
 	$enable  = bulan_mod( $prefix . 'related-posts' );
 	$img     = bulan_mod( $prefix . 'related-posts-img' );
+	$title   = bulan_mod( $prefix . 'related-posts-title' );
 
 	// Disable if user choose it.
 	if ( $enable == 0 ) {
@@ -406,12 +407,12 @@ function bulan_related_posts() {
 	if ( $related->have_posts() ) : ?>
 
 		<div class="related-posts">
-			<h3><?php _e( 'Related Posts', 'bulan' ); ?></h3>
+			<h3><?php echo wp_filter_post_kses( $title ); ?></h3>
 			<ul>
 				<?php while ( $related->have_posts() ) : $related->the_post(); ?>
 					<li>
 						<?php if ( has_post_thumbnail() && $img ) : ?>
-							<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium', array( 'class' => 'related-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?></a>
+							<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'large', array( 'class' => 'related-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?></a>
 						<?php endif; ?>
 						<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 						<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>

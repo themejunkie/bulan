@@ -38,20 +38,24 @@ function bulan_move_default_customizer( $wp_customize ) {
 
 	// Move the customize to new panel
 	$wp_customize->get_section( 'title_tagline' )->panel       = 'header';
+	$wp_customize->get_section( 'header_image' )->panel        = 'header';
 	$wp_customize->get_section( 'nav' )->panel                 = 'general';
 	$wp_customize->get_section( 'static_front_page' )->panel   = 'general';
 	$wp_customize->get_section( 'colors' )->panel              = 'color';
 	$wp_customize->get_section( 'background_image' )->panel    = 'bg_image';
 
-	// Change the title/description
+	// Custom
 	$wp_customize->get_section( 'title_tagline' )->title       = __( 'Site Title', 'bulan' );
 	$wp_customize->get_section( 'title_tagline' )->description = __( 'Site title will automatically disapear if you upload a logo.', 'bulan' );
 	$wp_customize->get_section( 'colors' )->title              = __( 'Background', 'bulan' );
 	$wp_customize->get_section( 'colors' )->priority           = 1;
+	$wp_customize->get_section( 'header_image' )->priority     = 1;
 
 	// Live preview
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
+	// Remove section
+	$wp_customize->remove_control( 'blogdescription' );
 	
 }
 add_action( 'customize_register', 'bulan_move_default_customizer' );

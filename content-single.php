@@ -1,3 +1,21 @@
+<?php
+// Theme prefix
+$prefix = 'bulan-';
+
+// Get the data set in customizer
+$cat        = bulan_mod( $prefix . 'post-cat' );
+$date       = bulan_mod( $prefix . 'post-date' );
+$tag        = bulan_mod( $prefix . 'post-tag' );
+$date_style = bulan_mod( $prefix . 'post-date-style' );
+
+// Set up empty variable
+$style = '';
+if ( $date_style == 'absolute' ) {
+	$style = esc_html( get_the_date() );
+} else {
+	$style = sprintf( __( '%s ago', 'bulan' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+}
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
 	<header class="entry-header">
@@ -6,7 +24,7 @@
 			<?php
 				/* translators: used between list items, there is a space after the comma */
 				$categories_list = get_the_category_list( __( ', ', 'bulan' ) );
-				if ( $categories_list && bulan_categorized_blog() ) :
+				if ( $categories_list && bulan_categorized_blog() && $cat ) :
 			?>
 			<span class="cat-links" <?php hybrid_attr( 'entry-terms', 'category' ); ?>>
 				<?php echo $categories_list; ?>
@@ -14,8 +32,10 @@
 			<i class="fa fa-circle"></i>
 			<?php endif; // End if categories ?>
 		<?php endif; ?>
-
-		<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php echo esc_html( get_the_date() ); ?></time>
+		
+		<?php if ( $date ) : ?>
+			<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php echo esc_html( $style ); ?></time>
+		<?php endif; ?>
 
 		<?php the_title( '<h1 class="page-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
 
@@ -43,7 +63,7 @@
 		
 		<?php
 			$tags = get_the_tags();
-			if ( $tags ) :
+			if ( $tags && $tag ) :
 		?>
 			<span class="tag-links" <?php hybrid_attr( 'entry-terms', 'post_tag' ); ?>>
 				<?php foreach( $tags as $tag ) : ?>

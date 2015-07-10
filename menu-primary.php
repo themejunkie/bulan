@@ -18,10 +18,16 @@ if ( ! has_nav_menu( 'primary' ) ) {
 				'fallback_cb'     => ''
 			)
 		); ?>
-
-		<span class="search-toggle">
-			<i class="fa fa-search"></i>
-		</span>
+		
+		<?php
+		$prefix = 'bulan-';
+		$show   = bulan_mod( $prefix . 'search-icon' );
+		if ( $show ) :
+		?>
+			<span class="search-toggle">
+				<i class="fa fa-search"></i>
+			</span>
+		<?php endif; ?>
 
 	</div>
 

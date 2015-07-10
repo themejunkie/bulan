@@ -18,6 +18,15 @@
 		margin-bottom: $base-line-height;
 	}
 
+	&.use-excerpt {
+		padding-bottom: 14px;
+		&.has-read-more-tag {
+			&::after {
+				bottom: 0;
+			}
+		}
+	}
+
 	&.no-read-more-tag {
 		padding-bottom: 60px;
 	}
@@ -25,7 +34,7 @@
 	&.has-read-more-tag {
 		&::after {
 			content: "";
-			border-bottom: 1px solid#ededed;
+			border-bottom: 1px solid #ededed;
 			position: absolute;
 			bottom: 23px;
 			left: 0;
@@ -179,6 +188,9 @@
 		border-radius: 50%;
 		float: left;
 		margin-right: 20px;
+		@include susy-media(max-width 320px) {
+			display: none;
+		}
 	}
 
 	.description {

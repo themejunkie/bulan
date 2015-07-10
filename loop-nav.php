@@ -14,6 +14,12 @@
 
 <?php elseif ( is_home() || is_archive() || is_search() ) : // If viewing the blog, an archive, or search results. ?>
 
+	<?php 
+		if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+			return;
+		}
+	?>
+
 	<?php the_posts_pagination(); ?>
 
 <?php endif; // End check for type of page being viewed. ?>

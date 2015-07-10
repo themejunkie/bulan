@@ -190,9 +190,17 @@ add_action( 'after_switch_theme', 'bulan_reset_default_image_sizes' );
  */
 function bulan_widgets_init() {
 
-	// Register ad widget.
+	// Register recent posts thumbnail widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-recent.php';
 	register_widget( 'Bulan_Recent_Widget' );
+
+	// Register social widget.
+	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-social.php';
+	register_widget( 'Bulan_Social_Widget' );
+
+	// Register facebook widget.
+	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-facebook.php';
+	register_widget( 'Bulan_Facebook_Widget' );
 	
 }
 add_action( 'widgets_init', 'bulan_widgets_init' );
