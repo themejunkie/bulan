@@ -40,13 +40,27 @@
 	.site-title {
 		text-transform: uppercase;
 		a {
-			border: 3px double #fff;
-			color: #fff;
+			border: 3px double $color-3;
+			color: $color-3;
 			padding: 5px 25px;
 			&:hover {
 				border-color: $color-1;
 			}
 		}
+	}
+
+	.has-custom-header &,
+	.has-featured-image & {
+
+		.site-title {
+
+			a {
+				border: 3px double #fff;
+				color: #fff;
+			}
+
+		}
+
 	}
 
 	.site-description {

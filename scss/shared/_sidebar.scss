@@ -2,6 +2,7 @@
 	font-size: 16px;
 	line-height: 1.5;
 	margin-bottom: 60px;
+	word-wrap: break-word;
 
 	@include susy-media(601px 801px) {
 		@include span(6 of 12);
@@ -190,27 +191,32 @@
 	}	
 }
 
-.widget_social {
+.widget {
 
-	a {
-		background-color: #fff;
-		color: #454545;
-		border: 3px double $border-color;
-		display: inline-block;
-		margin-right: 8px;
-		margin-bottom: 8px;
-		width: 35px;
-		height: 35px;
-		line-height: 1;
-		text-align: center;
-		padding: 7px;
-		&:last-child {
-			margin-right: 0;
+	&.widget_social,
+	&.widget_wpcom_social_media_icons_widget {
+
+		a {
+			background-color: #fff;
+			color: #454545;
+			border: 3px double $border-color;
+			display: inline-block;
+			margin-right: 8px;
+			margin-bottom: 8px;
+			width: 35px;
+			height: 35px;
+			line-height: 1;
+			text-align: center;
+			padding: 7px;
+			&:last-child {
+				margin-right: 0;
+			}
+			&:hover {
+				background-color: $color-1;
+				color: $color-2;
+			}
 		}
-		&:hover {
-			background-color: $color-1;
-			color: $color-2;
-		}
+
 	}
 
 }

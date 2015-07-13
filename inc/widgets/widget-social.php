@@ -20,7 +20,7 @@ class Bulan_Social_Widget extends WP_Widget {
 		// Set up the widget options.
 		$widget_options = array(
 			'classname'   => 'widget_social',
-			'description' => __( 'Display your social link profile.', 'bulan' )
+			'description' => __( 'Display your social media icons.', 'bulan' )
 		);
 
 		// Create the widget.

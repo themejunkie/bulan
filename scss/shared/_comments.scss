@@ -24,6 +24,9 @@
 		.avatar {
 			width: 90px;
 		}
+		.children {
+			padding-left: 30px;
+		}
 		@include susy-media(600px) {
 			padding-left: 90px;
 		}

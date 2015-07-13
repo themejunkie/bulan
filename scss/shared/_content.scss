@@ -13,6 +13,7 @@
 .hentry {
 	margin-bottom: 50px;
 	position: relative;
+	word-wrap: break-word;
 
 	.single & {
 		margin-bottom: $base-line-height;
@@ -337,6 +338,7 @@
 
 		li {
 			margin-bottom: 40px;
+			word-wrap: break-word;
 			@include susy-media(768px) {
 				@include span(4 of 12);
 				margin-bottom: 0;
@@ -388,4 +390,11 @@
 		margin-bottom: 60px;
 	}
 
+}
+
+/**
+ * Jetpack
+ */
+.jetpack-share-like {
+	margin-top: 30px;
 }

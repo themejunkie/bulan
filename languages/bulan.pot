@@ -1,0 +1,802 @@
+# Copyright (C) 2015 ThemePhe
+# This file is distributed under the GNU General Public License v2.0 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Bulan 1.0.0\n"
+"Report-Msgid-Bugs-To: http://themephe.com/\n"
+"POT-Creation-Date: 2015-07-13 14:42:16+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Satrya (satrya@themephe.com)\n"
+"Language-Team: Satrya (satrya@themephe.com)\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: "
+"__;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c;_nc:4c,1,2;_"
+"x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Textdomain-Support: yes\n"
+
+#: 404.php:9
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:10
+msgid ""
+"It looks like nothing was found at this location. Maybe try a search or "
+"browse our latest posts below."
+msgstr ""
+
+#: admin/controls/switch.php:57
+msgid "On"
+msgstr ""
+
+#: admin/controls/switch.php:58
+msgid "Off"
+msgstr ""
+
+#: admin/extensions/fonts.php:18
+msgid "Text Fonts"
+msgstr ""
+
+#: admin/extensions/fonts.php:20
+msgid "Google Fonts"
+msgstr ""
+
+#: admin/extensions/fonts.php:125
+msgid "All"
+msgstr ""
+
+#: admin/extensions/fonts.php:126
+msgid "Cyrillic"
+msgstr ""
+
+#: admin/extensions/fonts.php:127
+msgid "Cyrillic Extended"
+msgstr ""
+
+#: admin/extensions/fonts.php:128
+msgid "Devanagari"
+msgstr ""
+
+#: admin/extensions/fonts.php:129
+msgid "Greek"
+msgstr ""
+
+#: admin/extensions/fonts.php:130
+msgid "Greek Extended"
+msgstr ""
+
+#: admin/extensions/fonts.php:131
+msgid "Khmer"
+msgstr ""
+
+#: admin/extensions/fonts.php:132
+msgid "Latin"
+msgstr ""
+
+#: admin/extensions/fonts.php:133
+msgid "Latin Extended"
+msgstr ""
+
+#: admin/extensions/fonts.php:134
+msgid "Vietnamese"
+msgstr ""
+
+#: admin/functions.php:48 inc/customizer.php:297
+msgid "Site Title"
+msgstr ""
+
+#: admin/functions.php:49
+msgid "Site title will automatically disapear if you upload a logo."
+msgstr ""
+
+#: admin/functions.php:50
+msgid "Background"
+msgstr ""
+
+#: admin/functions.php:79
+msgid "Select a tag &hellip;"
+msgstr ""
+
+#: admin/functions.php:105
+msgid "Select a category &hellip;"
+msgstr ""
+
+#: comments.php:26 comments.php:43
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:27 comments.php:44
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:28 comments.php:45
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:55
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:61
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:62
+msgid "Comment"
+msgstr ""
+
+#: content-blog-grid.php:16 content-blog-list.php:16 content-single.php:26
+#: content.php:15
+#. translators: used between list items, there is a space after the comma
+msgid ", "
+msgstr ""
+
+#: content-none.php:4
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:10
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:14
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: content-none.php:19
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: content-page.php:21 content-single.php:55 image.php:35
+msgid "Pages:"
+msgstr ""
+
+#: content-page.php:27
+msgid "Edit"
+msgstr ""
+
+#: content-single.php:16 inc/template-tags.php:67
+msgid "%s ago"
+msgstr ""
+
+#: content.php:36 inc/extras.php:162
+msgid "Continue Reading"
+msgstr ""
+
+#: functions.php:69
+msgid "Primary Location"
+msgstr ""
+
+#: functions.php:97
+msgid "1 Column Wide (Full Width)"
+msgstr ""
+
+#: functions.php:98
+msgid "2 Columns: Content / Sidebar"
+msgstr ""
+
+#: functions.php:99
+msgid "2 Columns: Sidebar / Content"
+msgstr ""
+
+#: functions.php:166
+msgid "Primary Sidebar"
+msgstr ""
+
+#: functions.php:168
+msgid "Main sidebar that appears on the right."
+msgstr ""
+
+#: inc/customizer.php:44
+msgid "General"
+msgstr ""
+
+#: inc/customizer.php:53 inc/customizer.php:59
+msgid "Favicon"
+msgstr ""
+
+#: inc/customizer.php:63
+msgid ""
+"File must be <strong>.png</strong> or <strong>.ico</strong> format. Optimal "
+"dimensions: <strong>32px x 32px</strong>."
+msgstr ""
+
+#: inc/customizer.php:67
+msgid "Apple Touch Icon"
+msgstr ""
+
+#: inc/customizer.php:71
+msgid ""
+"File must be <strong>.png</strong> format. Optimal dimensions: "
+"<strong>152px x 152px</strong>."
+msgstr ""
+
+#: inc/customizer.php:79
+msgid "RSS"
+msgstr ""
+
+#: inc/customizer.php:82
+msgid "If you fill the custom rss url below, it will replace the default."
+msgstr ""
+
+#: inc/customizer.php:86
+msgid "Custom RSS URL (eg. Feedburner)"
+msgstr ""
+
+#: inc/customizer.php:97
+msgid "Comments"
+msgstr ""
+
+#: inc/customizer.php:103
+msgid "Page Comment"
+msgstr ""
+
+#: inc/customizer.php:104
+msgid "Enable comment on page"
+msgstr ""
+
+#: inc/customizer.php:115
+msgid "Social"
+msgstr ""
+
+#: inc/customizer.php:116
+msgid "Please add full profile link, for example https://twitter.com/themephe/"
+msgstr ""
+
+#: inc/customizer.php:122
+msgid "Twitter Profile"
+msgstr ""
+
+#: inc/customizer.php:128
+msgid "Facebook Profile"
+msgstr ""
+
+#: inc/customizer.php:134
+msgid "Google Plus Profile"
+msgstr ""
+
+#: inc/customizer.php:140
+msgid "Linkedin Profile"
+msgstr ""
+
+#: inc/customizer.php:146
+msgid "Dribbble Profile"
+msgstr ""
+
+#: inc/customizer.php:152
+msgid "Instagram Profile"
+msgstr ""
+
+#: inc/customizer.php:162
+msgid "Footer Text"
+msgstr ""
+
+#: inc/customizer.php:169
+msgid "Customize the footer text."
+msgstr ""
+
+#: inc/customizer.php:180 inc/customizer.php:291
+msgid "Header"
+msgstr ""
+
+#: inc/customizer.php:189
+msgid "Logo"
+msgstr ""
+
+#: inc/customizer.php:195
+msgid "Regular Logo"
+msgstr ""
+
+#: inc/customizer.php:202
+msgid "Retina Logo"
+msgstr ""
+
+#: inc/customizer.php:203
+msgid "The Retina Logo should be twice the size of the Regular Logo."
+msgstr ""
+
+#: inc/customizer.php:214 inc/customizer.php:265
+msgid "Search"
+msgstr ""
+
+#: inc/customizer.php:215
+msgid "Show search icon"
+msgstr ""
+
+#: inc/customizer.php:232
+msgid "Color"
+msgstr ""
+
+#: inc/customizer.php:241 inc/customizer.php:582
+msgid "Global"
+msgstr ""
+
+#: inc/customizer.php:247 inc/customizer.php:357 inc/customizer.php:407
+#: inc/customizer.php:464 inc/customizer.php:514
+msgid "Text color"
+msgstr ""
+
+#: inc/customizer.php:254 inc/customizer.php:331 inc/customizer.php:381
+#: inc/customizer.php:423 inc/customizer.php:472 inc/customizer.php:522
+msgid "Link color"
+msgstr ""
+
+#: inc/customizer.php:271 inc/customizer.php:551
+msgid "Icon color"
+msgstr ""
+
+#: inc/customizer.php:279 inc/customizer.php:323 inc/customizer.php:506
+#: inc/customizer.php:536
+msgid "Background color"
+msgstr ""
+
+#: inc/customizer.php:305
+msgid "Site Title Border"
+msgstr ""
+
+#: inc/customizer.php:317
+msgid "Menu"
+msgstr ""
+
+#: inc/customizer.php:339
+msgid "Hover & current menu color"
+msgstr ""
+
+#: inc/customizer.php:350
+msgid "Post"
+msgstr ""
+
+#: inc/customizer.php:351
+msgid "Used for single post only, please navigate the preview to the existing post."
+msgstr ""
+
+#: inc/customizer.php:365 inc/customizer.php:415
+msgid "Heading color"
+msgstr ""
+
+#: inc/customizer.php:373
+msgid "Excerpt color"
+msgstr ""
+
+#: inc/customizer.php:389 inc/customizer.php:431
+msgid "Link hover color"
+msgstr ""
+
+#: inc/customizer.php:400 inc/customizer.php:727
+msgid "Page"
+msgstr ""
+
+#: inc/customizer.php:401
+msgid "Used for page only, please navigate the preview to the existing page."
+msgstr ""
+
+#: inc/customizer.php:442
+msgid "Widget"
+msgstr ""
+
+#: inc/customizer.php:448
+msgid "Background Title color"
+msgstr ""
+
+#: inc/customizer.php:456
+msgid "Title color"
+msgstr ""
+
+#: inc/customizer.php:480
+msgid "Link Hover color"
+msgstr ""
+
+#: inc/customizer.php:487
+msgid "Border color"
+msgstr ""
+
+#: inc/customizer.php:488
+msgid "Use for widget with list such as Recent Posts, etc."
+msgstr ""
+
+#: inc/customizer.php:500
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer.php:530
+msgid "Social color"
+msgstr ""
+
+#: inc/customizer.php:544
+msgid "Background Hover color"
+msgstr ""
+
+#: inc/customizer.php:563
+msgid "Background Image"
+msgstr ""
+
+#: inc/customizer.php:572
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer.php:588
+msgid "Text font"
+msgstr ""
+
+#: inc/customizer.php:596
+msgid "Heading font"
+msgstr ""
+
+#: inc/customizer.php:608
+msgid "Content Layout"
+msgstr ""
+
+#: inc/customizer.php:617
+msgid "Blog"
+msgstr ""
+
+#: inc/customizer.php:623
+msgid "Blog content"
+msgstr ""
+
+#: inc/customizer.php:628
+msgid "Content"
+msgstr ""
+
+#: inc/customizer.php:629
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer.php:638
+msgid "Posts"
+msgstr ""
+
+#: inc/customizer.php:639
+msgid ""
+"Posts is a single post page. Please navigate the preview to the single post "
+"to see changes."
+msgstr ""
+
+#: inc/customizer.php:645
+msgid "Post Meta"
+msgstr ""
+
+#: inc/customizer.php:651
+msgid "Show post date"
+msgstr ""
+
+#: inc/customizer.php:658
+msgid "Show post categories"
+msgstr ""
+
+#: inc/customizer.php:665
+msgid "Show post tags"
+msgstr ""
+
+#: inc/customizer.php:672
+msgid "Show post author box"
+msgstr ""
+
+#: inc/customizer.php:679
+msgid "Post Date"
+msgstr ""
+
+#: inc/customizer.php:685
+msgid "Style"
+msgstr ""
+
+#: inc/customizer.php:690
+msgid "Absolute (June 16, 2015)"
+msgstr ""
+
+#: inc/customizer.php:691
+msgid "Relative (1 week ago)"
+msgstr ""
+
+#: inc/customizer.php:696 inc/customizer.php:705
+msgid "Related Posts"
+msgstr ""
+
+#: inc/customizer.php:702
+msgid "Related Posts Title"
+msgstr ""
+
+#: inc/customizer.php:709
+msgid "Show related posts"
+msgstr ""
+
+#: inc/customizer.php:716
+msgid "Show related posts thumbnail"
+msgstr ""
+
+#: inc/customizer.php:733
+msgid "Show page title"
+msgstr ""
+
+#: inc/extras.php:133
+msgid "Page %s"
+msgstr ""
+
+#: inc/hybrid/theme-layouts.php:437 inc/hybrid/theme-layouts.php:547
+#: inc/hybrid/theme-layouts.php:632
+msgid "Layout"
+msgstr ""
+
+#: inc/hybrid/theme-layouts.php:463
+msgid "Layout is a theme-specific structure for the single view of the post."
+msgstr ""
+
+#: inc/hybrid/theme-layouts.php:665
+msgid "Global Layout"
+msgstr ""
+
+#: inc/template-tags.php:72
+msgid "Published: %s"
+msgstr ""
+
+#: inc/template-tags.php:77
+msgid "Author: %s"
+msgstr ""
+
+#: inc/template-tags.php:93
+msgid "Size: %s"
+msgstr ""
+
+#: inc/template-tags.php:98
+msgid "Camera: %s"
+msgstr ""
+
+#: inc/template-tags.php:104
+msgid "Aperture: %s"
+msgstr ""
+
+#: inc/template-tags.php:110
+msgid "Focal Length: %s"
+msgstr ""
+
+#: inc/template-tags.php:116
+msgid "ISO: %s"
+msgstr ""
+
+#: inc/template-tags.php:122
+msgid "Shutter Speed: %s"
+msgstr ""
+
+#: inc/template-tags.php:336
+msgid "Pingback:"
+msgstr ""
+
+#: inc/template-tags.php:336
+msgid "(Edit)"
+msgstr ""
+
+#: inc/template-tags.php:362
+#. translators: 1: date, 2: time
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/template-tags.php:363
+msgid "%1$s&middot; Edit%2$s"
+msgstr ""
+
+#: inc/template-tags.php:363
+msgid "Edit Comment"
+msgstr ""
+
+#: inc/template-tags.php:370
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/template-tags.php:374
+msgid "<i class=\"fa fa-reply\"></i> Reply"
+msgstr ""
+
+#: inc/template-tags.php:403
+msgid "Author"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:23
+msgid "Display a Facebook Like Box to connect visitors to your Facebook Page"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:29
+msgid "Facebook Like Box"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:97
+msgid "Find Us On Facebook"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:110 inc/widgets/widget-recent.php:140
+#: inc/widgets/widget-social.php:125
+msgid "Title"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:117
+msgid "Facebook Page URL"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:125
+msgid "Hide cover"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:132
+msgid "Small header"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:139
+msgid "Show face"
+msgstr ""
+
+#: inc/widgets/widget-facebook.php:146
+msgid "Show posts"
+msgstr ""
+
+#: inc/widgets/widget-recent.php:21
+msgid "Your site's most recent Posts along with thumbnail."
+msgstr ""
+
+#: inc/widgets/widget-recent.php:27
+msgid "Recent Posts Thumbnails"
+msgstr ""
+
+#: inc/widgets/widget-recent.php:130
+msgid "Recent Posts"
+msgstr ""
+
+#: inc/widgets/widget-recent.php:147
+msgid "Number of posts to show"
+msgstr ""
+
+#: inc/widgets/widget-recent.php:155
+msgid "Display post date?"
+msgstr ""
+
+#: inc/widgets/widget-social.php:23
+msgid "Display your social media icons."
+msgstr ""
+
+#: inc/widgets/widget-social.php:29
+msgid "Social Icons"
+msgstr ""
+
+#: inc/widgets/widget-social.php:110
+msgid "Follow us"
+msgstr ""
+
+#: inc/widgets/widget-social.php:132
+msgid "Facebook"
+msgstr ""
+
+#: inc/widgets/widget-social.php:139
+msgid "Twitter"
+msgstr ""
+
+#: inc/widgets/widget-social.php:146
+msgid "Google Plus"
+msgstr ""
+
+#: inc/widgets/widget-social.php:153
+msgid "Pinterest"
+msgstr ""
+
+#: inc/widgets/widget-social.php:160
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/widgets/widget-social.php:167
+msgid "Instagram"
+msgstr ""
+
+#: inc/widgets/widget-social.php:174
+msgid "RSS Feed"
+msgstr ""
+
+#: loop-nav.php:4
+msgid "Previous: %link"
+msgstr ""
+
+#: loop-nav.php:5
+msgid "Next: %link"
+msgstr ""
+
+#: loop-nav.php:11
+msgid "&laquo; Previous Image"
+msgstr ""
+
+#: loop-nav.php:12
+msgid "Next Image &raquo;"
+msgstr ""
+
+#: search.php:9
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:3
+msgid "Press enter to search &hellip;"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Bulan"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://wp.themephe.com/bulan"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Bulan is a beautiful and minimal blog theme. Easy to customize and easy to "
+"use!"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "ThemePhe"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://themephe.com/"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Blog Grid Template"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Blog List Template"
+msgstr ""
+
+#: admin/extensions/fonts.php:194
+msgctxt "font style"
+msgid "Serif"
+msgstr ""
+
+#: admin/extensions/fonts.php:198
+msgctxt "font style"
+msgid "Sans Serif"
+msgstr ""
+
+#: admin/extensions/fonts.php:202
+msgctxt "font style"
+msgid "Monospaced"
+msgstr ""
+
+#: comments.php:19
+msgctxt "bulan"
+msgid "One Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions.php:192
+#. Translators: If there are characters in your language that are not supported
+#. by Crimson Text, translate this to 'off'. Do not translate into your own
+#. language.
+msgctxt "Crimson Text font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:212
+#. Translators: If there are characters in your language that are not supported
+#. by Oswald, translate this to 'off'. Do not translate into your own language.
+msgctxt "Oswald font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/hybrid/theme-layouts.php:345
+#. Translators: Default theme layout option.
+msgctxt "theme layout"
+msgid "Default"
+msgstr ""
+
+#: sidebar.php:13
+msgctxt "Sidebar aria label"
+msgid "Primary Sidebar"
+msgstr ""

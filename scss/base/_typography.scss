@@ -84,18 +84,18 @@ del {
 }
 
 code, kbd, pre, samp {
-	font-size: 16px;
+	font-size: 80%;
 }
 
 pre {
 	margin: $base-line-height 0;
 	padding: $base-line-height;
 	background-color: #fafafa;
-	color: #2080ad;
+	color: $color-1;
 }
 
 code {
-	color: #2080ad;
+	color: $color-1;
 }
 
 ins {

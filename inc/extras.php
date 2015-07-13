@@ -41,6 +41,22 @@ function bulan_body_classes( $classes ) {
 		$classes[] = 'multi-author';
 	}
 
+	// Adds a class to check custom header
+	if ( get_header_image() ) {
+		$classes[] = 'has-custom-header';
+	} else {
+		$classes[] = 'no-custom-header';
+	}
+
+	// Adds a class if post/page has featured image
+	if ( is_singular() ) {
+		if ( has_post_thumbnail( get_the_ID() ) ) {
+			$classes[] = 'has-featured-image';
+		} else {
+			$classes[] = 'no-featured-image';
+		}
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'bulan_body_classes' );

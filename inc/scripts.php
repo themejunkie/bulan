@@ -119,6 +119,9 @@ function bulan_custom_header() {
 			}';
 	endif;
 
-	wp_add_inline_style( 'bulan-style', $header_css );
+	if ( ! empty( $header_css ) ) :
+		wp_add_inline_style( 'bulan-style', $header_css );
+	endif;
+
 }
 add_action( 'wp_enqueue_scripts', 'bulan_custom_header' );

@@ -473,7 +473,7 @@ function hybrid_attr_comment( $attr ) {
 
 		$attr['itemprop']  = 'comment';
 		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/UserComments';
+		$attr['itemtype']  = 'http://schema.org/Comment';
 	}
 
 	return $attr;
@@ -506,7 +506,7 @@ function hybrid_attr_comment_author( $attr ) {
  */
 function hybrid_attr_comment_published( $attr ) {
 
-	$attr['itemprop'] = 'commentTime';
+	$attr['itemprop'] = 'dateCreated';
 
 	return $attr;
 }
@@ -536,7 +536,7 @@ function hybrid_attr_comment_permalink( $attr ) {
  */
 function hybrid_attr_comment_content( $attr ) {
 
-	$attr['itemprop'] = 'commentText';
+	$attr['itemprop'] = 'text';
 
 	return $attr;
 }
@@ -592,22 +592,6 @@ function bulan_entry_markup( $classes ) {
 	
 }
 add_filter( 'post_class', 'bulan_entry_markup' );
-
-/**
- * Adds microdata to the comment reply link.
- *
- * @author  Justin Tadlock, justintadlock.com
- * @link    http://themehybrid.com/hybrid-core
- * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- *
- * @since  1.0.0
- * @param  string  $link
- * @return string
- */
-function bulan_comment_reply_link_filter( $link ) {
-	return preg_replace( '/(<a\s)/i', '$1itemprop="replyToUrl"', $link );
-}
-add_filter( 'comment_reply_link', 'bulan_comment_reply_link_filter', 5 );
 
 /**
  * Adds microdata to the comments popup link.
