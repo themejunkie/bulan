@@ -22,7 +22,7 @@ class Bulan_Recent_Widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget(
+		parent::__construct(
 			'bulan-recent',                           // $this->id_base
 			__( 'Recent Posts Thumbnails', 'bulan' ), // $this->name
 			$widget_options                           // $this->widget_options

@@ -1416,6 +1416,9 @@ a.pure-button-selected {
   position: relative; }
   .single .hentry {
     margin-bottom: 27px; }
+    .single .hentry .entry-title {
+      font-size: 30px;
+      margin-top: 10px; }
   .hentry.use-excerpt {
     padding-bottom: 14px; }
     .hentry.use-excerpt.has-read-more-tag::after {

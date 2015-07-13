@@ -12,13 +12,13 @@
 /**
  * Loads custom style set in customizer
  */
+require trailingslashit( get_template_directory() ) . 'inc/styles/global.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/search.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/header.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/menu.php';
-require trailingslashit( get_template_directory() ) . 'inc/styles/page-header.php';
-require trailingslashit( get_template_directory() ) . 'inc/styles/grid.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/post.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/page.php';
+require trailingslashit( get_template_directory() ) . 'inc/styles/widget.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/footer.php';
 require trailingslashit( get_template_directory() ) . 'inc/styles/fonts.php';
 

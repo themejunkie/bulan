@@ -63,9 +63,62 @@ add_action( 'wp_enqueue_scripts', 'bulan_enqueue' );
  */
 function bulan_special_scripts() {
 ?>
-<!--[if lte IE 9]>
+<!--[if lt IE 9]>
 <script src="<?php echo trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.min.js'; ?>"></script>
 <![endif]-->
 <?php
 }
 add_action( 'wp_head', 'bulan_special_scripts', 15 );
+
+/**
+ * Display the custom header.
+ *
+ * @since  1.0.0
+ */
+function bulan_custom_header() {
+
+	// Get the custom header.
+	$header = get_header_image();
+
+	// Get the featured image
+	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+
+	// Set up empty variable
+	$image = '';
+
+	// If on single post or page, use the featured image.
+	if ( is_single() || is_page() ) {
+		if ( $featured ) {
+			$image = $featured[0];
+		} else {
+			$image = $header;
+		}
+	} else {
+		$image = $header;
+	}
+
+	// Display the custom header via inline CSS.
+	if ( $image ) :
+		$header_css = '
+			.site-header {
+				background-image: url("' . esc_url( $image ) . '");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+			.site-header::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(204, 137, 0, 0.3);
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 0;
+			}';
+	endif;
+
+	wp_add_inline_style( 'bulan-style', $header_css );
+}
+add_action( 'wp_enqueue_scripts', 'bulan_custom_header' );

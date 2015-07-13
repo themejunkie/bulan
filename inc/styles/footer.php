@@ -88,6 +88,23 @@ function bulan_customizer_footer_styles() {
 		) );
 	}
 
+	// Social bg hover color
+	$social_bg_hover = bulan_mod( $prefix . 'footer-social-bg-hover-color' );
+
+	if ( $social_bg_hover !== customizer_library_get_default( $prefix . 'footer-social-bg-hover-color' ) ) {
+
+		$color = sanitize_hex_color( $social_bg_hover );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'.social-links a:hover'
+			),
+			'declarations' => array(
+				'background-color' => $color
+			)
+		) );
+	}
+
 	// Social icon color
 	$social_icon = bulan_mod( $prefix . 'footer-social-icon-color' );
 

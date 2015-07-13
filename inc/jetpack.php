@@ -22,14 +22,8 @@ function bulan_jetpack_setup() {
 	 * See: http://jetpack.me/support/infinite-scroll/
 	 */
 	add_theme_support( 'infinite-scroll', array(
-		'container'      => 'main',
-		'footer_widgets' => array(
-			'footer-one',
-			'footer-two',
-			'footer-three',
-			'footer-four',
-		),
-		'footer'         => 'page',
+		'container' => 'main',
+		'footer'    => 'page',
 	) );
 	
 	/**

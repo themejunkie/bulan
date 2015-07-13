@@ -32,6 +32,9 @@ function bulan_customizer_register() {
 	
 	// Theme prefix
 	$prefix = 'bulan-';
+
+	// Base color
+	$color = '#cc8900';
 	
 	// General Panels and Sections
 	$general_panel = 'general';
@@ -230,13 +233,37 @@ function bulan_customizer_register() {
 		'priority' => 20
 	);
 
+		// Global colors
+		$section = $prefix . 'global-colors-section';
+
+		$sections[] = array(
+			'id'          => $section,
+			'title'       => __( 'Global', 'bulan' ),
+			'priority'    => 1,
+			'panel'       => $color_panel
+		);
+		$options[$prefix . 'global-text-color'] = array(
+			'id'          => $prefix . 'global-text-color',
+			'label'       => __( 'Text color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#454545'
+		);
+		$options[$prefix . 'global-link-color'] = array(
+			'id'          => $prefix . 'global-link-color',
+			'label'       => __( 'Link color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => $color
+		);
+
 		// Search colors
 		$section = $prefix . 'search-colors-section';
 
 		$sections[] = array(
 			'id'          => $section,
 			'title'       => __( 'Search', 'bulan' ),
-			'priority'    => 1,
+			'priority'    => 3,
 			'panel'       => $color_panel
 		);
 		$options[$prefix . 'search-icon-color'] = array(
@@ -244,7 +271,7 @@ function bulan_customizer_register() {
 			'label'       => __( 'Icon color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#454545',
+			'default'     => '#ffffff',
 			'transport'   => 'postMessage'
 		);
 		$options[$prefix . 'search-bg-color'] = array(
@@ -252,7 +279,7 @@ function bulan_customizer_register() {
 			'label'       => __( 'Background color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#333333',
+			'default'     => $color,
 			'transport'   => 'postMessage'
 		);
 		
@@ -270,15 +297,15 @@ function bulan_customizer_register() {
 			'label'       => __( 'Site Title', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#454545',
+			'default'     => '#ffffff',
 			'transport'   => 'postMessage'
 		);
-		$options[$prefix . 'site-desc-color'] = array(
-			'id'          => $prefix . 'site-desc-color',
-			'label'       => __( 'Site Description', 'bulan' ),
+		$options[$prefix . 'site-title-border-color'] = array(
+			'id'          => $prefix . 'site-title-border-color',
+			'label'       => __( 'Site Title Border', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#777777',
+			'default'     => '#ffffff',
 			'transport'   => 'postMessage'
 		);
 
@@ -291,6 +318,14 @@ function bulan_customizer_register() {
 			'priority'    => 15,
 			'panel'       => $color_panel
 		);
+		$options[$prefix . 'menu-link-bg-color'] = array(
+			'id'          => $prefix . 'menu-link-bg-color',
+			'label'       => __( 'Background color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#ffffff',
+			'transport'   => 'postMessage'
+		);
 		$options[$prefix . 'menu-link-color'] = array(
 			'id'          => $prefix . 'menu-link-color',
 			'label'       => __( 'Link color', 'bulan' ),
@@ -299,106 +334,12 @@ function bulan_customizer_register() {
 			'default'     => '#454545',
 			'transport'   => 'postMessage'
 		);
-		$options[$prefix . 'menu-current-group'] = array(
-			'id'          => $prefix . 'menu-current-group',
-			'label'       => __( 'Hover & Current Menu', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'group-title'
-		);
-			$options[$prefix . 'menu-current-hover-color'] = array(
-				'id'          => $prefix . 'menu-current-hover-color',
-				'label'       => __( 'Hover & current menu color', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'color',
-				'default'     => '#2196F3'
-			);
-			$options[$prefix . 'menu-current-hover-border-color'] = array(
-				'id'          => $prefix . 'menu-current-hover-border-color',
-				'label'       => __( 'Hover & current menu border color', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'color',
-				'default'     => '#2196F3'
-			);
-
-		// Page header colors
-		$section = $prefix . 'page-header-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Page Header', 'bulan' ),
-			'description' => __( 'This colors are used for: Callout, taxonomy title and excerpt, post excerpt and search result text.', 'bulan' ),
-			'priority'    => 20,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'page-header-title-color'] = array(
-			'id'          => $prefix . 'page-header-title-color',
-			'label'       => __( 'Title color', 'bulan' ),
+		$options[$prefix . 'menu-current-hover-color'] = array(
+			'id'          => $prefix . 'menu-current-hover-color',
+			'label'       => __( 'Hover & current menu color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'page-header-excerpt-color'] = array(
-			'id'          => $prefix . 'page-header-excerpt-color',
-			'label'       => __( 'Excerpt color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#777777',
-			'transport'   => 'postMessage'
-		);
-
-		// Posts grid colors
-		$section = $prefix . 'posts-grid-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Posts Grid', 'bulan' ),
-			'description' => __( 'Posts grid is a list of posts displayed on home, archive and search page.', 'bulan' ),
-			'priority'    => 20,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'grid-img-grayscale'] = array(
-			'id'          => $prefix . 'grid-img-grayscale',
-			'label'       => __( 'Image grayscale', 'bulan' ),
-			'description' => __( 'Grayscale is the \'gray\' effect for the image. Please select the input and scroll up or down to choose the number.', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'number',
-			'default'     => '100',
-			'input_attrs' => array(
-				'min'   => 0,
-				'max'   => 100,
-				'step'  => 10
-			),
-		);
-		$options[$prefix . 'grid-title-color'] = array(
-			'id'          => $prefix . 'grid-title-color',
-			'label'       => __( 'Title color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'grid-title-hover-color'] = array(
-			'id'          => $prefix . 'grid-title-hover-color',
-			'label'       => __( 'Title hover color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#2196F3'
-		);
-		$options[$prefix . 'grid-cat-color'] = array(
-			'id'          => $prefix . 'grid-cat-color',
-			'label'       => __( 'Category color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#777777',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'grid-cat-hover-color'] = array(
-			'id'          => $prefix . 'grid-cat-hover-color',
-			'label'       => __( 'Category hover color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#2196F3'
+			'default'     => $color
 		);
 
 		// Posts colors
@@ -406,7 +347,7 @@ function bulan_customizer_register() {
 
 		$sections[] = array(
 			'id'          => $section,
-			'title'       => __( 'Posts', 'bulan' ),
+			'title'       => __( 'Post', 'bulan' ),
 			'description' => __( 'Used for single post only, please navigate the preview to the existing post.', 'bulan' ),
 			'priority'    => 25,
 			'panel'       => $color_panel
@@ -427,12 +368,20 @@ function bulan_customizer_register() {
 			'default'     => '#454545',
 			'transport'   => 'postMessage'
 		);
+		$options[$prefix . 'post-excerpt-color'] = array(
+			'id'          => $prefix . 'post-excerpt-color',
+			'label'       => __( 'Excerpt color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#999999',
+			'transport'   => 'postMessage'
+		);
 		$options[$prefix . 'post-link-color'] = array(
 			'id'          => $prefix . 'post-link-color',
 			'label'       => __( 'Link color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#2196F3',
+			'default'     => $color,
 			'transport'   => 'postMessage'
 		);
 		$options[$prefix . 'post-link-hover-color'] = array(
@@ -440,7 +389,7 @@ function bulan_customizer_register() {
 			'label'       => __( 'Link hover color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#51adf6'
+			'default'     => '#b37800'
 		);
 
 		// Page colors
@@ -474,7 +423,7 @@ function bulan_customizer_register() {
 			'label'       => __( 'Link color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#2196F3',
+			'default'     => $color,
 			'transport'   => 'postMessage'
 		);
 		$options[$prefix . 'page-link-hover-color'] = array(
@@ -482,7 +431,65 @@ function bulan_customizer_register() {
 			'label'       => __( 'Link hover color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#51adf6'
+			'default'     => '#b37800'
+		);
+
+		// Widget colors
+		$section = $prefix . 'widget-colors-section';
+
+		$sections[] = array(
+			'id'          => $section,
+			'title'       => __( 'Widget', 'bulan' ),
+			'priority'    => 35,
+			'panel'       => $color_panel
+		);
+		$options[$prefix . 'widget-bg-title-color'] = array(
+			'id'          => $prefix . 'widget-bg-title-color',
+			'label'       => __( 'Background Title color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#333333',
+			'transport'   => 'postMessage'
+		);
+		$options[$prefix . 'widget-title-color'] = array(
+			'id'          => $prefix . 'widget-title-color',
+			'label'       => __( 'Title color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#ffffff',
+			'transport'   => 'postMessage'
+		);
+		$options[$prefix . 'widget-text-color'] = array(
+			'id'          => $prefix . 'widget-text-color',
+			'label'       => __( 'Text color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#454545',
+			'transport'   => 'postMessage'
+		);
+		$options[$prefix . 'widget-link-color'] = array(
+			'id'          => $prefix . 'widget-link-color',
+			'label'       => __( 'Link color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#454545',
+			'transport'   => 'postMessage'
+		);
+		$options[$prefix . 'widget-link-hover-color'] = array(
+			'id'          => $prefix . 'widget-link-hover-color',
+			'label'       => __( 'Link Hover color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => $color
+		);
+		$options[$prefix . 'widget-border-color'] = array(
+			'id'          => $prefix . 'widget-border-color',
+			'label'       => __( 'Border color', 'bulan' ),
+			'description' => __( 'Use for widget with list such as Recent Posts, etc.', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#e0e0e0',
+			'transport'   => 'postMessage'
 		);
 
 		// Footer colors
@@ -491,7 +498,7 @@ function bulan_customizer_register() {
 		$sections[] = array(
 			'id'          => $section,
 			'title'       => __( 'Footer', 'bulan' ),
-			'priority'    => 35,
+			'priority'    => 40,
 			'panel'       => $color_panel
 		);
 		$options[$prefix . 'footer-bg-color'] = array(
@@ -499,7 +506,7 @@ function bulan_customizer_register() {
 			'label'       => __( 'Background color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#f5f5f5',
+			'default'     => '#333333',
 			'transport'   => 'postMessage'
 		);
 		$options[$prefix . 'footer-text-color'] = array(
@@ -507,7 +514,7 @@ function bulan_customizer_register() {
 			'label'       => __( 'Text color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#454545',
+			'default'     => '#888888',
 			'transport'   => 'postMessage'
 		);
 		$options[$prefix . 'footer-link-color'] = array(
@@ -515,7 +522,7 @@ function bulan_customizer_register() {
 			'label'       => __( 'Link color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
-			'default'     => '#454545',
+			'default'     => '#ffffff',
 			'transport'   => 'postMessage'
 		);
 		$options[$prefix . 'footer-social-color'] = array(
@@ -529,15 +536,22 @@ function bulan_customizer_register() {
 				'label'       => __( 'Background color', 'bulan' ),
 				'section'     => $section,
 				'type'        => 'color',
-				'default'     => '#333333',
+				'default'     => '#ffffff',
 				'transport'   => 'postMessage'
+			);
+			$options[$prefix . 'footer-social-bg-hover-color'] = array(
+				'id'          => $prefix . 'footer-social-bg-hover-color',
+				'label'       => __( 'Background Hover color', 'bulan' ),
+				'section'     => $section,
+				'type'        => 'color',
+				'default'     => $color
 			);
 			$options[$prefix . 'footer-social-icon-color'] = array(
 				'id'          => $prefix . 'footer-social-icon-color',
 				'label'       => __( 'Icon color', 'bulan' ),
 				'section'     => $section,
 				'type'        => 'color',
-				'default'     => '#ffffff',
+				'default'     => '#454545',
 				'transport'   => 'postMessage'
 			);
 

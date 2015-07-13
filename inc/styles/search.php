@@ -46,7 +46,7 @@ function bulan_customizer_search_styles() {
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'.search-area'
+				'.search-toggle'
 			),
 			'declarations' => array(
 				'background-color' => $color

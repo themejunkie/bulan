@@ -16,7 +16,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 869; /* pixels */
+	$content_width = 628; /* pixels */
 }
 
 if ( ! function_exists( 'bulan_content_width' ) ) :
@@ -28,8 +28,8 @@ if ( ! function_exists( 'bulan_content_width' ) ) :
 function bulan_content_width() {
 	global $content_width;
 
-	if ( in_array( get_theme_mod( 'theme_layout' ), array( '1c' ) ) && ! is_single() ) {
-		$content_width = 940;
+	if ( in_array( get_theme_mod( 'theme_layout' ), array( '1c' ) ) ) {
+		$content_width = 960;
 	}
 }
 endif;
@@ -107,58 +107,6 @@ function bulan_theme_setup() {
 }
 endif; // bulan_theme_setup
 add_action( 'after_setup_theme', 'bulan_theme_setup' );
-
-/**
- * Display the custom header.
- *
- * @since  1.0.0
- */
-function bulan_custom_header() {
-
-	// Get the custom header.
-	$header = get_header_image();
-
-	// Get the featured image
-	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-
-	// Set up empty variable
-	$image = '';
-
-	// If on single post or page, use the featured image.
-	if ( is_single() || is_page() ) {
-		if ( $featured ) {
-			$image = $featured[0];
-		} else {
-			$image = $header;
-		}
-	} else {
-		$image = $header;
-	}
-
-	// Display the custom header via inline CSS.
-	if ( $image ) : ?>
-		<style type="text/css">
-			.site-header {
-				background-image: url("<?php echo esc_url( $image ); ?>");
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: cover;
-			}
-			.site-header::after {
-				content: "";
-				display: block;
-				width: 100%;
-				height: 100%;
-				background-color: rgba(204, 137, 0, 0.3);
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 0;
-			}
-		</style>
-	<?php endif;
-}
-add_action( 'wp_head', 'bulan_custom_header', 10 );
 
 if ( ! function_exists( 'bulan_reset_default_image_sizes' ) ) :
 /**

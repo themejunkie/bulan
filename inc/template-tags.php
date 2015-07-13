@@ -43,87 +43,6 @@ function bulan_site_branding() {
 }
 endif;
 
-if ( ! function_exists( 'bulan_callout' ) ) :
-/**
- * Home page callout
- * 
- * @since  1.0.0
- */
-function bulan_callout() {
-
-	// Theme prefix
-	$prefix = 'bulan-';
-
-	// Get the data set in customizer
-	$text = bulan_mod( $prefix . 'home-callout' );
-
-	// Display the data
-	echo '<div class="callout page-header">';
-		echo '<p>' . strip_tags( $text ) . '</p>';
-	echo '</div>';
-
-}
-endif;
-
-if ( ! function_exists( 'bulan_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- *
- * @since 1.0.0
- */
-function bulan_posted_on() {
-
-	// Theme prefix
-	$prefix = 'bulan-';
-
-	// Get the data set in customizer
-	$date       = bulan_mod( $prefix . 'post-date' );
-	$author     = bulan_mod( $prefix . 'post-author' );
-	$cat        = bulan_mod( $prefix . 'post-cat' );
-	$tag        = bulan_mod( $prefix . 'post-tag' );
-	$date_style = bulan_mod( $prefix . 'post-date-style' );
-
-	// Set up empty variable
-	$style = '';
-	if ( $date_style == 'absolute' ) {
-		$style = esc_html( get_the_date() );
-	} else {
-		$style = sprintf( __( '%s ago', 'bulan' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
-	}
-	?>
-
-	<?php if ( $date ) : ?>
-		<time class="entry-date published entry-side" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php printf( __( 'Published: %s', 'bulan' ), '<span>' . $style . '</span>' ); ?></time>
-	<?php endif; ?>
-	
-	<?php if ( $author ) : ?>
-		<span class="entry-author author vcard entry-side" <?php hybrid_attr( 'entry-author' ) ?>>
-			<?php printf( __( 'Author: %s', 'bulan' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="url"><span itemprop="name">' . esc_html( get_the_author() ) . '</span></a>' ); ?>
-		</span>
-	<?php endif; ?>
-
-	<?php if ( 'post' == get_post_type() ) : ?>
-		<?php
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( __( ', ', 'bulan' ) );
-			if ( $categories_list && bulan_categorized_blog() && $cat ) :
-		?>
-		<span class="cat-links entry-side" <?php hybrid_attr( 'entry-terms', 'category' ); ?>>
-			<?php printf( __( 'Category: %s', 'bulan' ), $categories_list ); ?>
-		</span>
-		<?php endif; // End if categories ?>
-		<?php
-			$tag_list = get_the_tag_list( '', ', ' );
-			if ( $tag_list && $tag ) : 
-		?>
-			<span class="tag-links entry-side" <?php hybrid_attr( 'entry-terms', 'post_tag' ); ?>><span class="genericon genericon-tag"></span> <?php printf( __( 'Tags: %s', 'bulan' ), $tag_list ); ?></span>
-		<?php endif; ?>
-	<?php endif; ?>
-
-	<?php
-}
-endif;
-
 if ( ! function_exists( 'bulan_attachment_posted_on' ) ) :
 /**
  * Attachment page meta information
@@ -256,38 +175,6 @@ function bulan_category_transient_flusher() {
 }
 add_action( 'edit_category', 'bulan_category_transient_flusher' );
 add_action( 'save_post',     'bulan_category_transient_flusher' );
-
-if ( ! function_exists( 'bulan_entry_share' ) ) :
-/**
- * Social share.
- *
- * @since 1.0.0
- */
-function bulan_entry_share() {
-	global $post;
-
-	// Theme prefix
-	$prefix = 'bulan-';
-
-	// Get the data set in customizer
-	$share  = bulan_mod( $prefix . 'post-share' );
-
-	if ( $share == 0 ) {
-		return;
-	}
-	?>
-		<div class="entry-share clearfix">
-			<ul>
-				<li class="twitter"><a href="https://twitter.com/intent/tweet?text=<?php echo esc_attr( get_the_title( $post->ID ) ); ?>&amp;url=<?php echo urlencode( get_permalink( $post->ID ) ); ?>" target="_blank"><i class="fa fa-twitter"></i>Twitter</a></li>
-				<li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( $post->ID ) ); ?>" target="_blank"><i class="fa fa-facebook"></i>Facebook</a></li>
-				<li class="google-plus"><a href="https://plus.google.com/share?url=<?php echo urlencode( get_permalink( $post->ID ) ); ?>" target="_blank"><i class="fa fa-google-plus"></i>Google+</a></li>
-				<li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo urlencode( get_permalink( $post->ID ) ); ?>&amp;title=<?php echo esc_attr( get_the_title( $post->ID ) ); ?>" target="_blank"><i class="fa fa-linkedin"></i>LinkedIn</a></li>
-				<li class="pinterest"><a href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode( get_permalink( $post->ID ) ); ?>&amp;media=<?php echo urlencode( wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ) ); ?>" target="_blank"><i class="fa fa-pinterest"></i>Pinterest</a></li>
-			</ul>
-		</div>
-	<?php
-}
-endif;
 
 if ( ! function_exists( 'bulan_post_author' ) ) :
 /**

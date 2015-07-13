@@ -24,7 +24,7 @@ class Bulan_Facebook_Widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget(
+		parent::__construct(
 			'bulan-facebook',                   // $this->id_base
 			__( 'Facebook Like Box', 'bulan' ), // $this->name
 			$widget_options                     // $this->widget_options

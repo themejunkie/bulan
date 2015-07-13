@@ -20,6 +20,23 @@ function bulan_customizer_menu_styles() {
 	// Theme prefix
 	$prefix = 'bulan-';
 
+	// Menu background color
+	$bgcolor = bulan_mod( $prefix . 'menu-link-bg-color' );
+
+	if ( $bgcolor !== customizer_library_get_default( $prefix . 'menu-link-bg-color' ) ) {
+
+		$color = sanitize_hex_color( $bgcolor );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'.main-navigation'
+			),
+			'declarations' => array(
+				'background-color' => $color
+			)
+		) );
+	}
+
 	// Menu link color
 	$menu_link = bulan_mod( $prefix . 'menu-link-color' );
 
@@ -48,28 +65,11 @@ function bulan_customizer_menu_styles() {
 			'selectors' => array(
 				'.menu-primary-items li a:hover',
 				'.menu-primary-items li.current-menu-item > a',
-				'.menu-primary-items li .sub-menu a:hover'
+				'.menu-primary-items li .sub-menu a:hover',
+				'.menu-primary-items li.menu-item-has-children:hover::after'
 			),
 			'declarations' => array(
 				'color' => $color
-			)
-		) );
-	}
-
-	// Menu current & hover border color
-	$current_hover_border = bulan_mod( $prefix . 'menu-current-hover-border-color' );
-
-	if ( $current_hover_border !== customizer_library_get_default( $prefix . 'menu-current-hover-border-color' ) ) {
-
-		$color = sanitize_hex_color( $current_hover_border );
-
-		Customizer_Library_Styles()->add( array(
-			'selectors' => array(
-				'.menu-primary-items li a:hover',
-				'.menu-primary-items li.current-menu-item > a',
-			),
-			'declarations' => array(
-				'border-color' => $color
 			)
 		) );
 	}

@@ -38,18 +38,18 @@ function bulan_customizer_header_styles() {
 	}
 
 	// Site description color
-	$desc = bulan_mod( $prefix . 'site-desc-color' );
+	$border = bulan_mod( $prefix . 'site-title-border-color' );
 
-	if ( $desc !== customizer_library_get_default( $prefix . 'site-desc-color' ) ) {
+	if ( $border !== customizer_library_get_default( $prefix . 'site-title-border-color' ) ) {
 
-		$color = sanitize_hex_color( $desc );
+		$color = sanitize_hex_color( $border );
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'#masthead .site-description'
+				'#masthead .site-title a'
 			),
 			'declarations' => array(
-				'color' => $color
+				'border-color' => $color
 			)
 		) );
 	}

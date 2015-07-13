@@ -46,13 +46,30 @@ function bulan_customizer_post_styles() {
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'.single .post-title',
+				'.single .entry-title',
 				'.single .entry-content h1',
 				'.single .entry-content h2',
 				'.single .entry-content h3',
 				'.single .entry-content h4',
 				'.single .entry-content h5',
 				'.single .entry-content h6'
+			),
+			'declarations' => array(
+				'color' => $color
+			)
+		) );
+	}
+
+	// Excerpt color
+	$excerpt = bulan_mod( $prefix . 'post-excerpt-color' );
+
+	if ( $excerpt !== customizer_library_get_default( $prefix . 'post-excerpt-color' ) ) {
+
+		$color = sanitize_hex_color( $excerpt );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'.page-header p'
 			),
 			'declarations' => array(
 				'color' => $color
@@ -69,7 +86,8 @@ function bulan_customizer_post_styles() {
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'.single .entry-content a'
+				'.single .entry-content a',
+				'.cat-links a'
 			),
 			'declarations' => array(
 				'color' => $color

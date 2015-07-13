@@ -9,6 +9,9 @@
 	// Theme prefix.
 	var prefix = "bulan-";
 
+	// Base color
+	var base_color = "#cc8900";
+
 	/**
 	 * Live preview site title & site description
 	 */
@@ -17,25 +20,20 @@
 			$( ".site-title a" ).text( to );
 		} );
 	} );
-	wp.customize( "blogdescription", function( value ) {
-		value.bind( function( to ) {
-			$( ".site-description" ).text( to );
-		} );
-	} );
 
 	/**
 	 * Search color
 	 */
 	wp.customize( prefix + "search-icon-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#454545';
+			to = to ? to : '#ffffff';
 			$( '.search-toggle' ).css('color', to);
 		} );
 	} );
 	wp.customize( prefix + "search-bg-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#333333';
-			$( '.search-area' ).css('background-color', to);
+			to = to ? to : base_color;
+			$( '.search-toggle' ).css('background-color', to);
 		} );
 	} );
 
@@ -44,56 +42,30 @@
 	 */
 	wp.customize( prefix + "site-title-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#454545';
+			to = to ? to : '#ffffff';
 			$( '#masthead .site-title a' ).css('color', to);
 		} );
 	} );
-	wp.customize( prefix + "site-desc-color", function( value ) {
+	wp.customize( prefix + "site-title-border-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#777777';
-			$( '#masthead .site-description' ).css('color', to);
+			to = to ? to : '#ffffff';
+			$( '#masthead .site-title a' ).css('border-color', to);
 		} );
 	} );
 
 	/**
 	 * Menu color
 	 */
+	wp.customize( prefix + "menu-link-bg-color", function( value ) {
+		value.bind( function( to ) {
+			to = to ? to : '#ffffff';
+			$( '.main-navigation' ).css('background-color', to);
+		} );
+	} );
 	wp.customize( prefix + "menu-link-color", function( value ) {
 		value.bind( function( to ) {
 			to = to ? to : '#454545';
 			$( '#site-navigation ul li a' ).css('color', to);
-		} );
-	} );
-
-	/**
-	 * Page header color
-	 */
-	wp.customize( prefix + "page-header-title-color", function( value ) {
-		value.bind( function( to ) {
-			to = to ? to : '#454545';
-			$( '.page-header .page-title' ).css('color', to);
-		} );
-	} );
-	wp.customize( prefix + "page-header-excerpt-color", function( value ) {
-		value.bind( function( to ) {
-			to = to ? to : '#777777';
-			$( '.page-header p' ).css('color', to);
-		} );
-	} );
-
-	/**
-	 * Posts grid color
-	 */
-	wp.customize( prefix + "grid-title-color", function( value ) {
-		value.bind( function( to ) {
-			to = to ? to : '#454545';
-			$( '.thumbnail-detail .entry-title a' ).css('color', to);
-		} );
-	} );
-	wp.customize( prefix + "grid-cat-color", function( value ) {
-		value.bind( function( to ) {
-			to = to ? to : '#777777';
-			$( '.thumbnail-detail .cat-links a' ).css('color', to);
 		} );
 	} );
 
@@ -112,10 +84,16 @@
 			$( '.single .entry-title, .single .entry-content h1, .single .entry-content h2, .single .entry-content h3, .single .entry-content h4, .single .entry-content h5, .single .entry-content h6' ).css('color', to);
 		} );
 	} );
+	wp.customize( prefix + "post-excerpt-color", function( value ) {
+		value.bind( function( to ) {
+			to = to ? to : '#999999';
+			$( '.page-header p' ).css('color', to);
+		} );
+	} );
 	wp.customize( prefix + "post-link-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#2196F3';
-			$( '.single .entry-content a' ).css('color', to);
+			to = to ? to : base_color;
+			$( '.single .entry-content a, .cat-links a' ).css('color', to);
 		} );
 	} );
 
@@ -136,8 +114,42 @@
 	} );
 	wp.customize( prefix + "page-link-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#2196F3';
+			to = to ? to : base_color;
 			$( '.page .entry-content a' ).css('color', to);
+		} );
+	} );
+
+	/**
+	 * Widget color
+	 */
+	wp.customize( prefix + "widget-bg-title-color", function( value ) {
+		value.bind( function( to ) {
+			to = to ? to : '#333333';
+			$( '.widget-title' ).css('background-color', to);
+		} );
+	} );
+	wp.customize( prefix + "widget-title-color", function( value ) {
+		value.bind( function( to ) {
+			to = to ? to : '#ffffff';
+			$( '.widget-title' ).css('color', to);
+		} );
+	} );
+	wp.customize( prefix + "widget-text-color", function( value ) {
+		value.bind( function( to ) {
+			to = to ? to : '#454545';
+			$( '.widget' ).css('color', to);
+		} );
+	} );
+	wp.customize( prefix + "widget-link-color", function( value ) {
+		value.bind( function( to ) {
+			to = to ? to : '#454545';
+			$( '.widget a, .widget li a' ).css('color', to);
+		} );
+	} );
+	wp.customize( prefix + "widget-border-color", function( value ) {
+		value.bind( function( to ) {
+			to = to ? to : '#e0e0e0';
+			$( '.widget li' ).css('border-color', to);
 		} );
 	} );
 
@@ -146,31 +158,31 @@
 	 */
 	wp.customize( prefix + "footer-bg-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#f5f5f5';
+			to = to ? to : '#333333';
 			$( '.site-footer' ).css('background-color', to);
 		} );
 	} );
 	wp.customize( prefix + "footer-text-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#454545';
-			$( '.site-footer' ).css('color', to);
+			to = to ? to : '#888888';
+			$( '.site-info' ).css('color', to);
 		} );
 	} );
 	wp.customize( prefix + "footer-link-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#454545';
-			$( '.site-footer p a' ).css('color', to);
+			to = to ? to : '#ffffff';
+			$( '.site-info a' ).css('color', to);
 		} );
 	} );
 	wp.customize( prefix + "footer-social-bg-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#333333';
+			to = to ? to : '#ffffff';
 			$( '.social-links a' ).css('background-color', to);
 		} );
 	} );
 	wp.customize( prefix + "footer-social-icon-color", function( value ) {
 		value.bind( function( to ) {
-			to = to ? to : '#ffffff';
+			to = to ? to : '#454545';
 			$( '.social-links a' ).css('color', to);
 		} );
 	} );

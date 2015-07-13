@@ -24,7 +24,7 @@ class Bulan_Social_Widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget(
+		parent::__construct(
 			'bulan-social',                // $this->id_base
 			__( 'Social Icons', 'bulan' ), // $this->name
 			$widget_options                // $this->widget_options

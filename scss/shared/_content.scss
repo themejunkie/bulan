@@ -16,6 +16,11 @@
 
 	.single & {
 		margin-bottom: $base-line-height;
+
+		.entry-title {
+			font-size: 30px;
+			margin-top: 10px;
+		}
 	}
 
 	&.use-excerpt {

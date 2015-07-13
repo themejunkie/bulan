@@ -37,7 +37,7 @@ if ( $date_style == 'absolute' ) {
 			<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php echo esc_html( $style ); ?></time>
 		<?php endif; ?>
 
-		<?php the_title( '<h1 class="page-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
 
 	</header><!-- .entry-header -->
 

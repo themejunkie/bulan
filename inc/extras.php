@@ -64,7 +64,7 @@ function bulan_post_classes( $classes ) {
 	}
 
 	// Check if post has `<!--more-->` tag
-	if ( ! is_single() ) {
+	if ( ! is_singular() ) {
 		if ( strpos( $post->post_content, '<!--more-->' ) ) {
 			$classes[] = 'has-read-more-tag';
 		} else {
@@ -84,6 +84,7 @@ function bulan_post_classes( $classes ) {
 	}
 
 	return $classes;
+
 }
 add_filter( 'post_class', 'bulan_post_classes' );
 
@@ -164,7 +165,6 @@ add_filter( 'excerpt_length', 'bulan_excerpt_length', 999 );
  * @since 1.0.0
  */
 function bulan_remove_theme_layout_metabox() {
-	remove_post_type_support( 'post', 'theme-layouts' );
 	remove_post_type_support( 'attachment', 'theme-layouts' );
 
 	// bbPress
