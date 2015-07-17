@@ -57,6 +57,9 @@
 			a {
 				border: 3px double #fff;
 				color: #fff;
+				&:hover {
+					border-color: $color-1;
+				}
 			}
 
 		}

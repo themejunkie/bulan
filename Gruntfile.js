@@ -276,7 +276,10 @@ module.exports = function(grunt) {
 
 		// Clean up build directory
 		clean: {
-			build: ['build/<%= pkg.name %>']
+			build: [
+				'build/<%= pkg.name %>',
+				'build/<%= pkg.name %>.zip'
+			]
 		},
 
 		makepot: {
@@ -355,8 +358,7 @@ module.exports = function(grunt) {
 	// Package task
 	grunt.registerTask('package', [
 		'copy',
-		'compress',
-		'clean',
+		'compress'
 	]);
 
 	// Deploy task

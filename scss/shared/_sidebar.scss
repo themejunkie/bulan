@@ -220,3 +220,20 @@
 	}
 
 }
+
+.jetpack_subscription_widget {
+
+	#subscribe-text {
+		p {
+			margin-bottom: 14px;
+		}
+	}
+
+	#subscribe-email {
+		margin-bottom: 14px;
+		input {
+			padding: 5px 10px;
+		}
+	}
+
+}
