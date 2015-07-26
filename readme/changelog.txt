@@ -1,2 +1,7 @@
+1.0.1 - 26/07/2015
+* Fix conflict popup gallery with Jetpack carousel module
+* Hide author social icons if user have not defined it
+* Display author social icons on author page
+
 1.0.0 - 14/07/2015
 * Initial release

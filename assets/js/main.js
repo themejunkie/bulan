@@ -23,19 +23,5 @@ $(document).ready(function(){
 			$(".search-toggle").toggleClass("active");
 		}
 	});
-
-	// Gallery popup
-	$(".gallery-icon a[href$='.jpg'], .gallery-icon a[href$='.jpeg'], .gallery-icon a[href$='.png'], .gallery-icon a[href$='.gif']").magnificPopup({
-		type:'image',
-		gallery: {
-			enabled: true
-		},
-		retina: {
-			ratio: 2,
-			replaceSrc: function(item, ratio) {
-				return item.src.replace(/\.\w+$/, function(m) { return '@2x' + m; });
-			}
-		}
-	});
-
+	
 });

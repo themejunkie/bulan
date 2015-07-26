@@ -214,24 +214,36 @@ function bulan_post_author() {
 			</h3>
 			<p class="bio" itemprop="description"><?php echo stripslashes( get_the_author_meta( 'description' ) ); ?></p>
 			<ul class="author-social">
-				<li class="website">
-					<a href="<?php echo esc_url( get_the_author_meta( 'url' ) ); ?>"><i class="fa fa-home"></i></a>
-				</li>
-				<li class="twitter">
-					<a href="<?php echo esc_url( get_the_author_meta( 'twitter' ) ); ?>"><i class="fa fa-twitter"></i></a>
-				</li>
-				<li class="facebook">
-					<a href="<?php echo esc_url( get_the_author_meta( 'facebook' ) ); ?>"><i class="fa fa-facebook"></i></a>
-				</li>
-				<li class="gplus">
-					<a href="<?php echo esc_url( get_the_author_meta( 'gplus' ) ); ?>"><i class="fa fa-google-plus"></i></a>
-				</li>
-				<li class="instagram">
-					<a href="<?php echo esc_url( get_the_author_meta( 'instagram' ) ); ?>"><i class="fa fa-instagram"></i></a>
-				</li>
-				<li class="linkedin">
-					<a href="<?php echo esc_url( get_the_author_meta( 'linkedin' ) ); ?>"><i class="fa fa-linkedin"></i></a>
-				</li>
+				<?php if ( get_the_author_meta( 'url' ) ) : ?>
+					<li class="website">
+						<a href="<?php echo esc_url( get_the_author_meta( 'url' ) ); ?>"><i class="fa fa-home"></i></a>
+					</li>
+				<?php endif; ?>
+				<?php if ( get_the_author_meta( 'twitter' ) ) : ?>
+					<li class="twitter">
+						<a href="<?php echo esc_url( get_the_author_meta( 'twitter' ) ); ?>"><i class="fa fa-twitter"></i></a>
+					</li>
+				<?php endif; ?>
+				<?php if ( get_the_author_meta( 'facebook' ) ) : ?>
+					<li class="facebook">
+						<a href="<?php echo esc_url( get_the_author_meta( 'facebook' ) ); ?>"><i class="fa fa-facebook"></i></a>
+					</li>
+				<?php endif; ?>
+				<?php if ( get_the_author_meta( 'gplus' ) ) : ?>
+					<li class="gplus">
+						<a href="<?php echo esc_url( get_the_author_meta( 'gplus' ) ); ?>"><i class="fa fa-google-plus"></i></a>
+					</li>
+				<?php endif; ?>
+				<?php if ( get_the_author_meta( 'instagram' ) ) : ?>
+					<li class="instagram">
+						<a href="<?php echo esc_url( get_the_author_meta( 'instagram' ) ); ?>"><i class="fa fa-instagram"></i></a>
+					</li>
+				<?php endif; ?>
+				<?php if ( get_the_author_meta( 'linkedin' ) ) : ?>
+					<li class="linkedin">
+						<a href="<?php echo esc_url( get_the_author_meta( 'linkedin' ) ); ?>"><i class="fa fa-linkedin"></i></a>
+					</li>
+				<?php endif; ?>
 			</ul>
 		</div>
 	</div><!-- .author-bio -->

@@ -265,7 +265,7 @@ module.exports = function(grunt) {
 			build: {
 				options: {
 					mode: 'zip',
-					archive: './build/<%= pkg.name %>.zip'
+					archive: './build/<%= pkg.name %>-<%= pkg.version %>.zip'
 				},
 				expand: true,
 				cwd: 'build/<%= pkg.name %>/',
@@ -357,7 +357,6 @@ module.exports = function(grunt) {
 
 	// Package task
 	grunt.registerTask('package', [
-		'copy',
 		'compress'
 	]);
 

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bulan 1.0.0\n"
+"Project-Id-Version: Bulan 1.0.1\n"
 "Report-Msgid-Bugs-To: http://themephe.com/\n"
-"POT-Creation-Date: 2015-07-15 12:29:23+00:00\n"
+"POT-Creation-Date: 2015-07-26 16:31:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -569,36 +569,36 @@ msgstr ""
 msgid "Shutter Speed: %s"
 msgstr ""
 
-#: inc/template-tags.php:336
+#: inc/template-tags.php:348
 msgid "Pingback:"
 msgstr ""
 
-#: inc/template-tags.php:336
+#: inc/template-tags.php:348
 msgid "(Edit)"
 msgstr ""
 
-#: inc/template-tags.php:362
+#: inc/template-tags.php:374
 #. translators: 1: date, 2: time
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:363
+#: inc/template-tags.php:375
 msgid "%1$s&middot; Edit%2$s"
 msgstr ""
 
-#: inc/template-tags.php:363
+#: inc/template-tags.php:375
 msgid "Edit Comment"
 msgstr ""
 
-#: inc/template-tags.php:370
+#: inc/template-tags.php:382
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:374
+#: inc/template-tags.php:386
 msgid "<i class=\"fa fa-reply\"></i> Reply"
 msgstr ""
 
-#: inc/template-tags.php:403
+#: inc/template-tags.php:415
 msgid "Author"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgid "Bulan"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://wp.themephe.com/bulan"
+msgid "https://themephe.com/items/bulan/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -742,7 +742,7 @@ msgid "ThemePhe"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://themephe.com/"
+msgid "https://themephe.com/"
 msgstr ""
 
 #. Template Name of the plugin/theme
