@@ -72,16 +72,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Javascript linting with jshint.
-		jshint: {
-			options: {
-				jshintrc: '.jshintrc',
-				"force": true
-			},
-			beforeconcat: ['assets/js/plugins.min.js', 'assets/js/main.js'],
-			afterconcat: ['assets/js/<%= pkg.name %>.min.js']
-		},
-
 		// Minify CSS
 		cssmin: {
 			options: {
@@ -278,7 +268,7 @@ module.exports = function(grunt) {
 		clean: {
 			build: [
 				'build/<%= pkg.name %>',
-				'build/<%= pkg.name %>.zip'
+				'build/<%= pkg.name %>-<%= pkg.version %>.zip'
 			]
 		},
 
@@ -314,22 +304,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Deploy to server
-		'sftp-deploy': {
-			deploy: {
-				auth: {
-					host: '173.236.158.15',
-					port: 22,
-					authKey: 'key1'
-				},
-				cache: 'sftpCache.json',
-				src: 'build/bulan',
-				dest: '/home/inidemo/wp.themephe.com/wp-content/themes/bulan',
-				exclusions: ['.build/.DS_Store'],
-				progress: true
-			}
-		}
-
 	});
 
 	// Dev task
@@ -342,9 +316,7 @@ module.exports = function(grunt) {
 
 	// Production task
 	grunt.registerTask('build', [
-		'newer:clean',
 		'newer:uglify',
-		'newer:jshint',
 		'newer:imagemin',
 		'newer:sass',
 		'newer:cssjanus',
@@ -358,11 +330,6 @@ module.exports = function(grunt) {
 	// Package task
 	grunt.registerTask('package', [
 		'compress'
-	]);
-
-	// Deploy task
-	grunt.registerTask('deploy', [
-		'sftp-deploy'
 	]);
 
 };

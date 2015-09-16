@@ -1,3 +1,8 @@
+1.0.2 - 16/09/2015
+* Support WordPress 4.3.1
+* Update HTML5shiv
+* Add documentation link on Customizer
+
 1.0.1 - 26/07/2015
 * Fix conflict popup gallery with Jetpack carousel module
 * Hide author social icons if user have not defined it

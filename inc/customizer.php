@@ -169,7 +169,7 @@ function bulan_customizer_register() {
 			'description'  => __( 'Customize the footer text.', 'bulan' ),
 			'section'      => $section,
 			'type'         => 'textarea',
-			'default'      => '&copy; Copyright ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a> &middot; Designed by <a href="http://themephe.com/">ThemePhe</a>'
+			'default'      => '&copy; Copyright ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a> &middot; Designed by <a href="https://themephe.com/items/bulan/">ThemePhe</a>'
 		);
 
 	// Header Panels and Sections

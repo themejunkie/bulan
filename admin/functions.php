@@ -39,7 +39,6 @@ function bulan_move_default_customizer( $wp_customize ) {
 	// Move the customize to new panel
 	$wp_customize->get_section( 'title_tagline' )->panel       = 'header';
 	$wp_customize->get_section( 'header_image' )->panel        = 'header';
-	$wp_customize->get_section( 'nav' )->panel                 = 'general';
 	$wp_customize->get_section( 'static_front_page' )->panel   = 'general';
 	$wp_customize->get_section( 'colors' )->panel              = 'color';
 	$wp_customize->get_section( 'background_image' )->panel    = 'bg_image';
@@ -112,3 +111,31 @@ function bulan_cats_list() {
 	return $cats;
 
 }
+
+/**
+ * Display theme documentation on customizer page.
+ *
+ * @since  1.0.0
+ */
+function bulan_documentation_link() {
+
+	// Enqueue the script
+	wp_enqueue_script(
+		'bulan-customizer-doc',
+		get_template_directory_uri() . '/admin/js/doc.js',
+		array(), '1.0.0',
+		true
+	);
+ 
+	// Localize the script
+	wp_localize_script(
+		'bulan-customizer-doc',
+		'prefixL10n',
+		array(
+			'prefixURL'   => esc_url( 'https://themephe.com/doc/bulan/' ),
+			'prefixLabel' => __( 'Documentation', 'bulan' ),
+		)
+	);
+ 
+}
+add_action( 'customize_controls_enqueue_scripts', 'bulan_documentation_link' );
