@@ -1,11 +1,12 @@
+@charset 'UTF-8';
 /*!
  * Theme Name: Bulan
  * Theme URI: https://themephe.com/items/bulan/
- * Description: Bulan is a beautiful and minimal blog theme. Easy to customize and easy to use!
- * Version: 1.0.2
+ * Description: Bulan is a beautiful, minimal and clean WordPress blog theme that easy to customize and simple to setup. It’s ideal for beginner and professional blogger, food blogger and photo blogger! This theme just works, which means you don’t need to install any 3rd party plugins or setup complex options. Just install it and viola! It provides 3 custom widgets Facebook like box, Social Icons and Recent Posts Thumbnail. It also works out of the box with Jetpack.
+ * Version: 1.0.3
  * Author: ThemePhe
  * Author URI: https://themephe.com/
- * Tags: blue, two-columns, right-sidebar, responsive-layout, custom-background, custom-menu, editor-style, threaded-comments, translation-ready
+ * Tags: brown, gray, dark, white, light, responsive-layout, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, rtl-language-support, sticky-post, threaded-comments, translation-ready, photoblogging
  * Text Domain: bulan
  * 
  * License: GNU General Public License v2.0 or later
@@ -2493,6 +2494,23 @@ a.pure-button-selected {
 	background-color: #cc8900;
 }
 
+/**
+ * Back to top
+ */
+#scrollUp {
+	right: 20px;
+	bottom: 20px;
+	padding: 5px 10px;
+	-webkit-transition: background 200ms linear;
+	transition: background 200ms linear;
+	color: #fff;
+	background-color: #454545;
+}
+
+#scrollUp:hover {
+	background-color: #111;
+}
+
 /*------------------------------------*	$COMMENTS
 \*------------------------------------*/
 .comments-area {
@@ -2681,6 +2699,10 @@ a.pure-button-selected {
 
 form.comment-form p {
 	margin-bottom: 20px;
+}
+
+form.comment-form p.comment-subscription-form {
+	margin-bottom: 0;
 }
 
 form.comment-form label {
@@ -2874,4 +2896,3 @@ form.comment-form .comment-form-url {
 
 /*------------------------------------*	$STATE
 \*------------------------------------*/
-

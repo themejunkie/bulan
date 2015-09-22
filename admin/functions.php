@@ -18,17 +18,6 @@ function bulan_mod( $name ) {
 }
 endif;
 
-if ( ! function_exists( 'bulan_textarea_stripslashes' ) ) :
-/**
- * Sanitize a textarea for ads.
- *
- * @since  1.0.0
- */
-function bulan_textarea_stripslashes( $string ) {
-	return stripslashes( $string );
-}
-endif;
-
 /**
  * Custom customizer function.
  *

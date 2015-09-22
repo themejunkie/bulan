@@ -61,6 +61,31 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 					$option['active_callback'] = '';
 				}
 
+				// Set default mime_type to image.
+				if ( ! isset( $option['mime_type'] ) ) {
+					$option['mime_type'] = 'image';
+				}
+
+				// Set default flex_width to true.
+				if ( ! isset( $option['flex_width'] ) ) {
+					$option['flex_width'] = true;
+				}
+
+				// Set default flex_height to true.
+				if ( ! isset( $option['flex_height'] ) ) {
+					$option['flex_height'] = true;
+				}
+
+				// Set blank width if one isn't set
+				if ( ! isset( $option['width'] ) ) {
+					$option['width'] = '';
+				}
+
+				// Set blank height if one isn't set
+				if ( ! isset( $option['height'] ) ) {
+					$option['height'] = '';
+				}
+
 				// Add the setting
 				customizer_library_add_setting( $option, $wp_customize );
 
@@ -97,10 +122,10 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 
 						break;
 
-					case 'image':
+					case 'media':
 
 						$wp_customize->add_control(
-							new WP_Customize_Image_Control(
+							new WP_Customize_Media_Control(
 								$wp_customize,
 								$option['id'], array(
 									'label'             => $option['label'],
@@ -108,17 +133,18 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 									'sanitize_callback' => $option['sanitize_callback'],
 									'priority'          => $option['priority'],
 									'active_callback'   => $option['active_callback'],
-									'description'      => $option['description']
+									'description'       => $option['description'],
+									'mime_type'         => $option['mime_type']
 								)
 							)
 						);
 
 						break;
 
-					case 'upload':
+					case 'crop':
 
 						$wp_customize->add_control(
-							new WP_Customize_Upload_Control(
+							new WP_Customize_Cropped_Image_Control(
 								$wp_customize,
 								$option['id'], array(
 									'label'             => $option['label'],
@@ -126,7 +152,11 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 									'sanitize_callback' => $option['sanitize_callback'],
 									'priority'          => $option['priority'],
 									'active_callback'   => $option['active_callback'],
-									'description'      => $option['description']
+									'description'       => $option['description'],
+									'flex_width'        => $option['flex_width'],
+									'flex_height'       => $option['flex_height'],
+									'width'             => $option['width'],
+									'height'            => $option['height'],
 								)
 							)
 						);
@@ -342,10 +372,6 @@ function customizer_library_get_sanitization( $type ) {
 		return 'sanitize_hex_color';
 	}
 
-	if ( 'upload' == $type || 'image' == $type ) {
-		return 'customizer_library_sanitize_file_url';
-	}
-
 	if ( 'text' == $type || 'textarea' == $type || 'editor' == $type || 'date' == $type  ) {
 		return 'customizer_library_sanitize_text';
 	}
@@ -358,7 +384,7 @@ function customizer_library_get_sanitization( $type ) {
 		return 'customizer_library_sanitize_range';
 	}
 
-	if ( 'dropdown-pages' == $type || 'number' == $type ) {
+	if ( 'dropdown-pages' == $type || 'number' == $type || 'media' == $type || 'crop' == $type ) {
 		return 'absint';
 	}
 

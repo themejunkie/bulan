@@ -67,3 +67,18 @@
 	}
 
 }
+
+/**
+ * Back to top
+ */
+#scrollUp {
+	bottom: 20px;
+	right: 20px;
+	padding: 5px 10px;
+	background-color: $color-3;
+	color: $color-2;
+	transition: background 200ms linear;
+	&:hover {
+		background-color: $color-4;
+	}
+}

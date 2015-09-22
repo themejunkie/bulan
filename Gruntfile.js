@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 					'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
 					'jquery.slicknav.min.js': 'slicknav/dist/jquery.slicknav.min.js',
 					'jquery.magnific-popup.min.js': 'magnific-popup/dist/jquery.magnific-popup.min.js',
+					'jquery.scrollUp.min.js': 'scrollup/dist/jquery.scrollUp.min.js',
 				}
 			},
 			js: {
@@ -62,6 +63,7 @@ module.exports = function(grunt) {
 						'assets/js/devs/jquery.fitvids.js',
 						'assets/js/devs/jquery.slicknav.min.js',
 						'assets/js/devs/jquery.magnific-popup.min.js',
+						'assets/js/devs/jquery.scrollUp.min.js',
 					]
 				}
 			},
@@ -94,8 +96,7 @@ module.exports = function(grunt) {
 		sass: {
 			dev: {
 				options: {
-					outputStyle: 'nested',
-					require: 'susy'
+					outputStyle: 'nested'
 				},
 				files: {
 					'style.css': 'scss/style.scss',
@@ -104,8 +105,7 @@ module.exports = function(grunt) {
 			},
 			prod: {
 				options: {
-					outputStyle: 'compressed',
-					require: 'susy'
+					outputStyle: 'compressed'
 				},
 				files: {
 					'style.min.css': 'scss/style.scss'

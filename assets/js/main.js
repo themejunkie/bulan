@@ -23,5 +23,10 @@ $(document).ready(function(){
 			$(".search-toggle").toggleClass("active");
 		}
 	});
+
+	// Scroll to top
+	$.scrollUp({
+		scrollText: '<i class="fa fa-chevron-up"></i>'
+	});
 	
 });

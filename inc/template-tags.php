@@ -22,14 +22,14 @@ if ( ! function_exists( 'bulan_site_branding' ) ) :
 function bulan_site_branding() {
 
 	// Get the customizer value.
-	$prefix = 'bulan-';
-	$logo   = bulan_mod( $prefix . 'logo' );
+	$prefix  = 'bulan-';
+	$logo_id = bulan_mod( $prefix . 'logo' );
 
 	// Check if logo available, then display it.
-	if ( $logo ) :
+	if ( $logo_id ) :
 		echo '<div id="logo" itemscope itemtype="http://schema.org/Brand">' . "\n";
 			echo '<a href="' . esc_url( get_home_url() ) . '" itemprop="url" rel="home">' . "\n";
-				echo '<img itemprop="logo" src="' . esc_url( $logo ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
+				echo '<img itemprop="logo" src="' . esc_url( wp_get_attachment_url( $logo_id ) ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
 			echo '</a>' . "\n";
 		echo '</div>' . "\n";
 

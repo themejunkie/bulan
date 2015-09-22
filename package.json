@@ -1,16 +1,11 @@
 {
   "name": "bulan",
   "version": "1.0.3",
-  "author": "ThemePhe",
-  "homepage": "https://themephe.com/",
-  "licenses": [
-    {
-      "type": "GPL",
-      "url": "http://www.gnu.org/licenses/gpl-2.0.html"
-    }
-  ],
+  "description": "Bulan is a beautiful and minimal WordPress blog theme. Easy to customize and easy to use!",
+  "main": "Gruntfile.js",
+  "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.5",
+    "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-bowercopy": "^1.2.3",
     "grunt-contrib-clean": "^0.6.0",
@@ -27,7 +22,20 @@
     "grunt-sass": "^1.1.0-beta",
     "grunt-wp-i18n": "^0.5.3",
     "jit-grunt": "^0.9.1",
-    "susy": "^2.2.6",
     "time-grunt": "^1.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themephe/bulan.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme"
+  ],
+  "author": "Satrya",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/themephe/bulan/issues"
+  },
+  "homepage": "https://themephe.com/items/bulan"
 }

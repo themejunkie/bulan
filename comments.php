@@ -16,7 +16,7 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h3 class="comments-title">
 			<?php
-				printf( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'bulan' ),
+				printf( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'bulan' ),
 					number_format_i18n( get_comments_number() ) );
 			?>
 		</h3>

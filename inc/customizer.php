@@ -45,32 +45,6 @@ function bulan_customizer_register() {
 		'priority' => 10
 	);
 
-		// Favicon
-		$section = $prefix . 'favicon-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Favicon', 'bulan' ),
-			'priority'    => 35,
-			'panel'       => $general_panel
-		);
-		$options[$prefix . 'favicon'] = array(
-			'id'           => $prefix . 'favicon',
-			'label'        => __( 'Favicon', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'image',
-			'default'      => '',
-			'description'  => __( 'File must be <strong>.png</strong> or <strong>.ico</strong> format. Optimal dimensions: <strong>32px x 32px</strong>.', 'bulan' ),
-		);
-		$options[$prefix . 'mobile-icon'] = array(
-			'id'           => $prefix . 'mobile-icon',
-			'label'        => __( 'Apple Touch Icon', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'image',
-			'default'      => '',
-			'description'  => __( 'File must be <strong>.png</strong> format. Optimal dimensions: <strong>152px x 152px</strong>.', 'bulan' ),
-		);
-
 		// RSS
 		$section = $prefix . 'rss-section';
 
@@ -194,17 +168,17 @@ function bulan_customizer_register() {
 			'id'      => $prefix . 'logo',
 			'label'   => __( 'Regular Logo', 'bulan' ),
 			'section' => $section,
-			'type'    => 'image',
+			'type'    => 'media',
 			'default' => ''
 		);
-		$options[$prefix . 'retina-logo'] = array(
-			'id'           => $prefix . 'retina-logo',
-			'label'        => __( 'Retina Logo', 'bulan' ),
-			'description'  => __( 'The Retina Logo should be twice the size of the Regular Logo.', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'image',
-			'default'      => '',
-		);
+		// $options[$prefix . 'retina-logo'] = array(
+		// 	'id'           => $prefix . 'retina-logo',
+		// 	'label'        => __( 'Retina Logo', 'bulan' ),
+		// 	'description'  => __( 'The Retina Logo should be twice the size of the Regular Logo.', 'bulan' ),
+		// 	'section'      => $section,
+		// 	'type'         => 'media',
+		// 	'default'      => '',
+		// );
 
 		// Sticky Navigation
 		$section = $prefix . 'search-icon-section';

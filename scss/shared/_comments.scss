@@ -181,6 +181,9 @@ form.comment-form {
 
 	p {
 		margin-bottom: 20px;
+		&.comment-subscription-form {
+			margin-bottom: 0;
+		}
 	}
 	
 	label {
