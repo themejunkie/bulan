@@ -26,16 +26,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themephe/bulan.git"
+    "url": "git@gitlab.com:themejunkie/bulan.git"
   },
   "keywords": [
     "wordpress",
     "theme"
   ],
-  "author": "Satrya",
+  "author": "Theme Junkie",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/themephe/bulan/issues"
+    "url": "https://gitlab.com/themejunkie/bulan/issues"
   },
-  "homepage": "https://themephe.com/items/bulan"
+  "homepage": "http://www.theme-junkie.com/"
 }

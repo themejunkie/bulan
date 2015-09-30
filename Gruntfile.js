@@ -287,10 +287,10 @@ module.exports = function(grunt) {
 					type: 'wp-theme',                    // Type of project (wp-plugin or wp-theme).
 					updateTimestamp: true,               // Whether the POT-Creation-Date should be updated without other changes.
 					processPot: function( pot, options ) {
-						pot.headers['report-msgid-bugs-to'] = 'https://themephe.com/items/bulan/';
+						pot.headers['report-msgid-bugs-to'] = 'http://www.theme-junkie.com/forum/';
 						pot.headers['plural-forms'] = 'nplurals=2; plural=n != 1;';
-						pot.headers['last-translator'] = 'Support (support@themephe.com)\n';
-						pot.headers['language-team'] = 'Support (support@themephe.com)\n';
+						pot.headers['last-translator'] = 'Theme Junkie (support@theme-junkie.com)\n';
+						pot.headers['language-team'] = 'Theme Junkie (support@theme-junkie.com)\n';
 						pot.headers['x-poedit-basepath'] = '..\n';
 						pot.headers['x-poedit-language'] = 'English\n';
 						pot.headers['x-poedit-country'] = 'UNITED STATES\n';

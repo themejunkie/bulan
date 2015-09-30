@@ -3,8 +3,8 @@
  * Register custom customizer panels, sections and settings.
  *
  * @package    Bulan
- * @author     ThemePhe
- * @copyright  Copyright (c) 2015, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2015, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -87,7 +87,7 @@ function bulan_customizer_register() {
 		$sections[] = array(
 			'id'          => $section,
 			'title'       => __( 'Social', 'bulan' ),
-			'description' => __( 'Please add full profile link, for example https://twitter.com/themephe/', 'bulan' ),
+			'description' => __( 'Please add full profile link, for example https://twitter.com/theme_junkie/', 'bulan' ),
 			'priority'    => 120,
 			'panel'       => $general_panel,
 		);
@@ -143,7 +143,7 @@ function bulan_customizer_register() {
 			'description'  => __( 'Customize the footer text.', 'bulan' ),
 			'section'      => $section,
 			'type'         => 'textarea',
-			'default'      => '&copy; Copyright ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a> &middot; Designed by <a href="https://themephe.com/items/bulan/">ThemePhe</a>'
+			'default'      => '&copy; Copyright ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a> &middot; Designed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>'
 		);
 
 	// Header Panels and Sections

@@ -3,8 +3,8 @@
  * Custom and output functions for the theme customizer 
  *
  * @package    Bulan
- * @author     ThemePhe
- * @copyright  Copyright (c) 2015, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2015, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -121,7 +121,7 @@ function bulan_documentation_link() {
 		'bulan-customizer-doc',
 		'prefixL10n',
 		array(
-			'prefixURL'   => esc_url( 'https://themephe.com/doc/bulan/' ),
+			'prefixURL'   => esc_url( 'http://docs.theme-junkie/bulan/' ),
 			'prefixLabel' => __( 'Documentation', 'bulan' ),
 		)
 	);

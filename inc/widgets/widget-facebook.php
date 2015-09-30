@@ -3,8 +3,8 @@
  * Facebook widget.
  *
  * @package    Bulan
- * @author     ThemePhe
- * @copyright  Copyright (c) 2015, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2015, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -59,7 +59,7 @@ class Bulan_Facebook_Widget extends WP_Widget {
 			$show_posts   = $instance['show_posts'] ? 'true' : 'false';
 
 			echo '<div id="fb-root"></div>';
-			echo '<div class="fb-page" data-href="' . esc_url( $instance['url'] ) . '" data-small-header="' . $small_header . '" data-adapt-container-width="true" data-hide-cover="' . $hide_cover . '" data-show-facepile="' . $show_face . '" data-show-posts="' . $show_posts . '"><div class="fb-xfbml-parse-ignore"><blockquote cite="' . esc_url( $instance['url'] ) . '"><a href="' . esc_url( $instance['url'] ) . '">ThemePhe</a></blockquote></div></div>';
+			echo '<div class="fb-page" data-href="' . esc_url( $instance['url'] ) . '" data-small-header="' . $small_header . '" data-adapt-container-width="true" data-hide-cover="' . $hide_cover . '" data-show-facepile="' . $show_face . '" data-show-posts="' . $show_posts . '"><div class="fb-xfbml-parse-ignore"><blockquote cite="' . esc_url( $instance['url'] ) . '"><a href="' . esc_url( $instance['url'] ) . '">Theme Junkie</a></blockquote></div></div>';
 
 		// Close the theme's widget wrapper.
 		echo $after_widget;
