@@ -1,0 +1,7 @@
+1.0.3 - Sept 23, 2015
+* Fixed function that missing text-domain
+* Fixed style.css.min has two line endings
+* Removed favicon option due to Site Icons built-in WordPress core
+* Fixed css issue with Jetpack comment subscription
+* Added back to top button
+* Used new media upload function for the Customizer
