@@ -108,28 +108,6 @@ function bulan_theme_setup() {
 endif; // bulan_theme_setup
 add_action( 'after_setup_theme', 'bulan_theme_setup' );
 
-if ( ! function_exists( 'bulan_reset_default_image_sizes' ) ) :
-/**
- * Re-set default image sizes
- *
- * @since  1.0.0
- */
-function bulan_reset_default_image_sizes() {
-
-	// 'large' size
-	update_option( 'large_size_w', 1024 );
-	update_option( 'large_size_h', 650 );
-	update_option( 'large_crop', 1 );
-
-	// 'medium' size
-	update_option( 'medium_size_w', 400 );
-	update_option( 'medium_size_h', 300 );
-	update_option( 'medium_crop', 1 );
-
-}
-endif;
-add_action( 'after_switch_theme', 'bulan_reset_default_image_sizes' );
-
 /**
  * Registers custom widgets.
  *

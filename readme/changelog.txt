@@ -1,3 +1,11 @@
+1.0.4 - Oct 25, 2015
+* Removed `bulan_reset_default_image_sizes` to follow WPORG guidelines
+  functions.php
+* Improve search form with HTML5 markup
+  searchform.php
+* Fixed pagination not working on 'Static Front Page'
+  page-templates/home-grid.php & page-templates/home-list.php
+
 1.0.3 - Sept 23, 2015
 * Fixed function that missing text-domain
 * Fixed style.css.min has two line endings

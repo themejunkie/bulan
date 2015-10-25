@@ -255,7 +255,7 @@ module.exports = function(grunt) {
 			build: {
 				options: {
 					mode: 'zip',
-					archive: './build/<%= pkg.name %>-<%= pkg.version %>.zip'
+					archive: './build/<%= pkg.name %>.zip'
 				},
 				expand: true,
 				cwd: 'build/<%= pkg.name %>/',
@@ -268,7 +268,7 @@ module.exports = function(grunt) {
 		clean: {
 			build: [
 				'build/<%= pkg.name %>',
-				'build/<%= pkg.name %>-<%= pkg.version %>.zip'
+				'build/<%= pkg.name %>.zip'
 			]
 		},
 

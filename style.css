@@ -2,8 +2,8 @@
 /*!
  * Theme Name: Bulan
  * Theme URI: http://www.theme-junkie.com/themes/bulan/
- * Description: Bulan is a beautiful, minimal and clean WordPress blog theme that easy to customize and simple to setup. It’s ideal for beginner and professional blogger, food blogger and photo blogger! This theme just works, which means you don’t need to install any 3rd party plugins or setup complex options. Just install it and viola! It provides 3 custom widgets Facebook like box, Social Icons and Recent Posts Thumbnail. It also works out of the box with Jetpack.
- * Version: 1.0.3
+ * Description: Bulan is a beautiful, minimal and clean WordPress blog theme that easy to customize and simple to setup. It’s ideal for beginner and professional blogger, food blogger and photo blogger! This theme just works, which means you don’t need to install any 3rd party plugins or setup complex options. Just install it and viola! The theme options are powered by Customizer. It provides 3 custom widgets Facebook like box, Social Icons and Recent Posts Thumbnail. It also works out of the box with Jetpack.
+ * Version: 1.0.4
  * Author: Theme Junkie
  * Author URI: http://www.theme-junkie.com/
  * Tags: brown, gray, dark, white, light, responsive-layout, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, rtl-language-support, sticky-post, threaded-comments, translation-ready, photoblogging
@@ -1228,8 +1228,7 @@ form textarea {
     vertical-align: middle;
 
     border: 1px solid #ddd;
-    -webkit-border-radius: 3px;
-            border-radius: 3px;
+    border-radius: 3px;
 }
 
 form textarea {
@@ -1246,7 +1245,6 @@ form input:not([type]) {
 	box-sizing: border-box;
 	padding: .5em .6em;
 	border: 1px solid #ccc;
-	-webkit-border-radius: 4px;
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 3px #ddd;
 	box-shadow: inset 0 1px 3px #ddd;
@@ -1402,7 +1400,6 @@ input[type='submit'] {
 	border: 1px solid #999;
     /*IE 6/7/8*/
 	border: none transparent;
-	-webkit-border-radius: 2px;
 	border-radius: 2px;
     /*IE9 + everything else*/
 	background-color: #eee;
@@ -1490,7 +1487,6 @@ a.pure-button-selected {
 	color: #fff;
 	border: 0;
 	border-bottom: 1px solid #999;
-	-webkit-border-radius: 0;
 	border-radius: 0;
 	background-color: transparent;
 }
@@ -1580,7 +1576,6 @@ a.pure-button-selected {
 .page-header .avatar {
 	float: left;
 	margin-right: 27px;
-	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
 
@@ -1759,7 +1754,6 @@ a.pure-button-selected {
 	.slicknav_nav .slicknav_row:hover,
     .slicknav_nav a:hover {
 		color: #fff;
-		-webkit-border-radius: 0;
 		border-radius: 0;
 		background-color: #333;
 	}
@@ -1990,7 +1984,6 @@ a.pure-button-selected {
 .author-bio .avatar {
 	float: left;
 	margin-right: 20px;
-	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
 
@@ -2263,7 +2256,6 @@ a.pure-button-selected {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	color: #fff;
-	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	background-color: #333;
 }
@@ -2472,7 +2464,6 @@ a.pure-button-selected {
 	padding: 8px;
 	text-align: center;
 	color: #454545;
-	-webkit-border-radius: 50%;
 	border-radius: 50%;
 	background-color: #fff;
 }
@@ -2577,7 +2568,6 @@ a.pure-button-selected {
 }
 
 .comment-avatar .avatar {
-	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
 
@@ -2673,7 +2663,6 @@ a.pure-button-selected {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	color: #fff;
-	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	background-color: #cc8900;
 }
@@ -2853,13 +2842,24 @@ form.comment-form .comment-form-url {
 	}
 }
 
+.grid .no-sticky:nth-of-type(2n) {
+	clear: left;
+}
+
 .grid .no-sticky:nth-of-type(2n+1) {
 	float: right;
 	margin-right: 0;
 }
 
-.grid .no-sticky:nth-of-type(2n+2) {
-	clear: left;
+.paged .grid .no-sticky:nth-of-type(2n) {
+	float: right;
+	clear: none;
+	margin-right: 0;
+}
+
+.paged .grid .no-sticky:nth-of-type(2n+1) {
+	float: left;
+	margin-right: 3.8461538462%;
 }
 
 .grid .no-sticky .more-link {
@@ -2896,3 +2896,4 @@ form.comment-form .comment-form-url {
 
 /*------------------------------------*	$STATE
 \*------------------------------------*/
+

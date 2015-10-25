@@ -1,32 +1,63 @@
-var $ = jQuery.noConflict();
-$(document).ready(function(){
+// Global jQuery variable
+$ = jQuery;
 
-	// Responsive video
-	$(".hentry, .widget").fitVids();
+/**
+ * Responsive Video
+ */
+var responsiveVideo = function() {
+	var $selector = $( ".hentry, .widget" );
+	$selector.fitVids();
+};
 
-	// Mobile menu
-	$('#menu-primary-items').slicknav({
-		prependTo: '#site-navigation',
+/**
+ * Mobile Menu
+ */
+var mobileMenu = function() {
+	var $selector = $( "#menu-primary-items" );
+	$selector.slicknav( {
+		prependTo: "#site-navigation",
 		allowParentLinks: true
-	});
-	
-	// Search toggle
-	var container = $(".search-area");
-	$(".search-toggle").click(function(e){
-		e.stopPropagation();
-		container.slideToggle("slow");
-		$(".search-toggle").toggleClass("active");
-	});
-	$(document).click(function(e) {
-		if (container.is(":visible") && !container.is(e.target) && container.has(e.target).length === 0) {
-			container.slideToggle("slow");
-			$(".search-toggle").toggleClass("active");
-		}
-	});
+	} );
+};
 
-	// Scroll to top
-	$.scrollUp({
+/**
+ * Search Toggle
+ */
+var searchToggle = function() {
+
+	var $container = $( ".search-area" );
+	    $selector = $( ".search-toggle" );
+	    $doc = $( document );
+
+	$selector.on( "click", function( event ) {
+		event.stopPropagation();
+		$container.slideToggle( "slow" );
+	} );
+
+	$doc.on( "click", function( event ) {
+		event.stopPropagation();
+		if ( $container.is( ":visible" ) && ! $container.is( event.target ) && $container.has( event.target ).length === 0 ) {
+			$container.slideToggle( "slow" );
+		}
+	} );
+
+};
+
+/**
+ * Scroll Top
+ */
+var scrollTop = function() {
+	$.scrollUp( {
 		scrollText: '<i class="fa fa-chevron-up"></i>'
-	});
-	
-});
+	} );
+}
+
+/**
+ * Execute functions when the DOM is fully loaded.
+ */
+$( function() {
+	responsiveVideo();
+	mobileMenu();
+	searchToggle();
+	scrollTop();
+} );

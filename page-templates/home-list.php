@@ -8,7 +8,7 @@ get_header(); ?>
 		<main id="main" class="site-main list" role="main" <?php hybrid_attr( 'content' ); ?>>
 
 			<?php 
-			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+			$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
 			$args = apply_filters( 'bulan_blog_list_query', array( 
 				'post_type' => 'post',
 				'paged'     => $paged

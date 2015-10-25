@@ -7,7 +7,7 @@
  * microdata while being forward compatible with the ever-changing Web. Currently, the default microdata 
  * vocabulary supported is Schema.org.
  *
- * @package    Bulan
+ * @package    Standard
  * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Sami Keijonen <sami.keijonen@foxnet.fi>
  * @copyright  Copyright (c) 2008 - 2014, Justin Tadlock
@@ -59,8 +59,8 @@ add_filter( 'hybrid_attr_comment-content',   'hybrid_attr_comment_content',   5 
  * @param  string  $context  A specific context (e.g., 'primary').
  * @return void
  */
-function hybrid_attr( $slug, $context = '' ) {
-	echo hybrid_get_attr( $slug, $context );
+function hybrid_attr( $slug, $context = '', $attr = array()  ) {
+	echo hybrid_get_attr( $slug, $context, $attr );
 }
 
 /**
@@ -75,16 +75,16 @@ function hybrid_attr( $slug, $context = '' ) {
  * @param  string  $context  A specific context (e.g., 'primary').
  * @return string
  */
-function hybrid_get_attr( $slug, $context = '' ) {
+function hybrid_get_attr( $slug, $context = '', $attr = array() ) {
 
 	$out    = '';
-	$attr   = apply_filters( "hybrid_attr_{$slug}", array(), $context );
+	$attr   = wp_parse_args( $attr, apply_filters( "hybrid_attr_{$slug}", array(), $context ) );
 
-	//if ( empty( $attr ) )
-		//$attr['class'] = $slug;
+	if ( empty( $attr ) )
+		$attr['class'] = $slug;
 
 	foreach ( $attr as $name => $value )
-		$out .= !empty( $value ) ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
+		$out .= $value ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
 
 	return trim( $out );
 }
@@ -506,7 +506,7 @@ function hybrid_attr_comment_author( $attr ) {
  */
 function hybrid_attr_comment_published( $attr ) {
 
-	$attr['itemprop'] = 'dateCreated';
+	$attr['itemprop'] = 'datePublished';
 
 	return $attr;
 }
