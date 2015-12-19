@@ -117,7 +117,7 @@ module.exports = function ( grunt ) {
 					'last 8 versions', 'ie 8', 'ie 9'
 				]
 			},
-			main: {
+			dev: {
 				files: {
 					'style.css': 'style.css',
 					'style.min.css': 'style.min.css',
@@ -303,7 +303,7 @@ module.exports = function ( grunt ) {
 		'newer:imagemin',
 		'sass:prod',
 		'cssjanus',
-		'autoprefixer:prod',
+		'autoprefixer:dev',
 		'csscomb:main',
 		'makepot',
 		'copy'

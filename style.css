@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
  * Theme Name: Bulan
- * Theme URI: http://www.theme-junkie.com/themes/bulan/
+ * Theme URI: https://www.theme-junkie.com/themes/bulan/
  * Description: Bulan is a beautiful, minimal and clean WordPress blog theme that easy to customize and simple to setup. It’s ideal for beginner and professional blogger, food blogger and photo blogger! This theme just works, which means you don’t need to install any 3rd party plugins or setup complex options. Just install it and viola! The theme options are powered by Customizer. It provides 3 custom widgets Facebook like box, Social Icons and Recent Posts Thumbnail. It also works out of the box with Jetpack.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Theme Junkie
- * Author URI: http://www.theme-junkie.com/
+ * Author URI: https://www.theme-junkie.com/
  * Tags: brown, gray, dark, white, light, responsive-layout, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, rtl-language-support, sticky-post, threaded-comments, translation-ready, photoblogging
  * Text Domain: bulan
- * 
+ *
  * License: GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
@@ -217,7 +217,8 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 0; }
 
 /**
@@ -323,7 +324,8 @@ input {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -344,7 +346,8 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   /* 2 */ }
 
 /**
@@ -442,7 +445,8 @@ th {
 *,
 *:before,
 *:after {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
 * html {
   font-size: 112.5%; }
@@ -464,6 +468,10 @@ body {
 /**
  * Selection Color.
  */
+::-moz-selection {
+  color: #fff;
+  background: #cc8900;
+  text-shadow: none; }
 ::selection {
   color: #fff;
   background: #cc8900;
@@ -646,7 +654,8 @@ table tfoot td {
   position: absolute;
   bottom: 0;
   left: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   max-height: 50%;
   margin: 0;
@@ -720,7 +729,8 @@ table tfoot td {
  * Set link colors.
  */
 a {
-  transition: all 200ms ease-in-out 0s;
+  -webkit-transition: all 200ms ease-in-out 0s;
+          transition: all 200ms ease-in-out 0s;
   text-decoration: none;
   color: #cc8900; }
   a:visited {
@@ -890,7 +900,8 @@ hr {
   * {
     color: #000 !important;
     background: transparent !important;
-    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
     text-shadow: none !important; }
   a,
   a:visited {
@@ -945,7 +956,6 @@ form select,
 form textarea {
   display: inline-block;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 2em;
   padding: .5em .6em;
@@ -963,12 +973,12 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 form input:not([type]) {
   display: inline-block;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: .5em .6em;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: inset 0 1px 3px #ddd; }
+  -webkit-box-shadow: inset 0 1px 3px #ddd;
+          box-shadow: inset 0 1px 3px #ddd; }
 
 /* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
 /* May be able to remove this tweak as color inputs become more standardized across browsers. */
@@ -1117,8 +1127,7 @@ input[type="reset"]:focus,
 input[type="submit"]:focus {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, left, color-stop(40%, rgba(0, 0, 0, 0.05)), right);
   background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1));
-  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0); }
 
@@ -1133,7 +1142,8 @@ input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
   border-color: #000\9;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset; }
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset; }
 
 .pure-button[disabled],
 .pure-button-disabled,
@@ -1144,7 +1154,8 @@ input[type="submit"]:active {
   opacity: .40;
   border: none;
   background-image: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   filter: alpha(opacity=40);
   -khtml-opacity: .40;
@@ -1248,7 +1259,8 @@ a.pure-button-selected {
 .main-navigation {
   position: relative;
   background-color: #fff;
-  box-shadow: 0 1px 4px rgba(190, 190, 190, 0.1); }
+  -webkit-box-shadow: 0 1px 4px rgba(190, 190, 190, 0.1);
+          box-shadow: 0 1px 4px rgba(190, 190, 190, 0.1); }
   @media (min-width: 769px) {
     .main-navigation .wide-container {
       position: relative; } }
@@ -1283,7 +1295,9 @@ a.pure-button-selected {
       right: 5px;
       display: inline-block;
       content: "\f107";
-      transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+          -ms-transform: translate(0, 0);
+              transform: translate(0, 0);
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
@@ -1342,7 +1356,8 @@ a.pure-button-selected {
     background-color: transparent; }
     .slicknav_menu .slicknav_icon-bar {
       background-color: #454545;
-      box-shadow: none; }
+      -webkit-box-shadow: none;
+              box-shadow: none; }
   .slicknav_btn {
     float: left;
     margin: 0;
@@ -1376,7 +1391,8 @@ a.pure-button-selected {
   right: 40px;
   padding: 11px 16px;
   cursor: pointer;
-  transition: all 200ms ease-in-out 0s;
+  -webkit-transition: all 200ms ease-in-out 0s;
+          transition: all 200ms ease-in-out 0s;
   color: #fff;
   background-color: #cc8900; }
   @media (max-width: 768px) {
@@ -1877,7 +1893,8 @@ a.pure-button-selected {
   right: 20px;
   bottom: 20px;
   padding: 5px 10px;
-  transition: background 200ms linear;
+  -webkit-transition: background 200ms linear;
+          transition: background 200ms linear;
   color: #fff;
   background-color: #454545; }
   #scrollUp:hover {
@@ -1972,7 +1989,8 @@ a.pure-button-selected {
   right: auto;
   display: inline-block;
   padding-top: 20px;
-  transition: color .2s ease-in-out;
+  -webkit-transition: color .2s ease-in-out;
+          transition: color .2s ease-in-out;
   text-transform: uppercase;
   color: #999; }
   @media (min-width: 480px) {
@@ -2165,5 +2183,3 @@ form.comment-form .comment-form-url {
 
 /*------------------------------------*	$STATE
 \*------------------------------------*/
-
-/*# sourceMappingURL=style.css.map */

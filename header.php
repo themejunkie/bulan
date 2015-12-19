@@ -11,7 +11,7 @@
 
 <body <?php body_class(); ?> <?php hybrid_attr( 'body' ); ?>>
 
-<div id="page" class="hfeed site">
+<div id="page" class="site">
 
 	<div class="search-area">
 		<div class="wide-container">
