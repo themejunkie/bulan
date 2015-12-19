@@ -90,7 +90,7 @@ class Bulan_Recent_Widget extends WP_Widget {
 
 			// Reset the query.
 			wp_reset_postdata();
-		
+
 		// Close the theme's widget wrapper.
 		echo $after_widget;
 

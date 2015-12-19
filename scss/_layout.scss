@@ -1,11 +1,9 @@
 .wide-container {
 	@include container(1040px);
-	padding: 0 40px;
-
 	@include susy-media(240px 1170px) {
 		padding: 0 30px;
 	}
-
+	padding: 0 40px;
 }
 
 @include susy-media(801px) {
@@ -14,29 +12,25 @@
 	}
 
 	.widget-area {
-		@include span(4 of 12 last)
+		@include span(4 of 12 last);
 	}
 }
 
 .layout-2c-r {
-
 	.content-area {
 		float: right;
 		margin-right: 0;
 	}
-	
+
 	.widget-area {
 		float: left;
 		margin-right: gutter();
 	}
-
 }
 
 .layout-1c {
-
 	.content-area {
-		margin-right: 0;
 		width: 100%;
+		margin-right: 0;
 	}
-
 }

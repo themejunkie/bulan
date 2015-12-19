@@ -6,7 +6,7 @@ if ( ! has_nav_menu( 'primary' ) ) {
 ?>
 
 <nav id="site-navigation" class="main-navigation" role="navigation" <?php hybrid_attr( 'menu' ); ?>>
-	
+
 	<div class="wide-container">
 
 		<?php wp_nav_menu(
@@ -18,7 +18,7 @@ if ( ! has_nav_menu( 'primary' ) ) {
 				'fallback_cb'     => ''
 			)
 		); ?>
-		
+
 		<?php
 		$prefix = 'bulan-';
 		$show   = bulan_mod( $prefix . 'search-icon' );

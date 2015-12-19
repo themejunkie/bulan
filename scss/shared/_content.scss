@@ -1,18 +1,17 @@
 .site-content {
-	margin-top: -260px;
 	position: relative;
 	z-index: 1;
+	margin-top: -260px;
 
 	.wide-container {
-		background-color: #fff;
 		padding-top: 40px;
+		background-color: #fff;
 	}
-
 }
 
 .hentry {
-	margin-bottom: 50px;
 	position: relative;
+	margin-bottom: 50px;
 	word-wrap: break-word;
 
 	.single & {
@@ -39,13 +38,13 @@
 
 	&.has-read-more-tag {
 		&::after {
-			content: "";
-			border-bottom: 1px solid #ededed;
 			position: absolute;
+			z-index: 0;
 			bottom: 23px;
 			left: 0;
 			width: 100%;
-			z-index: 0;
+			content: "";
+			border-bottom: 1px solid #ededed;
 		}
 	}
 
@@ -60,24 +59,23 @@
 
 	i.fa-circle {
 		font-size: 5px;
-		color: #999;
 		padding: 0 3px;
-		vertical-align: middle
+		vertical-align: middle;
+		color: #999;
 	}
-
 }
 
 .entry-post {
-	font-size: 18px;
 	@include susy-media(768px) {
 		font-size: 20px;
 	}
+	font-size: 18px;
 }
 
 .thumbnail-link {
+	position: relative;
 	display: block;
 	margin-bottom: 30px;
-	position: relative;
 
 	&:hover {
 		opacity: .75;
@@ -86,7 +84,6 @@
 	img {
 		display: block;
 	}
-
 }
 
 .entry-header {
@@ -114,24 +111,23 @@
 }
 
 .more-link {
-	background-color: #fff;
-	display: inline-block;
-	border: 3px double #eee;
-	padding: 9px 16px;
 	font-size: 16px;
-	float: right;
-	margin-top: 40px;
 	position: relative;
 	z-index: 1;
+	display: inline-block;
+	float: right;
+	margin-top: 40px;
+	padding: 9px 16px;
+	border: 3px double #eee;
+	background-color: #fff;
 	&:hover,
 	&:visited:hover {
-		background-color: $color-1;
 		color: #fff;
+		background-color: $color-1;
 	}
 }
 
 .single {
-
 	.hentry {
 		@extend %clearfix;
 	}
@@ -147,10 +143,10 @@
 	}
 
 	.entry-side {
-		display: block;
 		font-size: 16px;
-		color: #aaa;
+		display: block;
 		margin-bottom: 2px;
+		color: #aaa;
 		span,
 		a {
 			color: #666;
@@ -159,25 +155,24 @@
 			color: $color-1;
 		}
 	}
-
 }
 
 .tag-links {
 	a {
-		background-color: #fff;
-		border: 3px double $border-color;
-		color: $color-3;
-		padding: 2px 8px 5px;
+		font-size: 12px;
+		line-height: 1;
+		display: inline-block;
 		margin-right: 5px;
 		margin-bottom: 8px;
-		display: inline-block;
+		padding: 2px 8px 5px;
 		letter-spacing: 1px;
-		line-height: 1;
 		text-transform: uppercase;
-		font-size: 12px;
+		color: $color-3;
+		border: 3px double $border-color;
+		background-color: #fff;
 		&:hover {
-			background-color: $color-1;
 			color: $color-2;
+			background-color: $color-1;
 		}
 	}
 	span {
@@ -186,17 +181,17 @@
 }
 
 .author-bio {
-	border-top: 1px dotted darken($border-color, 5%);
-    padding-top: 30px;
 	@extend %clearfix;
+	padding-top: 30px;
+	border-top: 1px dotted darken($border-color, 5%);
 
 	.avatar {
-		border-radius: 50%;
-		float: left;
-		margin-right: 20px;
 		@include susy-media(max-width 320px) {
 			display: none;
 		}
+		float: left;
+		margin-right: 20px;
+		border-radius: 50%;
 	}
 
 	.description {
@@ -223,30 +218,29 @@
 	}
 
 	.author-social {
-		margin-bottom: 30px;
 		@extend %inline-list;
+		margin-bottom: 30px;
 		li {
 			&:first-child {
 				padding-left: 0;
 			}
 		}
 		a {
-			color: #bbb;
 			font-size: 16px;
+			color: #bbb;
 			&:hover {
 				color: $color-1;
 			}
 		}
 	}
-
 }
 
 .loop-nav {
-	color: #aaa;
-	clear: both;
-	font-size: 16px;
-	margin-bottom: 40px;
 	@extend %clearfix;
+	font-size: 16px;
+	clear: both;
+	margin-bottom: 40px;
+	color: #aaa;
 
 	.attachment & {
 		margin-top: 35px;
@@ -263,30 +257,29 @@
 
 	.attachment & {
 		.prev {
-			margin-right: 0;
 			float: none;
 			width: auto;
+			margin-right: 0;
 		}
 		.next {
-			margin-top: 5px;
 			float: none;
 			width: auto;
+			margin-top: 5px;
 			text-align: left;
 		}
 	}
 
 	.prev {
 		float: left;
-		margin-right: 3%;
 		width: 45%;
+		margin-right: 3%;
 	}
 
 	.next {
 		float: right;
-		text-align: right;
 		width: 45%;
+		text-align: right;
 	}
-
 }
 
 /**
@@ -294,51 +287,31 @@
  */
 .pagination {
 	@include container(800px);
-	clear: both;
 	display: block;
+	clear: both;
 	margin-bottom: 60px;
 	text-align: center;
 
 	.page-numbers {
-		padding: 2px 12px;
-		background-color: #f5f5f5;
-		color: $color-3;
 		display: inline-block;
 		margin-right: -5px;
+		padding: 2px 12px;
+		color: $color-3;
+		background-color: #f5f5f5;
 		&.current,
 		&:hover {
-			background-color: $color-3;
 			color: $color-2;
+			background-color: $color-3;
 		}
 	}
-
 }
 
 /**
  * Related posts
  */
 .related-posts {
-	border-top: 1px dotted $border-color;
-	padding-top: 30px;
-	margin-bottom: 30px;
-
-	h3 {
-		font-size: 16px;
-		text-transform: uppercase;
-		margin-bottom: 30px;
-		margin-top: 0;
-	}
-
-	ul {
-		@extend %clearfix;
-		@extend %reset-list;
-	}
-	
 	@include with-layout( 12 (60px 20px) ) {
-
 		li {
-			margin-bottom: 40px;
-			word-wrap: break-word;
 			@include susy-media(768px) {
 				@include span(4 of 12);
 				margin-bottom: 0;
@@ -346,8 +319,24 @@
 					@include last;
 				}
 			}
+			margin-bottom: 40px;
+			word-wrap: break-word;
 		}
+	}
+	margin-bottom: 30px;
+	padding-top: 30px;
+	border-top: 1px dotted $border-color;
 
+	h3 {
+		font-size: 16px;
+		margin-top: 0;
+		margin-bottom: 30px;
+		text-transform: uppercase;
+	}
+
+	ul {
+		@extend %clearfix;
+		@extend %reset-list;
 	}
 
 	.thumbnail-link {
@@ -370,26 +359,23 @@
 		font-style: italic;
 		color: #999;
 	}
-
 }
 
 /**
  * Attachment page
  */
 .attachment {
-
 	.entry-post {
-		@include span(9 of 12)
+		@include span(9 of 12);
 	}
 
 	.entry-meta {
-		@include span(3 of 12 last)
+		@include span(3 of 12 last);
 	}
 
 	.hentry {
 		margin-bottom: 60px;
 	}
-
 }
 
 /**

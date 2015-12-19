@@ -58,7 +58,7 @@ add_action( 'wp_enqueue_scripts', 'bulan_enqueue' );
 
 /**
  * Loads HTML5 Shiv & Respond js file.
- * 
+ *
  * @since  1.0.0
  */
 function bulan_special_scripts() {
@@ -132,7 +132,7 @@ function bulan_popup_gallery() {
 	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'carousel' ) ) {
 		return;
 	}
-	
+
 	?>
 	<script>
 		var $ = jQuery.noConflict();

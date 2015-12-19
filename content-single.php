@@ -32,7 +32,7 @@ if ( $date_style == 'absolute' ) {
 			<i class="fa fa-circle"></i>
 			<?php endif; // End if categories ?>
 		<?php endif; ?>
-		
+
 		<?php if ( $date ) : ?>
 			<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>" <?php hybrid_attr( 'entry-published' ); ?>><?php echo esc_html( $style ); ?></time>
 		<?php endif; ?>
@@ -46,7 +46,7 @@ if ( $date_style == 'absolute' ) {
 			<?php the_excerpt(); ?>
 		</div><!-- .page-header -->
 	<?php endif; ?>
-	
+
 	<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
 
 		<?php the_content(); ?>
@@ -56,11 +56,11 @@ if ( $date_style == 'absolute' ) {
 				'after'  => '</div>',
 			) );
 		?>
-	
+
 	</div>
 
 	<footer class="entry-footer">
-		
+
 		<?php
 			$tags = get_the_tags();
 			if ( $tags && $tag ) :
@@ -78,5 +78,5 @@ if ( $date_style == 'absolute' ) {
 		<?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
 		<?php if ( class_exists( 'Jetpack_Likes' ) ) { $custom_likes = new Jetpack_Likes; echo $custom_likes->post_likes( '' ); } ?>
 	</div>
-	
+
 </article><!-- #post-## -->

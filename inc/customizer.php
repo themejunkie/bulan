@@ -29,13 +29,13 @@ function bulan_customizer_register() {
 	$options['sections'] = $sections;
 
 	// ======= Start Customizer Panels/Sections/Settings ======= //
-	
+
 	// Theme prefix
 	$prefix = 'bulan-';
 
 	// Base color
 	$color = '#cc8900';
-	
+
 	// General Panels and Sections
 	$general_panel = 'general';
 
@@ -256,7 +256,7 @@ function bulan_customizer_register() {
 			'default'     => $color,
 			'transport'   => 'postMessage'
 		);
-		
+
 		// Header colors
 		$section = $prefix . 'header-colors-section';
 

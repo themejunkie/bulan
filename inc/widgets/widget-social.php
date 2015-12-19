@@ -51,7 +51,7 @@ class Bulan_Social_Widget extends WP_Widget {
 			echo '<div class="social-icons">';
 				if ( $instance['facebook'] ) {
 					echo '<a class="facebook" href="' . esc_url( $instance['facebook'] ) . '"><i class="fa fa-facebook"></i></a>';
-				} 
+				}
 				if ( $instance['twitter'] ) {
 					echo '<a class="twitter" href="' . esc_url( $instance['twitter'] ) . '"><i class="fa fa-twitter"></i></a>';
 				}

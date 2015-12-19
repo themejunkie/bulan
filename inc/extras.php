@@ -177,7 +177,7 @@ add_filter( 'excerpt_length', 'bulan_excerpt_length', 999 );
 
 /**
  * Remove theme-layouts meta box on attachment and bbPress post type.
- * 
+ *
  * @since 1.0.0
  */
 function bulan_remove_theme_layout_metabox() {

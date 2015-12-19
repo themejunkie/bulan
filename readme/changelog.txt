@@ -1,3 +1,8 @@
+1.0.5 - Dec 19, 2015
+* Fixed consistent coding style to all files
+  all files
+
+
 1.0.4 - Oct 25, 2015
 * Removed `bulan_reset_default_image_sizes` to follow WPORG guidelines
   functions.php

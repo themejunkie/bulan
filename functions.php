@@ -4,7 +4,7 @@
  *
  * Contains all of the Theme's setup functions, custom functions,
  * custom hooks and Theme settings.
- * 
+ *
  * @package    Bulan
  * @author     Theme Junkie
  * @copyright  Copyright (c) 2015, Theme Junkie
@@ -92,13 +92,13 @@ function bulan_theme_setup() {
 	) ) );
 
 	// Enable theme-layouts extensions.
-	add_theme_support( 'theme-layouts', 
+	add_theme_support( 'theme-layouts',
 		array(
 			'1c'   => __( '1 Column Wide (Full Width)', 'bulan' ),
 			'2c-l' => __( '2 Columns: Content / Sidebar', 'bulan' ),
 			'2c-r' => __( '2 Columns: Sidebar / Content', 'bulan' )
 		),
-		array( 'customize' => false, 'default' => '2c-l' ) 
+		array( 'customize' => false, 'default' => '2c-l' )
 	);
 
 	// This theme uses its own gallery styles.
@@ -127,7 +127,7 @@ function bulan_widgets_init() {
 	// Register facebook widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-facebook.php';
 	register_widget( 'Bulan_Facebook_Widget' );
-	
+
 }
 add_action( 'widgets_init', 'bulan_widgets_init' );
 
@@ -150,7 +150,7 @@ function bulan_sidebars_init() {
 			'after_title'   => '</h3>',
 		)
 	);
-	
+
 }
 add_action( 'widgets_init', 'bulan_sidebars_init' );
 
@@ -161,7 +161,7 @@ add_action( 'widgets_init', 'bulan_sidebars_init' );
  * @return string
  */
 function bulan_crimnson_text_font() {
-	
+
 	$font_url = '';
 	/*
 	 * Translators: If there are characters in your language that are not supported
@@ -181,7 +181,7 @@ function bulan_crimnson_text_font() {
  * @return string
  */
 function bulan_oswald_font() {
-	
+
 	$font_url = '';
 	/*
 	 * Translators: If there are characters in your language that are not supported

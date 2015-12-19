@@ -2,47 +2,46 @@
  * Search area
  */
 .search-area {
-	background-color: #333;
 	display: none;
 	padding: 40px 0;
+	background-color: #333;
 
 	.field {
-		background-color: transparent;
+		width: 100%;
+		padding: 10px 0;
+		color: #fff;
 		border: 0;
 		border-bottom: 1px solid #999;
 		border-radius: 0;
-		color: #fff;
-		padding: 10px 0;
-		width: 100%;
+		background-color: transparent;
 		&:focus {
 			outline: none;
 		}
 	}
-
 }
 
 /**
  * Header
  */
 .site-header {
-	padding: 240px 0;
 	position: relative;
+	padding: 240px 0;
 }
 
 .site-branding {
 	position: absolute;
-	top: 70px;
-	text-align: center;
-	left: 0;
-	right: 0;
 	z-index: 1;
+	top: 70px;
+	right: 0;
+	left: 0;
+	text-align: center;
 
 	.site-title {
 		text-transform: uppercase;
 		a {
-			border: 3px double $color-3;
-			color: $color-3;
 			padding: 5px 25px;
+			color: $color-3;
+			border: 3px double $color-3;
 			&:hover {
 				border-color: $color-1;
 			}
@@ -51,28 +50,23 @@
 
 	.has-custom-header &,
 	.has-featured-image & {
-
 		.site-title {
-
 			a {
-				border: 3px double #fff;
 				color: #fff;
+				border: 3px double #fff;
 				&:hover {
 					border-color: $color-1;
 				}
 			}
-
 		}
-
 	}
 
 	.site-description {
-		color: #fff;
 		font-family: $body-font-family;
 		font-size: 18px;
 		font-style: italic;
+		color: #fff;
 	}
-
 }
 
 /**
@@ -83,14 +77,14 @@
 }
 
 .page-header {
-	border-bottom: 1px dotted darken($border-color, 5%);
-	margin-bottom: 27px;
 	@extend %clearfix;
+	margin-bottom: 27px;
+	border-bottom: 1px dotted darken($border-color, 5%);
 
 	.author & {
 		.page-title {
-			margin-top: 0;
 			overflow: hidden;
+			margin-top: 0;
 		}
 		p {
 			overflow: hidden;
@@ -106,9 +100,8 @@
 	}
 
 	.avatar {
-		border-radius: 50%;
-		margin-right: 27px;
 		float: left;
+		margin-right: 27px;
+		border-radius: 50%;
 	}
-
 }

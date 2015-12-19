@@ -8,7 +8,7 @@ $content = bulan_mod( $prefix . 'blog-content' );
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
 	<header class="entry-header">
-		
+
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<?php
 				/* translators: used between list items, there is a space after the comma */
@@ -20,7 +20,7 @@ $content = bulan_mod( $prefix . 'blog-content' );
 			</span>
 			<?php endif; // End if categories ?>
 		<?php endif; ?>
-			
+
 		<?php the_title( sprintf( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '><a href="%s" rel="bookmark" itemprop="url">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 	</header>
@@ -40,5 +40,5 @@ $content = bulan_mod( $prefix . 'blog-content' );
 			<?php the_excerpt(); ?>
 		</div>
 	<?php endif; ?>
-	
+
 </article><!-- #post-## -->

@@ -1,9 +1,10 @@
-@import url( '../../style.min.css' );
+@import url( "../../style.min.css" );
 
 body#tinymce {
-	background: #fff;
-	color: #555;
 	margin: 40px;
+	color: #555;
+	background: #fff;
+
 	-webkit-font-smoothing: auto !important;
 
 	.alignleft {
@@ -21,9 +22,8 @@ body#tinymce {
 	.wp-caption-dd {
 		font-size: 14px;
 		font-style: italic;
-		color: #999;
-		text-align: left;
 		padding: 0;
+		text-align: left;
+		color: #999;
 	}
-
 }

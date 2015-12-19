@@ -7,9 +7,9 @@
 	<?php endif; ?>
 
 	<div class="entry-text-content">
-		
+
 		<header class="entry-header">
-			
+
 			<?php if ( 'post' == get_post_type() ) : ?>
 				<?php
 					/* translators: used between list items, there is a space after the comma */
@@ -21,7 +21,7 @@
 				</span>
 				<?php endif; // End if categories ?>
 			<?php endif; ?>
-				
+
 			<?php the_title( sprintf( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '><a href="%s" rel="bookmark" itemprop="url">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		</header>
@@ -31,5 +31,5 @@
 		</div>
 
 	</div>
-	
+
 </article><!-- #post-## -->
