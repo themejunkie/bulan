@@ -53,22 +53,12 @@ function bulan_enqueue() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// Loads HTML5 Shiv
+	wp_enqueue_script( 'standard-html5', trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.min.js', array( 'jquery' ), null, false );
+	wp_script_add_data( 'standard-html5', 'conditional', 'lte IE 9' );
+
 }
 add_action( 'wp_enqueue_scripts', 'bulan_enqueue' );
-
-/**
- * Loads HTML5 Shiv & Respond js file.
- *
- * @since  1.0.0
- */
-function bulan_special_scripts() {
-?>
-<!--[if lt IE 9]>
-<script src="<?php echo trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.min.js'; ?>"></script>
-<![endif]-->
-<?php
-}
-add_action( 'wp_head', 'bulan_special_scripts', 15 );
 
 /**
  * Display the custom header.
