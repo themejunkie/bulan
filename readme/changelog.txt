@@ -5,6 +5,8 @@
   inc/scripts.php
 * Restructure js method
   assets/js/main.js
+* Temporary removed popup gallery functionality
+  inc/scripts.php
 
 1.0.4 - Oct 25, 2015
 * Removed `bulan_reset_default_image_sizes` to follow WPORG guidelines

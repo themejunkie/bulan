@@ -115,32 +115,3 @@ function bulan_custom_header() {
 
 }
 add_action( 'wp_enqueue_scripts', 'bulan_custom_header' );
-
-function bulan_popup_gallery() {
-
-	// Check if Jetpack carousel module activated.
-	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'carousel' ) ) {
-		return;
-	}
-
-	?>
-	<script>
-		var $ = jQuery.noConflict();
-		$(document).ready(function(){
-			$(".gallery-icon a[href$='.jpg'], .gallery-icon a[href$='.jpeg'], .gallery-icon a[href$='.png'], .gallery-icon a[href$='.gif']").magnificPopup({
-				type:'image',
-				gallery: {
-					enabled: true
-				},
-				retina: {
-					ratio: 2,
-					replaceSrc: function(item, ratio) {
-						return item.src.replace(/\.\w+$/, function(m) { return '@2x' + m; });
-					}
-				}
-			});
-		});
-	</script>
-	<?php
-}
-add_action( 'wp_footer', 'bulan_popup_gallery', 10 );
