@@ -1,6 +1,6 @@
 <?php
 /**
- * The multiple select2 customize control extends the WP_Customize_Control class.  This class allows 
+ * The multiple select2 customize control extends the WP_Customize_Control class.  This class allows
  * developers to create select2 settings within the WordPress theme customizer.
  *
  * @package    Bulan
@@ -32,21 +32,21 @@ class Customizer_Library_Select_Multiple extends WP_Customize_Control {
 	public function enqueue() {
 		// Path
 		$path = str_replace( WP_CONTENT_DIR, WP_CONTENT_URL, dirname( dirname( __FILE__ ) ) );
-		
+
 		wp_enqueue_style( 'jquery-select2-css', trailingslashit( $path ) . 'css/select2.min.css', array(), '4.0.0' );
-		wp_enqueue_script( 'jquery-select2', trailingslashit( $path ) . 'js/select2.full.min.js', array( 'jquery' ), '4.0.0', true );
+		wp_enqueue_script( 'jquery-select2', trailingslashit( $path ) . 'js/select2.min.js', array( 'jquery' ), '4.0.0', true );
 	}
 
 	/**
 	 * Displays the multiple select2 on the customize screen.
 	 */
-	public function render_content() { 
+	public function render_content() {
 
 		if ( empty( $this->choices ) ) {
 			return;
 		}
 		?>
-		
+
 		<label>
 			<?php if ( ! empty( $this->label ) ) : ?>
 				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -54,7 +54,7 @@ class Customizer_Library_Select_Multiple extends WP_Customize_Control {
 			if ( ! empty( $this->description ) ) : ?>
 				<span class="description customize-control-description"><?php echo $this->description; ?></span>
 			<?php endif; ?>
-			
+
 			<select class="select2" <?php $this->link(); ?> multiple="multiple" style="width: 100%">
 				<?php
 					foreach ( $this->choices as $value => $label ) {
@@ -62,7 +62,7 @@ class Customizer_Library_Select_Multiple extends WP_Customize_Control {
 					}
 				?>
 			</select>
-			
+
 		</label>
 
 		<script>

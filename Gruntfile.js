@@ -22,9 +22,9 @@ module.exports = function ( grunt ) {
 				},
 				files: {
 					'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
-					'jquery.slicknav.min.js': 'slicknav/dist/jquery.slicknav.min.js',
-					'jquery.magnific-popup.min.js': 'magnific-popup/dist/jquery.magnific-popup.min.js',
-					'jquery.scrollUp.min.js': 'scrollup/dist/jquery.scrollUp.min.js',
+					'jquery.slicknav.js': 'slicknav/dist/jquery.slicknav.js',
+					'jquery.magnific-popup.js': 'magnific-popup/dist/jquery.magnific-popup.js',
+					'jquery.scrollUp.js': 'scrollup/dist/jquery.scrollUp.js',
 				}
 			},
 			js: {
@@ -40,7 +40,7 @@ module.exports = function ( grunt ) {
 					destPrefix: 'assets/css/devs'
 				},
 				files: {
-					'font-awesome.min.css': 'fontawesome/css/font-awesome.min.css',
+					'font-awesome.css': 'fontawesome/css/font-awesome.css',
 					'magnific-popup.css': 'magnific-popup/dist/magnific-popup.css',
 					'slicknav.css': 'slicknav/dist/slicknav.css',
 				}
@@ -51,6 +51,24 @@ module.exports = function ( grunt ) {
 				},
 				files: {
 					'assets/fonts': [ 'fontawesome/fonts/*' ]
+				}
+			},
+			adminjs: {
+				options: {
+					destPrefix: 'admin/js'
+				},
+				files: {
+					'select2.js': 'select2/dist/js/select2.js',
+					'select2.min.js': 'select2/dist/js/select2.min.js'
+				}
+			},
+			admincss: {
+				options: {
+					destPrefix: 'admin/css'
+				},
+				files: {
+					'select2.css': 'select2/dist/css/select2.css',
+					'select2.min.css': 'select2/dist/css/select2.min.css'
 				}
 			}
 		},

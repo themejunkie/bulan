@@ -123,10 +123,6 @@ function bulan_widgets_init() {
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-social.php';
 	register_widget( 'Bulan_Social_Widget' );
 
-	// Register facebook widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-facebook.php';
-	register_widget( 'Bulan_Facebook_Widget' );
-
 }
 add_action( 'widgets_init', 'bulan_widgets_init' );
 

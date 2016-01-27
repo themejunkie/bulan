@@ -1,0 +1,16 @@
+Images, CSS, JS and Fonts License
+
+FONTS
+- FontAwesome licensed under MIT and SIL OFL 1.1 License - http://fontawesome.io/
+
+IMAGES
+- Screenshot images licensed under CC0 1.0 - https://unsplash.com/
+
+CSS & JS
+- HTML5 Shiv licensed under MIT/GPL2
+- FitVids licensed under WTFPL
+- Magnific Popup licensed under MIT
+- scrollup licensed under MIT
+- SlickNav licensed under MIT
+- Select2 licensed under MIT
+- All customizer script licensed under GPL
