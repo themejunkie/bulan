@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bulan 1.0.6\n"
+"Project-Id-Version: Bulan 1.0.7\n"
 "Report-Msgid-Bugs-To: http://www.theme-junkie.com/forum/\n"
-"POT-Creation-Date: 2016-01-27 05:52:28+00:00\n"
+"POT-Creation-Date: 2016-02-05 06:16:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -677,8 +677,8 @@ msgid ""
 "blogger, food blogger and photo blogger! This theme just works, which means "
 "you don’t need to install any 3rd party plugins or setup complex options. "
 "Just install it and viola! The theme options are powered by Customizer. It "
-"provides 3 custom widgets Facebook like box, Social Icons and Recent Posts "
-"Thumbnail. It also works out of the box with Jetpack."
+"provides 2 custom widgets Social Icons and Recent Posts Thumbnail. It also "
+"works out of the box with Jetpack."
 msgstr ""
 
 #. Author of the plugin/theme

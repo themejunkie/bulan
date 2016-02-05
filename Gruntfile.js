@@ -33,6 +33,7 @@ module.exports = function ( grunt ) {
 				},
 				files: {
 					'html5shiv.min.js': 'html5shiv/dist/html5shiv.min.js',
+					'html5shiv.js': 'html5shiv/dist/html5shiv.js',
 				}
 			},
 			css: {
