@@ -3,7 +3,7 @@
 
 	<?php get_sidebar( 'footer' ); // Loads the sidebar-footer.php template.  ?>
 
-	<footer id="colophon" class="site-footer" role="contentinfo" <?php hybrid_attr( 'footer' ); ?>>
+	<footer id="colophon" class="site-footer" <?php hybrid_attr( 'footer' ); ?>>
 		<div class="wide-container">
 
 			<div class="site-info">

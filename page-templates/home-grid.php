@@ -5,7 +5,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main grid" role="main" <?php hybrid_attr( 'content' ); ?>>
+		<main id="main" class="site-main grid" <?php hybrid_attr( 'content' ); ?>>
 
 			<?php 
 			$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
