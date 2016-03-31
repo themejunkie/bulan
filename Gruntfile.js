@@ -131,15 +131,25 @@ module.exports = function ( grunt ) {
 
 		// Autoprefixer.
 		autoprefixer: {
-			options: {
-				browsers: [
-					'last 8 versions', 'ie 8', 'ie 9'
-				],
-				map: true
-			},
 			dev: {
+				options: {
+					browsers: [
+						'last 8 versions', 'ie 8', 'ie 9'
+					],
+					map: true
+				},
 				files: {
-					'style.css': 'style.css',
+					'style.css': 'style.css'
+				}
+			},
+			prod: {
+				options: {
+					browsers: [
+						'last 8 versions', 'ie 8', 'ie 9'
+					],
+					map: false
+				},
+				files: {
 					'style.min.css': 'style.min.css',
 				}
 			}
@@ -323,7 +333,7 @@ module.exports = function ( grunt ) {
 		'newer:imagemin',
 		'sass:prod',
 		'cssjanus',
-		'autoprefixer:dev',
+		'autoprefixer',
 		'csscomb:main',
 		'makepot',
 		'copy'
