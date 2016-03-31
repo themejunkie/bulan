@@ -1,17 +1,20 @@
 .widget {
-	@include susy-media(601px 801px) {
-		@include span(6 of 12);
-		&:nth-child(2n+2) {
-			@include last;
-		}
-		&:nth-child(2n+1) {
-			clear: left;
-		}
-	}
 	font-size: 16px;
 	line-height: 1.5;
 	margin-bottom: 60px;
 	word-wrap: break-word;
+
+	.widget-area & {
+		@include susy-media(601px 801px) {
+			@include span(6 of 12);
+			&:nth-child(2n+2) {
+				@include last;
+			}
+			&:nth-child(2n+1) {
+				clear: left;
+			}
+		}
+	}
 
 	ul {
 		@extend %reset-list;

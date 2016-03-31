@@ -134,7 +134,8 @@ module.exports = function ( grunt ) {
 			options: {
 				browsers: [
 					'last 8 versions', 'ie 8', 'ie 9'
-				]
+				],
+				map: true
 			},
 			dev: {
 				files: {

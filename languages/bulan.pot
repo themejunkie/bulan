@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v2.0 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bulan 1.0.7\n"
+"Project-Id-Version: Bulan 1.0.8\n"
 "Report-Msgid-Bugs-To: http://www.theme-junkie.com/forum/\n"
-"POT-Creation-Date: 2016-02-05 06:16:56+00:00\n"
+"POT-Creation-Date: 2016-03-31 03:46:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Theme Junkie (support@theme-junkie.com)\n"
 "Language-Team: Theme Junkie (support@theme-junkie.com)\n"
-"X-Generator: grunt-wp-i18n 0.5.3\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Language: English\n"
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: admin/functions.php:36 inc/customizer.php:271
+#: admin/functions.php:36 inc/customizer.php:278
 msgid "Site Title"
 msgstr ""
 
@@ -203,6 +203,22 @@ msgstr ""
 msgid "Main sidebar that appears on the right."
 msgstr ""
 
+#: functions.php:151
+msgid "Footer Left"
+msgstr ""
+
+#: functions.php:153 functions.php:165 functions.php:177
+msgid "Footer sidebar that appears on the bottom of your site."
+msgstr ""
+
+#: functions.php:163
+msgid "Footer Center"
+msgstr ""
+
+#: functions.php:175
+msgid "Footer Right"
+msgstr ""
+
 #: inc/customizer.php:44
 msgid "General"
 msgstr ""
@@ -271,7 +287,7 @@ msgstr ""
 msgid "Customize the footer text."
 msgstr ""
 
-#: inc/customizer.php:154 inc/customizer.php:265
+#: inc/customizer.php:154 inc/customizer.php:272
 msgid "Header"
 msgstr ""
 
@@ -283,7 +299,7 @@ msgstr ""
 msgid "Regular Logo"
 msgstr ""
 
-#: inc/customizer.php:188 inc/customizer.php:239
+#: inc/customizer.php:188 inc/customizer.php:246
 msgid "Search"
 msgstr ""
 
@@ -295,204 +311,212 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: inc/customizer.php:215 inc/customizer.php:556
+#: inc/customizer.php:215 inc/customizer.php:570
 msgid "Global"
 msgstr ""
 
-#: inc/customizer.php:221 inc/customizer.php:331 inc/customizer.php:381
-#: inc/customizer.php:438 inc/customizer.php:488
+#: inc/customizer.php:221 inc/customizer.php:345 inc/customizer.php:395
+#: inc/customizer.php:452 inc/customizer.php:502
 msgid "Text color"
 msgstr ""
 
-#: inc/customizer.php:228 inc/customizer.php:305 inc/customizer.php:355
-#: inc/customizer.php:397 inc/customizer.php:446 inc/customizer.php:496
+#: inc/customizer.php:228 inc/customizer.php:312 inc/customizer.php:369
+#: inc/customizer.php:411 inc/customizer.php:460 inc/customizer.php:510
 msgid "Link color"
 msgstr ""
 
-#: inc/customizer.php:245 inc/customizer.php:525
+#: inc/customizer.php:235
+msgid "Blockquote border color"
+msgstr ""
+
+#: inc/customizer.php:252 inc/customizer.php:539
 msgid "Icon color"
 msgstr ""
 
-#: inc/customizer.php:253 inc/customizer.php:297 inc/customizer.php:480
-#: inc/customizer.php:510
+#: inc/customizer.php:260 inc/customizer.php:304 inc/customizer.php:494
+#: inc/customizer.php:524
 msgid "Background color"
 msgstr ""
 
-#: inc/customizer.php:279
+#: inc/customizer.php:286
 msgid "Site Title Border"
 msgstr ""
 
-#: inc/customizer.php:291
+#: inc/customizer.php:298
 msgid "Menu"
 msgstr ""
 
-#: inc/customizer.php:313
+#: inc/customizer.php:320
 msgid "Hover & current menu color"
 msgstr ""
 
-#: inc/customizer.php:324
+#: inc/customizer.php:327
+msgid "Dropdown hover background color"
+msgstr ""
+
+#: inc/customizer.php:338
 msgid "Post"
 msgstr ""
 
-#: inc/customizer.php:325
+#: inc/customizer.php:339
 msgid "Used for single post only, please navigate the preview to the existing post."
 msgstr ""
 
-#: inc/customizer.php:339 inc/customizer.php:389
+#: inc/customizer.php:353 inc/customizer.php:403
 msgid "Heading color"
 msgstr ""
 
-#: inc/customizer.php:347
+#: inc/customizer.php:361
 msgid "Excerpt color"
 msgstr ""
 
-#: inc/customizer.php:363 inc/customizer.php:405
+#: inc/customizer.php:377 inc/customizer.php:419
 msgid "Link hover color"
 msgstr ""
 
-#: inc/customizer.php:374 inc/customizer.php:701
+#: inc/customizer.php:388 inc/customizer.php:715
 msgid "Page"
 msgstr ""
 
-#: inc/customizer.php:375
+#: inc/customizer.php:389
 msgid "Used for page only, please navigate the preview to the existing page."
 msgstr ""
 
-#: inc/customizer.php:416
+#: inc/customizer.php:430
 msgid "Widget"
 msgstr ""
 
-#: inc/customizer.php:422
+#: inc/customizer.php:436
 msgid "Background Title color"
 msgstr ""
 
-#: inc/customizer.php:430
+#: inc/customizer.php:444
 msgid "Title color"
 msgstr ""
 
-#: inc/customizer.php:454
+#: inc/customizer.php:468
 msgid "Link Hover color"
 msgstr ""
 
-#: inc/customizer.php:461
+#: inc/customizer.php:475
 msgid "Border color"
 msgstr ""
 
-#: inc/customizer.php:462
+#: inc/customizer.php:476
 msgid "Use for widget with list such as Recent Posts, etc."
 msgstr ""
 
-#: inc/customizer.php:474
+#: inc/customizer.php:488
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:504
+#: inc/customizer.php:518
 msgid "Social color"
 msgstr ""
 
-#: inc/customizer.php:518
+#: inc/customizer.php:532
 msgid "Background Hover color"
 msgstr ""
 
-#: inc/customizer.php:537
+#: inc/customizer.php:551
 msgid "Background Image"
 msgstr ""
 
-#: inc/customizer.php:546
+#: inc/customizer.php:560
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer.php:562
+#: inc/customizer.php:576
 msgid "Text font"
 msgstr ""
 
-#: inc/customizer.php:570
+#: inc/customizer.php:584
 msgid "Heading font"
 msgstr ""
 
-#: inc/customizer.php:582
+#: inc/customizer.php:596
 msgid "Content Layout"
 msgstr ""
 
-#: inc/customizer.php:591
+#: inc/customizer.php:605
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer.php:597
+#: inc/customizer.php:611
 msgid "Blog content"
 msgstr ""
 
-#: inc/customizer.php:602
+#: inc/customizer.php:616
 msgid "Content"
 msgstr ""
 
-#: inc/customizer.php:603
+#: inc/customizer.php:617
 msgid "Excerpt"
 msgstr ""
 
-#: inc/customizer.php:612
+#: inc/customizer.php:626
 msgid "Posts"
 msgstr ""
 
-#: inc/customizer.php:613
+#: inc/customizer.php:627
 msgid ""
 "Posts is a single post page. Please navigate the preview to the single post "
 "to see changes."
 msgstr ""
 
-#: inc/customizer.php:619
+#: inc/customizer.php:633
 msgid "Post Meta"
 msgstr ""
 
-#: inc/customizer.php:625
+#: inc/customizer.php:639
 msgid "Show post date"
 msgstr ""
 
-#: inc/customizer.php:632
+#: inc/customizer.php:646
 msgid "Show post categories"
 msgstr ""
 
-#: inc/customizer.php:639
+#: inc/customizer.php:653
 msgid "Show post tags"
 msgstr ""
 
-#: inc/customizer.php:646
+#: inc/customizer.php:660
 msgid "Show post author box"
 msgstr ""
 
-#: inc/customizer.php:653
+#: inc/customizer.php:667
 msgid "Post Date"
 msgstr ""
 
-#: inc/customizer.php:659
+#: inc/customizer.php:673
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:664
+#: inc/customizer.php:678
 msgid "Absolute (June 16, 2015)"
 msgstr ""
 
-#: inc/customizer.php:665
+#: inc/customizer.php:679
 msgid "Relative (1 week ago)"
 msgstr ""
 
-#: inc/customizer.php:670 inc/customizer.php:679
+#: inc/customizer.php:684 inc/customizer.php:693
 msgid "Related Posts"
 msgstr ""
 
-#: inc/customizer.php:676
+#: inc/customizer.php:690
 msgid "Related Posts Title"
 msgstr ""
 
-#: inc/customizer.php:683
+#: inc/customizer.php:697
 msgid "Show related posts"
 msgstr ""
 
-#: inc/customizer.php:690
+#: inc/customizer.php:704
 msgid "Show related posts thumbnail"
 msgstr ""
 
-#: inc/customizer.php:707
+#: inc/customizer.php:721
 msgid "Show page title"
 msgstr ""
 
@@ -545,36 +569,36 @@ msgstr ""
 msgid "Shutter Speed: %s"
 msgstr ""
 
-#: inc/template-tags.php:348
+#: inc/template-tags.php:353
 msgid "Pingback:"
 msgstr ""
 
-#: inc/template-tags.php:348
+#: inc/template-tags.php:353
 msgid "(Edit)"
 msgstr ""
 
-#: inc/template-tags.php:374
+#: inc/template-tags.php:379
 #. translators: 1: date, 2: time
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:375
+#: inc/template-tags.php:380
 msgid "%1$s&middot; Edit%2$s"
 msgstr ""
 
-#: inc/template-tags.php:375
+#: inc/template-tags.php:380
 msgid "Edit Comment"
 msgstr ""
 
-#: inc/template-tags.php:382
+#: inc/template-tags.php:387
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:386
+#: inc/template-tags.php:391
 msgid "<i class=\"fa fa-reply\"></i> Reply"
 msgstr ""
 
-#: inc/template-tags.php:415
+#: inc/template-tags.php:420
 msgid "Author"
 msgstr ""
 
@@ -678,7 +702,8 @@ msgid ""
 "you don’t need to install any 3rd party plugins or setup complex options. "
 "Just install it and viola! The theme options are powered by Customizer. It "
 "provides 2 custom widgets Social Icons and Recent Posts Thumbnail. It also "
-"works out of the box with Jetpack."
+"works out of the box with Jetpack and Polylang. Since 1.0.8 Bulan support "
+"footer widgets!"
 msgstr ""
 
 #. Author of the plugin/theme
@@ -719,7 +744,7 @@ msgid_plural "%1$s Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions.php:165
+#: functions.php:204
 #. Translators: If there are characters in your language that are not supported
 #. by Crimson Text, translate this to 'off'. Do not translate into your own
 #. language.
@@ -727,11 +752,19 @@ msgctxt "Crimson Text font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:185
+#: functions.php:212
 #. Translators: If there are characters in your language that are not supported
 #. by Oswald, translate this to 'off'. Do not translate into your own language.
 msgctxt "Oswald font: on or off"
 msgid "on"
+msgstr ""
+
+#: functions.php:220
+#. Translators: To add an additional character subset specific to your
+#. language, translate this to 'greek', 'cyrillic', 'devanagari' or
+#. 'vietnamese'. Do not translate into your own language.
+msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
+msgid "no-subset"
 msgstr ""
 
 #: inc/hybrid/theme-layouts.php:345

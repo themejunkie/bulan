@@ -1,8 +1,20 @@
-1.0.7 - Feb 05, 2015
+1.0.8 - March 30, 2016
+* Updated stylesheets
+  style.css & style.min.css
+* New color customizer for blockquote border color
+  inc/customizer.php & inc/styles/global.php
+* New color customizer for menu dropdown background color
+  inc/customizer.php & inc/styles/menu.php
+* Polylang integration
+  functions.php & inc/polylang.php & inc/template-tags.php
+* Please welcome to footer widgets!
+  functions.php & footer.php & sidebar-footer.php
+
+1.0.7 - Feb 05, 2016
 * Added HTML5Shiv un-minified version
   assets/js/html5shiv.js
 
-1.0.6 - Jan 27, 2015
+1.0.6 - Jan 27, 2016
 * Removed facebook widget, not allowed on WordPress.org
   functions.php & inc/widgets/widget-facebook.php
 * Declare all assets license

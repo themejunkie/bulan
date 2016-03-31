@@ -4,7 +4,7 @@
  *
  * @package    Bulan
  * @author     Theme Junkie
- * @copyright  Copyright (c) 2015, Theme Junkie
+ * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -230,6 +230,13 @@ function bulan_customizer_register() {
 			'type'        => 'color',
 			'default'     => $color
 		);
+		$options[$prefix . 'global-blockquote'] = array(
+			'id'          => $prefix . 'global-blockquote',
+			'label'       => __( 'Blockquote border color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => '#454545'
+		);
 
 		// Search colors
 		$section = $prefix . 'search-colors-section';
@@ -311,6 +318,13 @@ function bulan_customizer_register() {
 		$options[$prefix . 'menu-current-hover-color'] = array(
 			'id'          => $prefix . 'menu-current-hover-color',
 			'label'       => __( 'Hover & current menu color', 'bulan' ),
+			'section'     => $section,
+			'type'        => 'color',
+			'default'     => $color
+		);
+		$options[$prefix . 'menu-dropdown-hover-bgcolor'] = array(
+			'id'          => $prefix . 'menu-dropdown-hover-bgcolor',
+			'label'       => __( 'Dropdown hover background color', 'bulan' ),
 			'section'     => $section,
 			'type'        => 'color',
 			'default'     => $color

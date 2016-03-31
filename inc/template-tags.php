@@ -5,7 +5,7 @@
  *
  * @package    Bulan
  * @author     Theme Junkie
- * @copyright  Copyright (c) 2015, Theme Junkie
+ * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -269,6 +269,11 @@ function bulan_related_posts() {
 	$img     = bulan_mod( $prefix . 'related-posts-img' );
 	$title   = bulan_mod( $prefix . 'related-posts-title' );
 
+	// Polylang integration
+	if ( is_polylang_activated() ) {
+		$title = pll__( bulan_mod( $prefix . 'related-posts-title' ) );
+	}
+
 	// Disable if user choose it.
 	if ( $enable == 0 ) {
 		return;
@@ -475,6 +480,11 @@ function bulan_footer_text() {
 
 	// Get the customizer data
 	$footer_text = bulan_mod( $prefix . 'footer-text' );
+
+	// Polylang integration
+	if ( is_polylang_activated() ) {
+		$footer_text = pll__( bulan_mod( $prefix . 'footer-text' ) );
+	}
 
 	// Display the data
 	echo '<p class="copyright">' . stripslashes( $footer_text ) . '</p>';

@@ -1,3 +1,44 @@
+/**
+ * Sidebar Footer
+ */
+.sidebar-footer {
+	margin-top: 60px;
+
+	.wide-container {
+		@include susy-media( 1025px ) {
+			padding: 0;
+		}
+	}
+
+	.footer-column {
+		@include susy-media( 601px ) {
+			@include span( 4 of 12 );
+
+			&.footer-column-right {
+				@include last;
+			}
+		}
+	}
+
+	.widget-title {
+		background-color: transparent;
+		text-align: left;
+		color: $color-3;
+		padding: 0;
+
+		&::after {
+			border: 0;
+		}
+	}
+
+	.widget_recent_entries_thumbnail {
+		.entry-thumbnail {
+			max-width: 64px;
+		}
+	}
+
+}
+
 .site-footer {
 	@extend %clearfix;
 	font-size: 16px;

@@ -1,11 +1,11 @@
 <?php
 /**
- * The switch customize control extends the WP_Customize_Control class.  This class allows 
+ * The switch customize control extends the WP_Customize_Control class.  This class allows
  * developers to create switch settings within the WordPress theme customizer.
  *
  * @package    Bulan
  * @author     Theme Junkie, Kirki
- * @copyright  Copyright (c) 2015, Theme Junkie
+ * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */

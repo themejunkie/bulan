@@ -6,7 +6,7 @@
  *
  * @package    Bulan
  * @author     Theme Junkie
- * @copyright  Copyright (c) 2015, Theme Junkie
+ * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */

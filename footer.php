@@ -1,6 +1,8 @@
 		</div><!-- .wide-container -->
 	</div><!-- #content -->
 
+	<?php get_sidebar( 'footer' ); // Loads the sidebar-footer.php template.  ?>
+
 	<footer id="colophon" class="site-footer" role="contentinfo" <?php hybrid_attr( 'footer' ); ?>>
 		<div class="wide-container">
 

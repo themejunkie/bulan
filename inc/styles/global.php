@@ -4,7 +4,7 @@
  *
  * @package    Bulan
  * @author     Theme Junkie
- * @copyright  Copyright (c) 2015, Theme Junkie
+ * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -51,6 +51,23 @@ function bulan_customizer_global_styles() {
 			),
 			'declarations' => array(
 				'color' => $color
+			)
+		) );
+	}
+
+	// Global blockquote border color
+	$blockquote = bulan_mod( $prefix . 'global-blockquote' );
+
+	if ( $blockquote !== customizer_library_get_default( $prefix . 'global-blockquote' ) ) {
+
+		$color = sanitize_hex_color( $blockquote );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'blockquote'
+			),
+			'declarations' => array(
+				'border-color' => $color
 			)
 		) );
 	}

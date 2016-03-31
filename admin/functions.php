@@ -1,10 +1,10 @@
 <?php
 /**
- * Custom and output functions for the theme customizer 
+ * Custom and output functions for the theme customizer
  *
  * @package    Bulan
  * @author     Theme Junkie
- * @copyright  Copyright (c) 2015, Theme Junkie
+ * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -45,7 +45,7 @@ function bulan_move_default_customizer( $wp_customize ) {
 	// Remove section
 	$wp_customize->remove_control( 'blogdescription' );
 	$wp_customize->remove_control( 'header_textcolor' );
-	
+
 }
 add_action( 'customize_register', 'bulan_move_default_customizer' );
 
@@ -115,7 +115,7 @@ function bulan_documentation_link() {
 		array(), '1.0.0',
 		true
 	);
- 
+
 	// Localize the script
 	wp_localize_script(
 		'bulan-customizer-doc',
@@ -125,6 +125,24 @@ function bulan_documentation_link() {
 			'prefixLabel' => __( 'Documentation', 'bulan' ),
 		)
 	);
- 
+
 }
 add_action( 'customize_controls_enqueue_scripts', 'bulan_documentation_link' );
+
+/**
+ * Display 'More premium themes' message.
+ *
+ * @since  1.0.0
+ */
+function bulan_premium_message() {
+
+	// Enqueue the script
+	wp_enqueue_script(
+		'bulan-customizer-premium',
+		get_template_directory_uri() . '/admin/js/premium.js',
+		array(), '1.0.0',
+		true
+	);
+
+}
+add_action( 'customize_controls_enqueue_scripts', 'bulan_premium_message' );

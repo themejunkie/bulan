@@ -7,7 +7,7 @@
  *
  * @package    Bulan
  * @author     Theme Junkie
- * @copyright  Copyright (c) 2015, Theme Junkie
+ * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -47,7 +47,7 @@ function bulan_theme_setup() {
 	load_theme_textdomain( 'bulan', trailingslashit( get_template_directory() ) . 'languages' );
 
 	// Add custom stylesheet file to the TinyMCE visual editor.
-	add_editor_style( array( 'assets/css/editor-style.css', bulan_crimnson_text_font(), bulan_oswald_font() ) );
+	add_editor_style( array( 'assets/css/editor-style.css', bulan_fonts_url() ) );
 
 	// Add RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -146,48 +146,109 @@ function bulan_sidebars_init() {
 		)
 	);
 
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Left', 'bulan' ),
+			'id'            => 'footer-left',
+			'description'   => __( 'Footer sidebar that appears on the bottom of your site.', 'bulan' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Center', 'bulan' ),
+			'id'            => 'footer-center',
+			'description'   => __( 'Footer sidebar that appears on the bottom of your site.', 'bulan' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Right', 'bulan' ),
+			'id'            => 'footer-right',
+			'description'   => __( 'Footer sidebar that appears on the bottom of your site.', 'bulan' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		)
+	);
+
 }
 add_action( 'widgets_init', 'bulan_sidebars_init' );
 
 /**
- * Register Crimson Text Google font.
+ * Register Google fonts.
  *
  * @since  1.0.0
  * @return string
  */
-function bulan_crimnson_text_font() {
+function bulan_fonts_url() {
 
-	$font_url = '';
+	$fonts_url = '';
+	$fonts     = array();
+	$subsets   = 'latin,latin-ext';
+
 	/*
 	 * Translators: If there are characters in your language that are not supported
 	 * by Crimson Text, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Crimson Text font: on or off', 'bulan' ) ) {
-		$font_url = add_query_arg( 'family', urlencode( 'Crimson Text:400,700,400italic' ), "//fonts.googleapis.com/css" );
+		$fonts[] = 'Crimson Text:400,700,400italic';
 	}
 
-	return $font_url;
-}
-
-/**
- * Register Oswald Google font.
- *
- * @since  1.0.0
- * @return string
- */
-function bulan_oswald_font() {
-
-	$font_url = '';
 	/*
 	 * Translators: If there are characters in your language that are not supported
 	 * by Oswald, translate this to 'off'. Do not translate into your own language.
 	 */
 	if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'bulan' ) ) {
-		$font_url = add_query_arg( 'family', urlencode( 'Oswald:400,700,300' ), "//fonts.googleapis.com/css" );
+		$fonts[] = 'Oswald:400,700,300';
 	}
 
-	return $font_url;
+	/*
+	 * Translators: To add an additional character subset specific to your language,
+	 * translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
+	 */
+	$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'bulan' );
+
+	if ( 'cyrillic' == $subset ) {
+		$subsets .= ',cyrillic,cyrillic-ext';
+	} elseif ( 'greek' == $subset ) {
+		$subsets .= ',greek,greek-ext';
+	} elseif ( 'devanagari' == $subset ) {
+		$subsets .= ',devanagari';
+	} elseif ( 'vietnamese' == $subset ) {
+		$subsets .= ',vietnamese';
+	}
+
+	if ( $fonts ) {
+		$fonts_url = add_query_arg( array(
+			'family' => urlencode( implode( '%7C', $fonts ) ),
+			'subset' => urlencode( $subsets ),
+		), 'https://fonts.googleapis.com/css' );
+	}
+
+	return $fonts_url;
 }
+
+if ( ! function_exists( 'is_polylang_activated' ) ) :
+/**
+ * Query Polylang activation
+ *
+ * @since  1.0.0
+ */
+function is_polylang_activated() {
+	return function_exists( 'pll_the_languages' ) ? true : false;
+}
+endif;
 
 /**
  * Custom template tags for this theme.
@@ -228,3 +289,10 @@ require trailingslashit( get_template_directory() ) . 'inc/mods.php';
  */
 require trailingslashit( get_template_directory() ) . 'inc/hybrid/attr.php';
 require trailingslashit( get_template_directory() ) . 'inc/hybrid/theme-layouts.php';
+
+/**
+ * Load Polylang compatibility file.
+ */
+if ( ( function_exists( 'is_polylang_activated' ) && ( is_polylang_activated() ) ) ) {
+	require trailingslashit( get_template_directory() ) . 'inc/polylang.php';
+}
