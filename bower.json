@@ -1,6 +1,6 @@
 {
   "name": "bulan",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "homepage": "http://www.theme-junkie.com/",
   "authors": [
     "Theme Junkie <support@theme-junkie.com>"
@@ -19,14 +19,14 @@
     "tests"
   ],
   "dependencies": {
-    "fitvids": "~1.1.0",
-    "fontawesome": "~4.5.0",
+    "fitvids": "~1.2.0",
+    "fontawesome": "~4.7.0",
     "html5shiv": "~3.7.3",
-    "magnific-popup": "~1.0.1",
-    "normalize.css": "~3.0.3",
+    "magnific-popup": "~1.1.0",
+    "normalize.css": "~5.0.0",
     "scrollup": "~2.4.1",
-    "slicknav": "~1.0.5",
+    "slicknav": "~1.0.10",
     "susy": "~2.2.12",
-    "select2": "~4.0.1"
+    "select2": "~4.0.3"
   }
 }

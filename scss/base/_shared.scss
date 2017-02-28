@@ -236,3 +236,7 @@ table tfoot td {
 .gallery-columns-9 .gallery-caption {
 	display: none;
 }
+
+.clearfix {
+	@extend %clearfix;
+}

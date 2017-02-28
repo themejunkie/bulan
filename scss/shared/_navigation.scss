@@ -124,6 +124,7 @@
 }
 
 @include susy-media(max-width 768px) {
+
 	#menu-primary-items {
 		display: none;
 	}
@@ -140,7 +141,8 @@
 	}
 
 	.slicknav_menutxt {
-		@extend .screen-reader-text;
+		position: absolute;
+		clip: rect(1px, 1px, 1px, 1px);
 	}
 
 	.slicknav_btn {
