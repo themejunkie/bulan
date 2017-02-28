@@ -5,6 +5,9 @@
   style.css & style.min.css
 * Indicate widget sidebars can use selective refresh in the Customizer
 	functions.php
+* Limit featured image size to 2000x480
+	functions.php
+	inc/scripts.php
 
 1.0.8 - March 30, 2016
 * Updated stylesheets

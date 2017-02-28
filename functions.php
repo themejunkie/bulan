@@ -63,6 +63,9 @@ function bulan_theme_setup() {
 	// Enable support for Post Thumbnails.
 	add_theme_support( 'post-thumbnails' );
 
+	// Declare image sizes.
+	add_image_size( 'bulan-featured', 2000, 480, true );
+
 	// Register custom navigation menu.
 	register_nav_menus(
 		array(

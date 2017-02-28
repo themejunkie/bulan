@@ -71,7 +71,7 @@ function bulan_custom_header() {
 	$header = get_header_image();
 
 	// Get the featured image
-	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'bulan-featured' );
 
 	// Set up empty variable
 	$image = '';
