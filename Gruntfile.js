@@ -155,19 +155,6 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-		// Auto generate rtl.css
-		cssjanus: {
-			theme: {
-				options: {
-					swapLtrRtlInUrl: false
-				},
-				files: [ {
-					src: 'style.css',
-					dest: 'rtl.css'
-				} ]
-			}
-		},
-
 		// Sorting our CSS properties.
 		csscomb: {
 			options: {
@@ -332,7 +319,6 @@ module.exports = function ( grunt ) {
 		'newer:uglify:prod',
 		'newer:imagemin',
 		'sass:prod',
-		'cssjanus',
 		'autoprefixer',
 		'csscomb:main',
 		'makepot',
