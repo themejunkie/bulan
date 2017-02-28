@@ -5,7 +5,7 @@ if ( ! has_nav_menu( 'primary' ) ) {
 }
 ?>
 
-<nav id="site-navigation" class="main-navigation" role="navigation" <?php hybrid_attr( 'menu' ); ?>>
+<nav id="site-navigation" class="main-navigation" <?php hybrid_attr( 'menu' ); ?>>
 
 	<div class="wide-container">
 
