@@ -8,6 +8,13 @@
 * Limit featured image size to 2000x480
 	functions.php
 	inc/scripts.php
+* Add one-click demo importer
+	functions.php
+	inc/demo/
+* Add plugin suggestion library
+	inc/classes/tgmpa.php
+	inc/plugins.php
+	functions.php
 
 1.0.8 - March 30, 2016
 * Updated stylesheets
