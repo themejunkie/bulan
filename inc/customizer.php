@@ -1,737 +1,399 @@
 <?php
 /**
- * Register custom customizer panels, sections and settings.
- *
- * @package    Bulan
- * @author     Theme Junkie
- * @copyright  Copyright (c) 2015 - 2016, Theme Junkie
- * @license    http://www.gnu.org/licenses/gpl-2.0.html
- * @since      1.0.0
+ * Bulan Theme Customizer
  */
 
+// Loads custom control
+require trailingslashit( get_template_directory() ) . 'inc/customizer/controls/custom-text.php';
+
+// Loads the customizer settings
+require trailingslashit( get_template_directory() ) . 'inc/customizer/posts.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/social.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/misc.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/colors.php';
+
 /**
- * We register our custom customizer by using the hook.
+ * Custom customizer functions.
+ */
+function bulan_customize_functions( $wp_customize ) {
+
+	// Register new panel: Design
+	$wp_customize->add_panel( 'bulan_design', array(
+		'title'       => esc_html__( 'Design', 'bulan' ),
+		'description' => esc_html__( 'This panel is used for customizing the design of your site.', 'bulan' ),
+		'priority'    => 125,
+	) );
+
+	// Register new panel: Theme Options
+	$wp_customize->add_panel( 'bulan_options', array(
+		'title'       => esc_html__( 'Theme Options', 'bulan' ),
+		'description' => esc_html__( 'This panel is used for customizing the Bulan theme.', 'bulan' ),
+		'priority'    => 130,
+	) );
+
+	// Live preview of Site Title
+	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+
+	// Enable selective refresh to the Site Title
+	if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial( 'blogname', array(
+			'selector'            => '.site-title a',
+			'settings'         => array( 'blogname' ),
+			'render_callback'  => function() {
+				return get_bloginfo( 'name', 'display' );
+			}
+		) );
+	}
+
+	// Move the Colors section.
+	$wp_customize->get_section( 'colors' )->panel    = 'bulan_design';
+	$wp_customize->get_section( 'colors' )->priority = 1;
+
+	// Move the Header Image section.
+	$wp_customize->get_section( 'header_image' )->panel    = 'bulan_design';
+	$wp_customize->get_section( 'header_image' )->priority = 5;
+
+	// Move the Background Image section.
+	$wp_customize->get_section( 'background_image' )->panel    = 'bulan_design';
+	$wp_customize->get_section( 'background_image' )->priority = 7;
+
+	// Move the Static Front Page section.
+	$wp_customize->get_section( 'static_front_page' )->panel    = 'bulan_design';
+	$wp_customize->get_section( 'static_front_page' )->priority = 9;
+
+	// Move the Additional CSS section.
+	$wp_customize->get_section( 'custom_css' )->panel    = 'bulan_design';
+	$wp_customize->get_section( 'custom_css' )->priority = 11;
+
+	// Move background color to background image section.
+	$wp_customize->get_section( 'background_image' )->title = esc_html__( 'Background', 'bulan' );
+	$wp_customize->get_control( 'background_color' )->section = 'background_image';
+
+	// Move header text color to header image section.
+	$wp_customize->get_section( 'header_image' )->title = esc_html__( 'Header', 'bulan' );
+	$wp_customize->get_control( 'header_textcolor' )->section = 'header_image';
+	$wp_customize->get_control( 'header_textcolor' )->priority = 99;
+
+}
+add_action( 'customize_register', 'bulan_customize_functions', 99 );
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function bulan_customize_preview_js() {
+	wp_enqueue_script( 'bulan-customizer', get_template_directory_uri() . '/assets/js/customizer/customizer.js', array( 'customize-preview', 'jquery' ) );
+}
+add_action( 'customize_preview_init', 'bulan_customize_preview_js' );
+
+/**
+ * Custom styles.
+ */
+function bulan_custom_css() {
+
+	// Set up empty variable.
+	$css = '';
+
+	$text = get_theme_mod( 'bulan-global-text-color', '#454545' );
+	if ( $text != '#454545' ) {
+		$css .= 'body { color: ' . sanitize_hex_color( $text ) . '; } ';
+	}
+
+	$link = get_theme_mod( 'bulan-global-link-color', '#cc8900' );
+	if ( $link != '#cc8900' ) {
+		$css .= 'a, a:visited { color: ' . sanitize_hex_color( $link ) . '; } ';
+	}
+
+	$quote = get_theme_mod( 'bulan-global-quote-color', '#454545' );
+	if ( $quote != '#454545' ) {
+		$css .= 'blockquote { border-color: ' . sanitize_hex_color( $quote ) . '; } ';
+	}
+
+	$search_icon = get_theme_mod( 'bulan-search-icon-color', '#454545' );
+	if ( $search_icon != '#454545' ) {
+		$css .= '.search-toggle { color: ' . sanitize_hex_color( $search_icon ) . '; } ';
+	}
+
+	$search_bg = get_theme_mod( 'bulan-search-bg-color', '#333333' );
+	if ( $search_bg != '#333333' ) {
+		$css .= '.search-area { background-color: ' . sanitize_hex_color( $search_bg ) . '; } ';
+	}
+
+	$site_title = get_theme_mod( 'bulan-site-title-color', '#ffffff' );
+	if ( $site_title != '#ffffff' ) {
+		$css .= '#masthead .site-title a { color: ' . sanitize_hex_color( $site_title ) . '; } ';
+	}
+
+	$site_title_border = get_theme_mod( 'bulan-site-title-border-color', '#ffffff' );
+	if ( $site_title_border != '#ffffff' ) {
+		$css .= '#masthead .site-title a { border-color: ' . sanitize_hex_color( $site_title_border ) . '; } ';
+	}
+
+	$footer_bg = get_theme_mod( 'bulan-footer-bg-color', '#333333' );
+	if ( $footer_bg != '#333333' ) {
+		$css .= '.site-footer { background-color: ' . sanitize_hex_color( $footer_bg ) . '; } ';
+	}
+
+	$footer_text = get_theme_mod( 'bulan-footer-text-color', '#888888' );
+	if ( $footer_text != '#888888' ) {
+		$css .= '.site-footer { color: ' . sanitize_hex_color( $footer_text ) . '; } ';
+	}
+
+	$footer_link = get_theme_mod( 'bulan-footer-link-color', '#ffffff' );
+	if ( $footer_link != '#ffffff' ) {
+		$css .= '.site-footer p a { color: ' . sanitize_hex_color( $footer_link ) . '; } ';
+	}
+
+	$social_bg = get_theme_mod( 'bulan-footer-social-bg-color', '#ffffff' );
+	if ( $social_bg != '#ffffff' ) {
+		$css .= '.social-links a { background-color: ' . sanitize_hex_color( $social_bg ) . '; } ';
+	}
+
+	$social_bg_hover = get_theme_mod( 'bulan-footer-social-bg-hover-color', '#cc8900' );
+	if ( $social_bg_hover != '#cc8900' ) {
+		$css .= '.social-links a:hover { background-color: ' . sanitize_hex_color( $social_bg_hover ) . '; } ';
+	}
+
+	$social_icon = get_theme_mod( 'bulan-footer-social-icon-color', '#454545' );
+	if ( $social_icon != '#454545' ) {
+		$css .= '.social-links a { color: ' . sanitize_hex_color( $social_icon ) . '; } ';
+	}
+
+	$menu_bg = get_theme_mod( 'bulan-menu-link-bg-color', '#ffffff' );
+	if ( $menu_bg != '#ffffff' ) {
+		$css .= '.main-navigation { background-color: ' . sanitize_hex_color( $menu_bg ) . '; } ';
+	}
+
+	$menu_link = get_theme_mod( 'bulan-menu-link-color', '#454545' );
+	if ( $menu_link != '#454545' ) {
+		$css .= '#site-navigation ul li a { color: ' . sanitize_hex_color( $menu_link ) . '; } ';
+	}
+
+	$menu_hover = get_theme_mod( 'bulan-menu-current-hover-color', '#cc8900' );
+	if ( $menu_hover != '#cc8900' ) {
+		$css .= '.menu-primary-items li a:hover, .menu-primary-items li.current-menu-item > a, .menu-primary-items li .sub-menu a:hover, .menu-primary-items li.menu-item-has-children:hover::after { color: ' . sanitize_hex_color( $menu_hover ) . '; } ';
+	}
+
+	$menu_dropdown = get_theme_mod( 'bulan-menu-dropdown-hover-bgcolor', '#cc8900' );
+	if ( $menu_dropdown != '#cc8900' ) {
+		$css .= '.menu-primary-items .sub-menu a:hover { background-color: ' . sanitize_hex_color( $menu_dropdown ) . '; } ';
+	}
+
+	$post_text = get_theme_mod( 'bulan-post-text-color', '#454545' );
+	if ( $post_text != '#454545' ) {
+		$css .= '.single .entry-content { color: ' . sanitize_hex_color( $post_text ) . '; } ';
+	}
+
+	$post_heading = get_theme_mod( 'bulan-post-heading-color', '#454545' );
+	if ( $post_heading != '#454545' ) {
+		$css .= '.single .entry-title, .single .entry-content h1, .single .entry-content h2, .single .entry-content h3,.single .entry-content h4, .single .entry-content h5, .single .entry-content h6 { color: ' . sanitize_hex_color( $post_heading ) . '; } ';
+	}
+
+	$post_excerpt = get_theme_mod( 'bulan-post-excerpt-color', '#999999' );
+	if ( $post_excerpt != '#999999' ) {
+		$css .= '.page-header p{ color: ' . sanitize_hex_color( $post_excerpt ) . '; } ';
+	}
+
+	$post_link = get_theme_mod( 'bulan-post-link-color', '#cc8900' );
+	if ( $post_link != '#cc8900' ) {
+		$css .= '.single .entry-content a, .cat-links a { color: ' . sanitize_hex_color( $post_link ) . '; } ';
+	}
+
+	$post_link_hover = get_theme_mod( 'bulan-post-link-hover-color', '#b37800' );
+	if ( $post_link_hover != '#b37800' ) {
+		$css .= '.single .entry-content a:hover, .cat-links a:hover { color: ' . sanitize_hex_color( $post_link_hover ) . '; } ';
+	}
+
+	$page_text = get_theme_mod( 'bulan-page-text-color', '#454545' );
+	if ( $page_text != '#454545' ) {
+		$css .= '.page .entry-content { color: ' . sanitize_hex_color( $page_text ) . '; } ';
+	}
+
+	$page_heading = get_theme_mod( 'bulan-page-heading-color', '#454545' );
+	if ( $page_heading != '#454545' ) {
+		$css .= '.page .entry-title, .page .entry-content h1, .page .entry-content h2, .page .entry-content h3,.page .entry-content h4, .page .entry-content h5, .page .entry-content h6 { color: ' . sanitize_hex_color( $page_heading ) . '; } ';
+	}
+
+	$page_link = get_theme_mod( 'bulan-page-link-color', '#cc8900' );
+	if ( $page_link != '#cc8900' ) {
+		$css .= '.page .entry-content a, .cat-links a { color: ' . sanitize_hex_color( $page_link ) . '; } ';
+	}
+
+	$page_link_hover = get_theme_mod( 'bulan-page-link-hover-color', '#b37800' );
+	if ( $page_link_hover != '#b37800' ) {
+		$css .= '.page .entry-content a:hover, .cat-links a:hover { color: ' . sanitize_hex_color( $page_link_hover ) . '; } ';
+	}
+
+	$widget_title_bg = get_theme_mod( 'bulan-widget-bg-title-color', '#333333' );
+	if ( $widget_title_bg != '#333333' ) {
+		$css .= '.widget-title { background-color: ' . sanitize_hex_color( $widget_title_bg ) . '; } ';
+	}
+
+	$widget_title = get_theme_mod( 'bulan-widget-title-color', '#ffffff' );
+	if ( $widget_title != '#ffffff' ) {
+		$css .= '.widget-title { color: ' . sanitize_hex_color( $widget_title ) . '; } ';
+	}
+
+	$widget_text = get_theme_mod( 'bulan-widget-text-color', '#454545' );
+	if ( $widget_text != '#454545' ) {
+		$css .= '.widget { color: ' . sanitize_hex_color( $widget_text ) . '; } ';
+	}
+
+	$widget_link = get_theme_mod( 'bulan-widget-link-color', '#454545' );
+	if ( $widget_link != '#454545' ) {
+		$css .= '.widget a, .widget li a { color: ' . sanitize_hex_color( $widget_link ) . '; } ';
+	}
+
+	$widget_link_hover = get_theme_mod( 'bulan-widget-link-hover-color', '#cc8900' );
+	if ( $widget_link_hover != '#cc8900' ) {
+		$css .= '.widget a:hover, .widget li a:hover { color: ' . sanitize_hex_color( $widget_link_hover ) . '; } ';
+	}
+
+	$widget_border = get_theme_mod( 'bulan-widget-border-color', '#e0e0e0' );
+	if ( $widget_border != '#e0e0e0' ) {
+		$css .= '.widget li { border-color: ' . sanitize_hex_color( $widget_border ) . '; } ';
+	}
+
+	// Print the custom style
+	wp_add_inline_style( 'bulan-style', $css );
+
+}
+// add_action( 'wp_enqueue_scripts', 'bulan_custom_css' );
+
+/**
+ * Display theme documentation on customizer page.
+ */
+function bulan_documentation_link() {
+
+	// Enqueue the script
+	wp_enqueue_script( 'bulan-doc', get_template_directory_uri() . '/assets/js/customizer/doc.js', array(), '1.0.0', true );
+
+	// Localize the script
+	wp_localize_script( 'bulan-doc', 'prefixL10n',
+		array(
+			'prefixURL'   => esc_url( 'http://docs.theme-junkie.com/bulan/' ),
+			'prefixLabel' => esc_html__( 'Documentation', 'bulan' ),
+		)
+	);
+
+}
+add_action( 'customize_controls_enqueue_scripts', 'bulan_documentation_link' );
+
+/**
+ * Display 'More premium themes' message.
  *
  * @since  1.0.0
  */
-function bulan_customizer_register() {
+function bulan_premium_message() {
 
-	// Stores all the controls that will be added
-	$options = array();
-
-	// Stores all the sections to be added
-	$sections = array();
-
-	// Stores all the panels to be added
-	$panels = array();
-
-	// Adds the sections to the $options array
-	$options['sections'] = $sections;
-
-	// ======= Start Customizer Panels/Sections/Settings ======= //
-
-	// Theme prefix
-	$prefix = 'bulan-';
-
-	// Base color
-	$color = '#cc8900';
-
-	// General Panels and Sections
-	$general_panel = 'general';
-
-	$panels[] = array(
-		'id'       => $general_panel,
-		'title'    => __( 'General', 'bulan' ),
-		'priority' => 10
+	// Enqueue the script
+	wp_enqueue_script(
+		'bulan-customizer-premium',
+		get_template_directory_uri() . '/assets/js/customizer/premium.js',
+		array(), '1.0.0',
+		true
 	);
-
-		// RSS
-		$section = $prefix . 'rss-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'RSS', 'bulan' ),
-			'priority'    => 100,
-			'panel'       => $general_panel,
-			'description' => __( 'If you fill the custom rss url below, it will replace the default.', 'bulan' ),
-		);
-		$options[$prefix . 'custom-rss'] = array(
-			'id'           => $prefix . 'custom-rss',
-			'label'        => __( 'Custom RSS URL (eg. Feedburner)', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'url',
-			'default'      => ''
-		);
-
-		// Comment
-		$section = $prefix . 'comment-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Comments', 'bulan' ),
-			'priority'    => 110,
-			'panel'       => $general_panel,
-		);
-		$options[$prefix . 'page-comment'] = array(
-			'id'           => $prefix . 'page-comment',
-			'label'        => __( 'Page Comment', 'bulan' ),
-			'description'  => __( 'Enable comment on page', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'switch',
-			'default'      => 1
-		);
-
-		// Footer Social
-		$section = $prefix . 'footer-social-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Social', 'bulan' ),
-			'description' => __( 'Please add full profile link, for example https://twitter.com/theme_junkie/', 'bulan' ),
-			'priority'    => 120,
-			'panel'       => $general_panel,
-		);
-		$options[$prefix . 'twitter'] = array(
-			'id'           => $prefix . 'twitter',
-			'label'        => __( 'Twitter Profile', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'text'
-		);
-		$options[$prefix . 'facebook'] = array(
-			'id'           => $prefix . 'facebook',
-			'label'        => __( 'Facebook Profile', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'text'
-		);
-		$options[$prefix . 'gplus'] = array(
-			'id'           => $prefix . 'gplus',
-			'label'        => __( 'Google Plus Profile', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'text'
-		);
-		$options[$prefix . 'linkedin'] = array(
-			'id'           => $prefix . 'linkedin',
-			'label'        => __( 'Linkedin Profile', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'text'
-		);
-		$options[$prefix . 'dribbble'] = array(
-			'id'           => $prefix . 'dribbble',
-			'label'        => __( 'Dribbble Profile', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'text'
-		);
-		$options[$prefix . 'instagram'] = array(
-			'id'           => $prefix . 'instagram',
-			'label'        => __( 'Instagram Profile', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'text'
-		);
-
-		// Footer Text
-		$section = $prefix . 'footer-text-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Footer Text', 'bulan' ),
-			'priority'    => 125,
-			'panel'       => $general_panel,
-		);
-		$options[$prefix . 'footer-text'] = array(
-			'id'           => $prefix . 'footer-text',
-			'label'        => '',
-			'description'  => __( 'Customize the footer text.', 'bulan' ),
-			'section'      => $section,
-			'type'         => 'textarea',
-			'default'      => '&copy; Copyright ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a> &middot; Designed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>'
-		);
-
-	// Header Panels and Sections
-	$header_panel = 'header';
-
-	$panels[] = array(
-		'id'       => $header_panel,
-		'title'    => __( 'Header', 'bulan' ),
-		'priority' => 15
-	);
-
-		// Logo
-		$section = $prefix . 'logo-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Logo', 'bulan' ),
-			'priority'    => 30,
-			'panel'       => $header_panel
-		);
-		$options[$prefix . 'logo'] = array(
-			'id'      => $prefix . 'logo',
-			'label'   => __( 'Regular Logo', 'bulan' ),
-			'section' => $section,
-			'type'    => 'media',
-			'default' => ''
-		);
-		// $options[$prefix . 'retina-logo'] = array(
-		// 	'id'           => $prefix . 'retina-logo',
-		// 	'label'        => __( 'Retina Logo', 'bulan' ),
-		// 	'description'  => __( 'The Retina Logo should be twice the size of the Regular Logo.', 'bulan' ),
-		// 	'section'      => $section,
-		// 	'type'         => 'media',
-		// 	'default'      => '',
-		// );
-
-		// Sticky Navigation
-		$section = $prefix . 'search-icon-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Search', 'bulan' ),
-			'description' => __( 'Show search icon', 'bulan' ),
-			'priority'    => 35,
-			'panel'       => $header_panel
-		);
-		$options[$prefix . 'search-icon'] = array(
-			'id'      => $prefix . 'search-icon',
-			'label'   => '',
-			'section' => $section,
-			'type'    => 'switch',
-			'default' => 1
-		);
-
-	// Colors Panel and Sections
-	$color_panel = 'color';
-
-	$panels[] = array(
-		'id'       => $color_panel,
-		'title'    => __( 'Color', 'bulan' ),
-		'priority' => 20
-	);
-
-		// Global colors
-		$section = $prefix . 'global-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Global', 'bulan' ),
-			'priority'    => 1,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'global-text-color'] = array(
-			'id'          => $prefix . 'global-text-color',
-			'label'       => __( 'Text color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545'
-		);
-		$options[$prefix . 'global-link-color'] = array(
-			'id'          => $prefix . 'global-link-color',
-			'label'       => __( 'Link color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => $color
-		);
-		$options[$prefix . 'global-blockquote'] = array(
-			'id'          => $prefix . 'global-blockquote',
-			'label'       => __( 'Blockquote border color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545'
-		);
-
-		// Search colors
-		$section = $prefix . 'search-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Search', 'bulan' ),
-			'priority'    => 3,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'search-icon-color'] = array(
-			'id'          => $prefix . 'search-icon-color',
-			'label'       => __( 'Icon color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#ffffff',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'search-bg-color'] = array(
-			'id'          => $prefix . 'search-bg-color',
-			'label'       => __( 'Background color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => $color,
-			'transport'   => 'postMessage'
-		);
-
-		// Header colors
-		$section = $prefix . 'header-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Header', 'bulan' ),
-			'priority'    => 5,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'site-title-color'] = array(
-			'id'          => $prefix . 'site-title-color',
-			'label'       => __( 'Site Title', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#ffffff',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'site-title-border-color'] = array(
-			'id'          => $prefix . 'site-title-border-color',
-			'label'       => __( 'Site Title Border', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#ffffff',
-			'transport'   => 'postMessage'
-		);
-
-		// Menu colors
-		$section = $prefix . 'menu-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Menu', 'bulan' ),
-			'priority'    => 15,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'menu-link-bg-color'] = array(
-			'id'          => $prefix . 'menu-link-bg-color',
-			'label'       => __( 'Background color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#ffffff',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'menu-link-color'] = array(
-			'id'          => $prefix . 'menu-link-color',
-			'label'       => __( 'Link color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'menu-current-hover-color'] = array(
-			'id'          => $prefix . 'menu-current-hover-color',
-			'label'       => __( 'Hover & current menu color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => $color
-		);
-		$options[$prefix . 'menu-dropdown-hover-bgcolor'] = array(
-			'id'          => $prefix . 'menu-dropdown-hover-bgcolor',
-			'label'       => __( 'Dropdown hover background color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => $color
-		);
-
-		// Posts colors
-		$section = $prefix . 'post-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Post', 'bulan' ),
-			'description' => __( 'Used for single post only, please navigate the preview to the existing post.', 'bulan' ),
-			'priority'    => 25,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'post-text-color'] = array(
-			'id'          => $prefix . 'post-text-color',
-			'label'       => __( 'Text color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'post-heading-color'] = array(
-			'id'          => $prefix . 'post-heading-color',
-			'label'       => __( 'Heading color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'post-excerpt-color'] = array(
-			'id'          => $prefix . 'post-excerpt-color',
-			'label'       => __( 'Excerpt color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#999999',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'post-link-color'] = array(
-			'id'          => $prefix . 'post-link-color',
-			'label'       => __( 'Link color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => $color,
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'post-link-hover-color'] = array(
-			'id'          => $prefix . 'post-link-hover-color',
-			'label'       => __( 'Link hover color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#b37800'
-		);
-
-		// Page colors
-		$section = $prefix . 'page-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Page', 'bulan' ),
-			'description' => __( 'Used for page only, please navigate the preview to the existing page.', 'bulan' ),
-			'priority'    => 30,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'page-text-color'] = array(
-			'id'          => $prefix . 'page-text-color',
-			'label'       => __( 'Text color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'page-heading-color'] = array(
-			'id'          => $prefix . 'page-heading-color',
-			'label'       => __( 'Heading color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'page-link-color'] = array(
-			'id'          => $prefix . 'page-link-color',
-			'label'       => __( 'Link color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => $color,
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'page-link-hover-color'] = array(
-			'id'          => $prefix . 'page-link-hover-color',
-			'label'       => __( 'Link hover color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#b37800'
-		);
-
-		// Widget colors
-		$section = $prefix . 'widget-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Widget', 'bulan' ),
-			'priority'    => 35,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'widget-bg-title-color'] = array(
-			'id'          => $prefix . 'widget-bg-title-color',
-			'label'       => __( 'Background Title color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#333333',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'widget-title-color'] = array(
-			'id'          => $prefix . 'widget-title-color',
-			'label'       => __( 'Title color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#ffffff',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'widget-text-color'] = array(
-			'id'          => $prefix . 'widget-text-color',
-			'label'       => __( 'Text color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'widget-link-color'] = array(
-			'id'          => $prefix . 'widget-link-color',
-			'label'       => __( 'Link color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#454545',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'widget-link-hover-color'] = array(
-			'id'          => $prefix . 'widget-link-hover-color',
-			'label'       => __( 'Link Hover color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => $color
-		);
-		$options[$prefix . 'widget-border-color'] = array(
-			'id'          => $prefix . 'widget-border-color',
-			'label'       => __( 'Border color', 'bulan' ),
-			'description' => __( 'Use for widget with list such as Recent Posts, etc.', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#e0e0e0',
-			'transport'   => 'postMessage'
-		);
-
-		// Footer colors
-		$section = $prefix . 'footer-colors-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Footer', 'bulan' ),
-			'priority'    => 40,
-			'panel'       => $color_panel
-		);
-		$options[$prefix . 'footer-bg-color'] = array(
-			'id'          => $prefix . 'footer-bg-color',
-			'label'       => __( 'Background color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#333333',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'footer-text-color'] = array(
-			'id'          => $prefix . 'footer-text-color',
-			'label'       => __( 'Text color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#888888',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'footer-link-color'] = array(
-			'id'          => $prefix . 'footer-link-color',
-			'label'       => __( 'Link color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'color',
-			'default'     => '#ffffff',
-			'transport'   => 'postMessage'
-		);
-		$options[$prefix . 'footer-social-color'] = array(
-			'id'          => $prefix . 'footer-social-color',
-			'label'       => __( 'Social color', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'group-title'
-		);
-			$options[$prefix . 'footer-social-bg-color'] = array(
-				'id'          => $prefix . 'footer-social-bg-color',
-				'label'       => __( 'Background color', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'color',
-				'default'     => '#ffffff',
-				'transport'   => 'postMessage'
-			);
-			$options[$prefix . 'footer-social-bg-hover-color'] = array(
-				'id'          => $prefix . 'footer-social-bg-hover-color',
-				'label'       => __( 'Background Hover color', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'color',
-				'default'     => $color
-			);
-			$options[$prefix . 'footer-social-icon-color'] = array(
-				'id'          => $prefix . 'footer-social-icon-color',
-				'label'       => __( 'Icon color', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'color',
-				'default'     => '#454545',
-				'transport'   => 'postMessage'
-			);
-
-	// Background Image Panels and Sections
-	$bgimage_panel = 'bg_image';
-
-	$panels[] = array(
-		'id'       => $bgimage_panel,
-		'title'    => __( 'Background Image', 'bulan' ),
-		'priority' => 25
-	);
-
-	// Typography Panel and Sections
-	$typo_panel = 'typography';
-
-	$panels[] = array(
-		'id'       => $typo_panel,
-		'title'    => __( 'Typography', 'bulan' ),
-		'priority' => 30
-	);
-
-		// Global typography
-		$section = $prefix . 'global-typography';
-		$font_choices = customizer_library_get_font_choices();
-
-		$sections[] = array(
-			'id'       => $section,
-			'title'    => __( 'Global', 'bulan' ),
-			'priority' => 5,
-			'panel'    => $typo_panel
-		);
-		$options[$prefix . 'text-font'] = array(
-			'id'          => $prefix . 'text-font',
-			'label'       => __( 'Text font', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'select2',
-			'choices'     => $font_choices,
-			'default'     => 'Crimson Text',
-		);
-		$options[$prefix . 'heading-font'] = array(
-			'id'          => $prefix . 'heading-font',
-			'label'       => __( 'Heading font', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'select2',
-			'choices'     => $font_choices,
-			'default'     => 'Oswald',
-		);
-
-	// Content Panel and Sections
-	$content_panel = 'content-layout';
-
-	$panels[] = array(
-		'id'       => $content_panel,
-		'title'    => __( 'Content Layout', 'bulan' ),
-		'priority' => 35
-	);
-
-		// Blog
-		$section = $prefix . 'blog-layout-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Blog', 'bulan' ),
-			'priority'    => 5,
-			'panel'       => $content_panel
-		);
-		$options[$prefix . 'blog-content'] = array(
-			'id'          => $prefix . 'blog-content',
-			'label'       => __( 'Blog content', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'radio',
-			'default'     => 'content',
-			'choices'     => array(
-				'content' => __( 'Content', 'bulan' ),
-				'excerpt' => __( 'Excerpt', 'bulan' )
-			)
-		);
-
-		// Posts
-		$section = $prefix . 'posts-layout-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Posts', 'bulan' ),
-			'description' => __( 'Posts is a single post page. Please navigate the preview to the single post to see changes.', 'bulan' ),
-			'priority'    => 10,
-			'panel'       => $content_panel
-		);
-		$options[$prefix . 'post-meta-group'] = array(
-			'id'          => $prefix . 'post-meta-group',
-			'label'       => __( 'Post Meta', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'group-title'
-		);
-			$options[$prefix . 'post-date'] = array(
-				'id'          => $prefix . 'post-date',
-				'label'       => __( 'Show post date', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'switch',
-				'default'     => 1
-			);
-			$options[$prefix . 'post-cat'] = array(
-				'id'          => $prefix . 'post-cat',
-				'label'       => __( 'Show post categories', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'switch',
-				'default'     => 1
-			);
-			$options[$prefix . 'post-tag'] = array(
-				'id'          => $prefix . 'post-tag',
-				'label'       => __( 'Show post tags', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'switch',
-				'default'     => 1
-			);
-			$options[$prefix . 'post-author'] = array(
-				'id'          => $prefix . 'post-author',
-				'label'       => __( 'Show post author box', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'switch',
-				'default'     => 1
-			);
-		$options[$prefix . 'post-date-group'] = array(
-			'id'          => $prefix . 'post-date-group',
-			'label'       => __( 'Post Date', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'group-title'
-		);
-			$options[$prefix . 'post-date-style'] = array(
-				'id'          => $prefix . 'post-date-style',
-				'label'       => __( 'Style', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'select',
-				'default'     => 'absolute',
-				'choices'     => array(
-					'absolute' => __( 'Absolute (June 16, 2015)', 'bulan' ),
-					'relative' => __( 'Relative (1 week ago)', 'bulan' )
-				)
-			);
-		$options[$prefix . 'related-posts-group'] = array(
-			'id'          => $prefix . 'related-posts-group',
-			'label'       => __( 'Related Posts', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'group-title'
-		);
-			$options[$prefix . 'related-posts-title'] = array(
-				'id'          => $prefix . 'related-posts-title',
-				'label'       => __( 'Related Posts Title', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'text',
-				'default'     => __( 'Related Posts', 'bulan' )
-			);
-			$options[$prefix . 'related-posts'] = array(
-				'id'          => $prefix . 'related-posts',
-				'label'       => __( 'Show related posts', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'switch',
-				'default'     => 1
-			);
-			$options[$prefix . 'related-posts-img'] = array(
-				'id'          => $prefix . 'related-posts-img',
-				'label'       => __( 'Show related posts thumbnail', 'bulan' ),
-				'section'     => $section,
-				'type'        => 'switch',
-				'default'     => 1
-			);
-
-		// Page
-		$section = $prefix . 'page-layout-section';
-
-		$sections[] = array(
-			'id'          => $section,
-			'title'       => __( 'Page', 'bulan' ),
-			'priority'    => 15,
-			'panel'       => $content_panel
-		);
-		$options[$prefix . 'page-title'] = array(
-			'id'          => $prefix . 'page-title',
-			'label'       => __( 'Show page title', 'bulan' ),
-			'section'     => $section,
-			'type'        => 'switch',
-			'default'     => 1
-		);
-
-	// Adds the sections to the $options array
-	$options['sections'] = $sections;
-
-	// Adds the panels to the $options array
-	$options['panels'] = $panels;
-
-	$customizer_library = Customizer_Library::Instance();
-	$customizer_library->add_options( $options );
 
 }
-add_action( 'init', 'bulan_customizer_register' );
+add_action( 'customize_controls_enqueue_scripts', 'bulan_premium_message' );
+
+
+/**
+ * Custom RSS feed url.
+ */
+function bulan_custom_rss_url( $output, $feed ) {
+
+	// Get the custom rss feed url
+	$url = get_theme_mod( 'bulan-custom-rss' );
+
+	// Do not redirect comments feed
+	if ( strpos( $output, 'comments' ) ) {
+		return $output;
+	}
+
+	// Check the settings.
+	if ( ! empty( $url ) ) {
+		$output = esc_url( $url );
+	}
+
+	return $output;
+}
+add_filter( 'feed_link', 'bulan_custom_rss_url', 10, 2 );
+
+/**
+ * Retrieve tags list.
+ */
+function bulan_tags_list() {
+
+	// Set up empty array.
+	$tags = array();
+
+	// Retrieve available tags.
+	$tags_obj = get_tags();
+
+	// Set default/empty tag.
+	$tags[''] = esc_html__( 'Select a tag &hellip;', 'bulan' );
+
+	// Display the tags.
+	foreach ( $tags_obj as $tag ) {
+		$tags[$tag->term_id] = esc_attr( $tag->name );
+	}
+
+	return $tags;
+
+}
+
+/**
+ * Sanitize the checkbox.
+ *
+ * @param boolean $input.
+ * @return boolean (true|false).
+ */
+function bulan_sanitize_checkbox( $input ) {
+	if ( 1 == $input ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Sanitize the Footer Credits
+ */
+function bulan_sanitize_textarea( $text ) {
+	if ( current_user_can( 'unfiltered_html' ) ) {
+		$text = $text;
+	} else {
+		$text = wp_kses_post( $text );
+	}
+	return $text;
+}
+
+/**
+ * Sanitize the post date style value.
+ */
+function bulan_sanitize_post_date_style( $style ) {
+	if ( ! in_array( $style, array( 'absolute', 'relative' ) ) ) {
+		$style = 'absolute';
+	}
+	return $style;
+}
+
+/**
+ * Sanitize home page layout value.
+ */
+function bulan_sanitize_home_layout( $layout ) {
+	if ( ! in_array( $layout, array( 'standard', 'grid' ) ) ) {
+		$layout = 'standard';
+	}
+	return $layout;
+}
+
+/**
+ * Sanitize blog content value.
+ */
+function bulan_sanitize_blog_content( $content ) {
+	if ( ! in_array( $content, array( 'content', 'excerpt' ) ) ) {
+		$content = 'content';
+	}
+	return $content;
+}

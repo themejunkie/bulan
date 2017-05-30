@@ -1,9 +1,6 @@
 <?php
-// Theme prefix
-$prefix = 'bulan-';
-
 // Get the customizer value.
-$title = bulan_mod( $prefix . 'page-title' );
+$title = get_theme_mod( 'bulan-page-title', 1 );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>

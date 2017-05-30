@@ -28,11 +28,6 @@ class Bulan_Recent_Widget extends WP_Widget {
 			$widget_options                           // $this->widget_options
 		);
 
-		// Flush the transient.
-		add_action( 'save_post'   , array( $this, 'flush_widget_transient' ) );
-		add_action( 'deleted_post', array( $this, 'flush_widget_transient' ) );
-		add_action( 'switch_theme', array( $this, 'flush_widget_transient' ) );
-
 	}
 
 	/**
@@ -49,22 +44,14 @@ class Bulan_Recent_Widget extends WP_Widget {
 				echo $before_title . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $after_title;
 			}
 
-			// Display the recent posts.
-			if ( false === ( $recent = get_transient( 'bulan_recent_widget_' . $this->id ) ) ) {
+			// Posts query arguments.
+			$args = array(
+				'post_type'      => 'post',
+				'posts_per_page' => $instance['limit']
+			);
 
-				// Posts query arguments.
-				$args = array(
-					'post_type'      => 'post',
-					'posts_per_page' => $instance['limit']
-				);
-
-				// The post query
-				$recent = new WP_Query( $args );
-
-				// Store the transient.
-				set_transient( 'bulan_recent_widget_' . $this->id, $recent );
-
-			}
+			// The post query
+			$recent = new WP_Query( $args );
 
 			global $post;
 			if ( $recent->have_posts() ) {
@@ -107,17 +94,7 @@ class Bulan_Recent_Widget extends WP_Widget {
 		$instance['limit']     = (int) $new_instance['limit'];
 		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
 
-		// Delete our transient.
-		$this->flush_widget_transient();
-
 		return $instance;
-	}
-
-	/**
-	 * Flush the transient
-	 */
-	function flush_widget_transient() {
-		delete_transient( 'bulan_recent_widget_' . $this->id );
 	}
 
 	/**
