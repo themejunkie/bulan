@@ -257,7 +257,7 @@ function bulan_custom_css() {
 	wp_add_inline_style( 'bulan-style', $css );
 
 }
-// add_action( 'wp_enqueue_scripts', 'bulan_custom_css' );
+add_action( 'wp_enqueue_scripts', 'bulan_custom_css' );
 
 /**
  * Display theme documentation on customizer page.
