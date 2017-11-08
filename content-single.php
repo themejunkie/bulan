@@ -1,12 +1,9 @@
 <?php
-// Theme prefix
-$prefix = 'bulan-';
-
 // Get the data set in customizer
-$cat        = bulan_mod( $prefix . 'post-cat' );
-$date       = bulan_mod( $prefix . 'post-date' );
-$tag        = bulan_mod( $prefix . 'post-tag' );
-$date_style = bulan_mod( $prefix . 'post-date-style' );
+$cat        = get_theme_mod( 'bulan-post-cat', 1 );
+$date       = get_theme_mod( 'bulan-post-date', 1 );
+$tag        = get_theme_mod( 'bulan-post-tag', 1 );
+$date_style = get_theme_mod( 'bulan-post-date-style', 'absolute' );
 
 // Set up empty variable
 $style = '';

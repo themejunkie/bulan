@@ -8,11 +8,8 @@
 				<?php get_template_part( 'content', 'page' ); ?>
 
 				<?php
-					// Theme prefix
-					$prefix = 'bulan-';
-
 					// Get data set in customizer
-					$comment = bulan_mod( $prefix . 'page-comment' );
+					$comment = get_theme_mod( 'bulan-page-comment' );
 
 					// Check if comment enable on customizer
 					if ( $comment ) :

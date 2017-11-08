@@ -1,3 +1,25 @@
+1.1.0 - May 30, 2017
+* Support WordPress custom logo feature
+* Customizer code refactor
+	Remove:
+		admin/
+		inc/mods.php
+		inc/styles
+	Added
+		inc/customizer.php
+		inc/customizer/
+	Updated
+		functions.php
+		style.css
+		style.min.css
+		footer.php
+		inc/template-tags.php
+		inc/polylang.php
+		page.php
+		partials/content-page.php
+		partials/content-single.php
+		inc/scripts.php
+
 1.0.9 - Feb 28, 2017
 * Update assets
 	assets/

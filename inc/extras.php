@@ -71,9 +71,6 @@ add_filter( 'body_class', 'bulan_body_classes' );
 function bulan_post_classes( $classes ) {
 	global $post;
 
-	// Theme prefix
-	$prefix = 'bulan-';
-
 	// Adds a class if a post hasn't a thumbnail.
 	if ( ! has_post_thumbnail() ) {
 		$classes[] = 'no-post-thumbnail';
@@ -94,7 +91,7 @@ function bulan_post_classes( $classes ) {
 	}
 
 	// Check if use excerpt for blog page
-	$content = bulan_mod( $prefix . 'blog-content' );
+	$content = get_theme_mod( 'bulan-blog-content', 'content' );
 	if ( $content == 'excerpt' && !is_singular() ) {
 		$classes[] = 'use-excerpt';
 	}

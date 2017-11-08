@@ -21,6 +21,9 @@ function bulan_enqueue() {
 	// Load plugins stylesheet
 	wp_enqueue_style( 'bulan-plugins-style', trailingslashit( get_template_directory_uri() ) . 'assets/css/plugins.min.css' );
 
+	// Fonts
+	wp_enqueue_style( 'bulan-fonts', bulan_fonts_url() );
+
 	// if is not a child theme and WP_DEBUG and/or SCRIPT_DEBUG turned on, load the unminified styles & script.
 	if ( ! is_child_theme() && WP_DEBUG || SCRIPT_DEBUG ) {
 

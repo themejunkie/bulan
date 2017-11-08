@@ -93,6 +93,14 @@ function bulan_theme_setup() {
 		'flex-height' => true
 	) ) );
 
+	// Enable support for Custom Logo
+	add_theme_support( 'custom-logo', array(
+		'height'      => 70,
+		'width'       => 200,
+		'flex-width'  => true,
+		'flex-height' => true,
+	) );
+
 	// Enable theme-layouts extensions.
 	add_theme_support( 'theme-layouts',
 		array(
@@ -277,16 +285,9 @@ require trailingslashit( get_template_directory() ) . 'inc/extras.php';
 require trailingslashit( get_template_directory() ) . 'inc/jetpack.php';
 
 /**
- * Customizer.
- */
-require trailingslashit( get_template_directory() ) . 'admin/customizer-library.php';
-require trailingslashit( get_template_directory() ) . 'admin/functions.php';
-
-/**
  * Customizer functions.
  */
 require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
-require trailingslashit( get_template_directory() ) . 'inc/mods.php';
 
 /**
  * We use some part of Hybrid Core to extends our themes.

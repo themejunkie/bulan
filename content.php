@@ -1,9 +1,6 @@
 <?php
-// Theme prefix
-$prefix = 'bulan-';
-
 // Get the data set in customizer
-$content = bulan_mod( $prefix . 'blog-content' );
+$content = get_theme_mod( 'bulan-blog-content', 'content' );
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 

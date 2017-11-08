@@ -20,8 +20,7 @@ if ( ! has_nav_menu( 'primary' ) ) {
 		); ?>
 
 		<?php
-		$prefix = 'bulan-';
-		$show   = bulan_mod( $prefix . 'search-icon' );
+		$show = get_theme_mod( 'bulan-search-icon', 1 );
 		if ( $show ) :
 		?>
 			<span class="search-toggle">

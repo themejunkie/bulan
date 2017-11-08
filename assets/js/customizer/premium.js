@@ -13,7 +13,8 @@
 			'font-size' : '14px',
 			'cursor' : 'pointer',
 			'margin-bottom' : 0,
-			'padding-right' : '50px'
+			'padding-right' : '50px',
+			'text-decoration' : 'none'
 		})
 	;
 

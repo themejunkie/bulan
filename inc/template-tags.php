@@ -22,14 +22,14 @@ if ( ! function_exists( 'bulan_site_branding' ) ) :
 function bulan_site_branding() {
 
 	// Get the customizer value.
-	$prefix  = 'bulan-';
-	$logo_id = bulan_mod( $prefix . 'logo' );
+	$logo_id  = get_theme_mod( 'custom_logo' );
+	$logo_url = wp_get_attachment_image_src( $logo_id , 'full' );
 
 	// Check if logo available, then display it.
 	if ( $logo_id ) :
 		echo '<div id="logo" itemscope itemtype="http://schema.org/Brand">' . "\n";
 			echo '<a href="' . esc_url( get_home_url() ) . '" itemprop="url" rel="home">' . "\n";
-				echo '<img itemprop="logo" src="' . esc_url( wp_get_attachment_url( $logo_id ) ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
+				echo '<img itemprop="logo" src="' . esc_url( $logo_url[0] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />' . "\n";
 			echo '</a>' . "\n";
 		echo '</div>' . "\n";
 
@@ -51,13 +51,10 @@ if ( ! function_exists( 'bulan_attachment_posted_on' ) ) :
  */
 function bulan_attachment_posted_on() {
 
-	// Theme prefix
-	$prefix = 'bulan-';
-
 	// Get the data set in customizer
-	$date       = bulan_mod( $prefix . 'post-date' );
-	$author     = bulan_mod( $prefix . 'post-author' );
-	$date_style = bulan_mod( $prefix . 'post-date-style' );
+	$date       = get_theme_mod( 'bulan-post-date', 1 );
+	$author     = get_theme_mod( 'bulan-post-author', 1 );
+	$date_style = get_theme_mod( 'bulan-post-date-style', 'absolute' );
 
 	// Set up empty variable
 	$style = '';
@@ -184,11 +181,8 @@ if ( ! function_exists( 'bulan_post_author' ) ) :
  */
 function bulan_post_author() {
 
-	// Theme prefix
-	$prefix = 'bulan-';
-
 	// Get the data set in customizer
-	$enable = bulan_mod( $prefix . 'post-author' );
+	$enable = get_theme_mod( 'bulan-post-author', 1 );
 
 	// Disable if user choose it.
 	if ( $enable == 0 ) {
@@ -261,17 +255,14 @@ if ( ! function_exists( 'bulan_related_posts' ) ) :
 function bulan_related_posts() {
 	global $post;
 
-	// Theme prefix
-	$prefix = 'bulan-';
-
 	// Get the data set in customizer
-	$enable  = bulan_mod( $prefix . 'related-posts' );
-	$img     = bulan_mod( $prefix . 'related-posts-img' );
-	$title   = bulan_mod( $prefix . 'related-posts-title' );
+	$enable  = get_theme_mod( 'bulan-related-posts', 1 );
+	$img     = get_theme_mod( 'bulan-related-posts-img', 1 );
+	$title   = get_theme_mod( 'bulan-related-posts-title', esc_html__( 'Related Posts', 'bulan' ) );
 
 	// Polylang integration
 	if ( is_polylang_activated() ) {
-		$title = pll__( bulan_mod( $prefix . 'related-posts-title' ) );
+		$title = pll__( get_theme_mod( 'bulan-related-posts-title', esc_html__( 'Related Posts', 'bulan' ) ) );
 	}
 
 	// Disable if user choose it.
@@ -433,16 +424,13 @@ if ( ! function_exists( 'bulan_social_links' ) ) :
  */
 function bulan_social_links() {
 
-	// Theme prefix
-	$prefix = 'bulan-';
-
 	// Get the data set in customizer
-	$twitter   = bulan_mod( $prefix . 'twitter' );
-	$facebook  = bulan_mod( $prefix . 'facebook' );
-	$gplus     = bulan_mod( $prefix . 'gplus' );
-	$linkedin  = bulan_mod( $prefix . 'linkedin' );
-	$dribbble  = bulan_mod( $prefix . 'dribbble' );
-	$instagram = bulan_mod( $prefix . 'instagram' );
+	$twitter   = get_theme_mod( 'bulan-twitter' );
+	$facebook  = get_theme_mod( 'bulan-facebook' );
+	$gplus     = get_theme_mod( 'bulan-gplus' );
+	$linkedin  = get_theme_mod( 'bulan-linkedin' );
+	$dribbble  = get_theme_mod( 'bulan-dribbble' );
+	$instagram = get_theme_mod( 'bulan-instagram' );
 
 	// Display the data
 	echo '<div class="social-links">';
@@ -475,19 +463,17 @@ if ( ! function_exists( 'bulan_footer_text' ) ) :
  */
 function bulan_footer_text() {
 
-	// Theme prefix
-	$prefix = 'bulan-';
-
 	// Get the customizer data
-	$footer_text = bulan_mod( $prefix . 'footer-text' );
+	$default = '&copy; Copyright ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a> &middot; Designed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>';
+	$footer_text = get_theme_mod( 'bulan-footer-text', $default );
 
 	// Polylang integration
 	if ( is_polylang_activated() ) {
-		$footer_text = pll__( bulan_mod( $prefix . 'footer-text' ) );
+		$footer_text = pll__( get_theme_mod( 'bulan-footer-text', $default ) );
 	}
 
 	// Display the data
-	echo '<p class="copyright">' . stripslashes( $footer_text ) . '</p>';
+	echo '<p class="copyright">' . wp_kses_post( $footer_text ) . '</p>';
 
 }
 endif;
