@@ -8,6 +8,8 @@ module.exports = function ( grunt ) {
 		makepot: 'grunt-wp-i18n'
 	} );
 
+	const sass = require( 'node-sass' );
+
 	grunt.initConfig( {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
@@ -110,6 +112,7 @@ module.exports = function ( grunt ) {
 		sass: {
 			dev: {
 				options: {
+					implementation: sass,
 					outputStyle: 'nested',
 					sourceMap: true
 				},
@@ -120,6 +123,7 @@ module.exports = function ( grunt ) {
 			},
 			prod: {
 				options: {
+					implementation: sass,
 					outputStyle: 'compressed',
 					sourceMap: false
 				},

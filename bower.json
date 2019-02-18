@@ -23,10 +23,10 @@
     "fontawesome": "~4.7.0",
     "html5shiv": "~3.7.3",
     "magnific-popup": "~1.1.0",
-    "normalize.css": "~5.0.0",
+    "normalize.css": "~8.0.1",
     "scrollup": "~2.4.1",
     "slicknav": "~1.0.10",
-    "susy": "~2.2.12",
-    "select2": "~4.0.3"
+    "susy": "~2.2.14",
+    "select2": "~4.0.5"
   }
 }
