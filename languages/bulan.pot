@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2019 Theme Junkie
+# <!=Copyright (C) 2020 Theme Junkie
 # This file is distributed under the GNU General Public License v2.0 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Bulan 1.1.1\n"
+"Project-Id-Version: Bulan 1.1.2\n"
 "Report-Msgid-Bugs-To: http://www.theme-junkie.com/forum/\n"
-"POT-Creation-Date: 2019-02-18 10:57:04+00:00\n"
+"POT-Creation-Date: 2020-04-28 17:20:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Theme Junkie (support@theme-junkie.com)\n"
 "Language-Team: Theme Junkie (support@theme-junkie.com)\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
@@ -33,27 +33,27 @@ msgid ""
 "browse our latest posts below."
 msgstr ""
 
-#: comments.php:26 comments.php:43
+#: comments.php:42 comments.php:59
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:27 comments.php:44
+#: comments.php:43 comments.php:60
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:28 comments.php:45
+#: comments.php:44 comments.php:61
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:55
+#: comments.php:71
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:61
+#: comments.php:77
 msgid "Leave a Comment"
 msgstr ""
 
-#: comments.php:62
+#: comments.php:78
 msgid "Comment"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "%s ago"
 msgstr ""
 
-#: content.php:33 inc/extras.php:159
+#: content.php:33 inc/extras.php:112
 msgid "Continue Reading"
 msgstr ""
 
@@ -137,6 +137,25 @@ msgstr ""
 
 #: functions.php:189
 msgid "Footer Right"
+msgstr ""
+
+#: inc/classes/mailoptin.php:62
+msgid ""
+"Free optin form plugin that will %1$sincrease your email list "
+"subscribers%2$s and keep them engaged with %1$sautomated and schedule "
+"newsletters%2$s."
+msgstr ""
+
+#: inc/classes/mailoptin.php:71
+msgid "Install MailOptin Now for Free!"
+msgstr ""
+
+#: inc/classes/mailoptin.php:76
+msgid "Activate MailOptin Now!"
+msgstr ""
+
+#: inc/classes/mailoptin.php:85 inc/classes/tgmpa.php:395
+msgid "Dismiss this notice"
 msgstr ""
 
 #: inc/classes/tgmpa.php:327
@@ -212,10 +231,6 @@ msgstr ""
 #: inc/classes/tgmpa.php:394
 #. translators: 1: dashboard link.
 msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: inc/classes/tgmpa.php:395
-msgid "Dismiss this notice"
 msgstr ""
 
 #: inc/classes/tgmpa.php:396
@@ -769,10 +784,6 @@ msgstr ""
 msgid "Select a tag &hellip;"
 msgstr ""
 
-#: inc/extras.php:130
-msgid "Page %s"
-msgstr ""
-
 #: inc/hybrid/theme-layouts.php:437 inc/hybrid/theme-layouts.php:547
 #: inc/hybrid/theme-layouts.php:632
 msgid "Layout"
@@ -951,10 +962,17 @@ msgstr ""
 msgid "Blog List Template"
 msgstr ""
 
-#: comments.php:19
+#: comments.php:22
+#. translators: %s: post title
 msgctxt "comments title"
-msgid "One Comment"
-msgid_plural "%1$s Comments"
+msgid "One Comment to &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:26
+#. translators: 1: number of comments, 2: post title
+msgctxt "comments title"
+msgid "%1$s Comment to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 

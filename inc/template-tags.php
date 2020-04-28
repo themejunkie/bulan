@@ -333,7 +333,7 @@ if ( ! function_exists( 'bulan_comment' ) ) :
  * @since  1.0.0
  */
 function bulan_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
+	// $GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :

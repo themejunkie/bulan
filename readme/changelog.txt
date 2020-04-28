@@ -1,3 +1,7 @@
+1.1.2 - Apr 29, 2020
+* Minor issues
+* Remove demo data
+
 1.1.0 - May 30, 2017
 * Support WordPress custom logo feature
 * Customizer code refactor

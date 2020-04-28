@@ -3,7 +3,7 @@
  * Theme Name: Bulan
  * Theme URI: https://www.theme-junkie.com/themes/bulan/
  * Description: Bulan is a beautiful, minimal and clean WordPress blog theme that easy to customize and simple to setup. It’s ideal for beginner and professional blogger, food blogger and photo blogger! This theme just works, which means you don’t need to install any 3rd party plugins or setup complex options. Just install it and viola! The theme options are powered by Customizer. It provides 2 custom widgets Social Icons and Recent Posts Thumbnail. It also works out of the box with Jetpack and Polylang. Demo at http://demo.theme-junkie.com/bulan/
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Theme Junkie
  * Author URI: https://www.theme-junkie.com/
  * Tags: two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -181,7 +181,7 @@ h1 {
  * Address styling not present in IE 8/9.
  */
 mark {
-	color: #000; 
+	color: #000;
 	background: #ff0;
 }
 
@@ -336,7 +336,7 @@ html input[disabled] {
  */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-	padding: 0; 
+	padding: 0;
 	border: 0;
 }
 
@@ -400,7 +400,7 @@ input[type="search"]::-webkit-search-decoration {
  */
 fieldset {
 	margin: 0 2px;
-	padding: .35em .625em .75em; 
+	padding: .35em .625em .75em;
 	border: 1px solid #c0c0c0;
 }
 
@@ -436,7 +436,7 @@ optgroup {
  * Remove most spacing between table cells.
  */
 table {
-	border-spacing: 0; 
+	border-spacing: 0;
 	border-collapse: collapse;
 }
 
@@ -456,7 +456,7 @@ th {
 }
 .wide-container:after {
 	display: block;
-	clear: both; 
+	clear: both;
 	content: " ";
 }
 @media (min-width: 240px) and (max-width: 1170px) {
@@ -832,7 +832,7 @@ table tfoot td {
 .site-footer:after,
 .comment-container:after,
 .list .hentry.no-sticky:after {
-	display: table; 
+	display: table;
 	content: "";
 }
 .gallery:after,
@@ -860,14 +860,14 @@ table tfoot td {
 .widget ul,
 .commentlist {
 	margin: 0;
-	padding: 0; 
+	padding: 0;
 	list-style: none;
 }
 
 .menu-primary-items,
 .author-bio .author-social {
 	margin: 0;
-	padding: 0; 
+	padding: 0;
 	list-style: none;
 }
 .menu-primary-items > li,
@@ -883,7 +883,7 @@ table tfoot td {
 
 .aligncenter {
 	display: block;
-	margin-right: auto; 
+	margin-right: auto;
 	margin-left: auto;
 }
 
@@ -1964,7 +1964,7 @@ a.pure-button-selected {
 }
 .pagination:after {
 	display: block;
-	clear: both; 
+	clear: both;
 	content: " ";
 }
 .pagination .page-numbers {
@@ -2266,7 +2266,7 @@ a.pure-button-selected {
 	}
 }
 .sidebar-footer .widget-title {
-	padding: 0; 
+	padding: 0;
 	text-align: left;
 	color: #454545;
 	background-color: transparent;
@@ -2686,7 +2686,7 @@ form.comment-form .comment-form-url {
 
 .paged .grid .no-sticky:nth-of-type(2n) {
 	float: right;
-	clear: none; 
+	clear: none;
 	margin-right: 0;
 }
 

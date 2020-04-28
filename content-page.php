@@ -1,11 +1,11 @@
 <?php
 // Get the customizer value.
-$title = get_theme_mod( 'bulan-page-title', 1 );
+$bulan_page_title = get_theme_mod( 'bulan-page-title', 1 );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
-	<?php if ( $title ) : ?>
+	<?php if ( $bulan_page_title ) : ?>
 		<header class="entry-header">
 			<?php the_title( '<h1 class="page-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
 		</header><!-- .entry-header -->
